@@ -1,3 +1,31 @@
-export default function GameCard() {
-  return <div className="border p-2">ダミーゲームカード</div>;
-}
+import React from "react";
+import { Heading } from "../atoms/Heading";
+import Image from "next/image";
+// import { SpecsTable } from "../molecules/SpecsTable";
+
+type Props = {
+  game: {
+    id: string;
+    title: string;
+    thumbnail: string;
+    recommendedSpec: string;
+  };
+  onSelect: (id: string) => void;
+};
+
+export const GameCard = ({ game, onSelect }: Props) => (
+  <div
+    className="border rounded-lg shadow hover:shadow-lg transition p-3 cursor-pointer"
+    onClick={() => onSelect(game.id)}
+  >
+    <Image
+      src={game.thumbnail}
+      alt={game.title}
+      width={400}
+      height={200}
+      className="rounded-md object-cover"
+    />
+    <h3 className="text-lg font-semibold mt-2">{game.title}</h3>
+     {/* <SpecsTable specs={game.specs} /> */}
+  </div>
+);

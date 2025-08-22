@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "title": "Apex Legends",
+    "thumbnail": "/images/games/apex.jpg",
+    "recommendedSpec": "CPU i5 / RAM 16GB / GPU RTX 3060"
+  },
+  {
+    "id": "2",
+    "title": "Valorant",
+    "thumbnail": "/images/games/valorant.jpg",
+    "recommendedSpec": "CPU i3 / RAM 8GB / GPU GTX 1050 Ti"
+  }
+]
