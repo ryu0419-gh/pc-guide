@@ -1,14 +1,258 @@
 [
   {
     "id": "1",
-    "title": "Apex Legends",
-    "thumbnail": "/images/games/apex.jpg",
-    "recommendedSpec": "CPU i5 / RAM 16GB / GPU RTX 3060"
+    "title": "Cyberpunk 2077",
+    "thumbnail": "/images/games/cyberpunk2077.jpg",
+    "specs": {
+      "minimum": {
+        "os": "Windows 10",
+        "processor": "Intel Core i5-3570K / AMD FX-8310",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GeForce GTX 780 / AMD Radeon RX 470",
+        "storage": "70 GB"
+      },
+      "recommended": {
+        "os": "Windows 10",
+        "processor": "Intel Core i7-4790 / AMD Ryzen 3 3200G",
+        "memory": "12 GB RAM", 
+        "graphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon R9 Fury",
+        "storage": "70 GB"
+      }
+    },
+    "parts": {
+      "recommended": [
+        {
+          "type": "CPU",
+          "model": "Intel Core i7-12700K",
+          "price": "45,000",
+          "description": "12コア20スレッド、3.6GHz-5.0GHz",
+          "benchmarkScore": 95
+        },
+        {
+          "type": "GPU",
+          "model": "NVIDIA GeForce RTX 4070",
+          "price": "80,000", 
+          "description": "12GB GDDR6X、Ray Tracing対応",
+          "benchmarkScore": 90
+        },
+        {
+          "type": "メモリ",
+          "model": "Corsair Vengeance LPX 32GB DDR4-3200",
+          "price": "18,000",
+          "description": "32GB (16GBx2) DDR4-3200 CL16",
+          "benchmarkScore": 85
+        },
+        {
+          "type": "ストレージ",
+          "model": "Samsung 980 PRO 1TB NVMe SSD",
+          "price": "15,000",
+          "description": "1TB NVMe PCIe 4.0 SSD、読み込み7,000MB/s",
+          "benchmarkScore": 95
+        },
+        {
+          "type": "マザーボード",
+          "model": "ASUS ROG STRIX B660-A GAMING WIFI",
+          "price": "25,000",
+          "description": "Intel B660チップセット、WiFi 6対応",
+          "benchmarkScore": 88
+        },
+        {
+          "type": "電源",
+          "model": "Corsair RM750x 750W 80+ Gold",
+          "price": "18,000",
+          "description": "750W 80+ Gold認証、フルモジュラー",
+          "benchmarkScore": 92
+        }
+      ],
+      "alternative": [
+        {
+          "type": "CPU",
+          "model": "AMD Ryzen 5 5600X",
+          "price": "28,000",
+          "description": "6コア12スレッド、3.7GHz-4.6GHz",
+          "benchmarkScore": 82
+        },
+        {
+          "type": "GPU",
+          "model": "NVIDIA GeForce RTX 4060 Ti",
+          "price": "65,000",
+          "description": "16GB GDDR6、1080p-1440p向け",
+          "benchmarkScore": 75
+        },
+        {
+          "type": "メモリ",
+          "model": "G.Skill Ripjaws V 16GB DDR4-3200",
+          "price": "8,000",
+          "description": "16GB (8GBx2) DDR4-3200 CL16",
+          "benchmarkScore": 75
+        }
+      ]
+    }
   },
   {
-    "id": "2",
+    "id": "2", 
+    "title": "The Witcher 3: Wild Hunt",
+    "thumbnail": "/images/games/witcher3.jpg",
+    "specs": {
+      "minimum": {
+        "os": "Windows 7/8/10",
+        "processor": "Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940",
+        "memory": "6 GB RAM",
+        "graphics": "NVIDIA GPU GeForce GTX 660 / AMD GPU Radeon HD 7870",
+        "storage": "35 GB"
+      },
+      "recommended": {
+        "os": "Windows 7/8/10",
+        "processor": "Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GPU GeForce GTX 770 / AMD GPU Radeon R9 290",
+        "storage": "35 GB"
+      }
+    },
+    "parts": {
+      "recommended": [
+        {
+          "type": "CPU",
+          "model": "Intel Core i5-12400",
+          "price": "28,000",
+          "description": "6コア12スレッド、2.5GHz-4.4GHz",
+          "benchmarkScore": 85
+        },
+        {
+          "type": "GPU", 
+          "model": "NVIDIA GeForce RTX 4060",
+          "price": "50,000",
+          "description": "8GB GDDR6、1080p最適化",
+          "benchmarkScore": 80
+        },
+        {
+          "type": "メモリ",
+          "model": "Corsair Vengeance LPX 16GB DDR4-3200",
+          "price": "9,000",
+          "description": "16GB (8GBx2) DDR4-3200 CL16",
+          "benchmarkScore": 80
+        },
+        {
+          "type": "ストレージ",
+          "model": "Western Digital Blue SN570 500GB NVMe",
+          "price": "8,000",
+          "description": "500GB NVMe PCIe 3.0 SSD",
+          "benchmarkScore": 78
+        },
+        {
+          "type": "マザーボード",
+          "model": "MSI B660M PRO-B DDR4",
+          "price": "15,000",
+          "description": "Intel B660チップセット、mATX",
+          "benchmarkScore": 82
+        },
+        {
+          "type": "電源",
+          "model": "Seasonic Focus GX-650 650W 80+ Gold",
+          "price": "15,000",
+          "description": "650W 80+ Gold認証、セミモジュラー",
+          "benchmarkScore": 88
+        }
+      ],
+      "alternative": [
+        {
+          "type": "CPU",
+          "model": "AMD Ryzen 5 4500",
+          "price": "18,000",
+          "description": "6コア12スレッド、3.6GHz-4.1GHz",
+          "benchmarkScore": 72
+        },
+        {
+          "type": "GPU",
+          "model": "AMD Radeon RX 6600",
+          "price": "35,000",
+          "description": "8GB GDDR6、1080p向け",
+          "benchmarkScore": 68
+        }
+      ]
+    }
+  },
+  {
+    "id": "3",
     "title": "Valorant",
-    "thumbnail": "/images/games/valorant.jpg",
-    "recommendedSpec": "CPU i3 / RAM 8GB / GPU GTX 1050 Ti"
+    "thumbnail": "/images/games/valorant.jpg", 
+    "specs": {
+      "minimum": {
+        "os": "Windows 7/8/10",
+        "processor": "Intel Core 2 Duo E8400 / AMD Athlon 200GE",
+        "memory": "4 GB RAM",
+        "graphics": "Intel HD 4000 / AMD Radeon R5 200",
+        "storage": "16 GB"
+      },
+      "recommended": {
+        "os": "Windows 7/8/10",
+        "processor": "Intel Core i3-4150 / AMD FX-6300",
+        "memory": "4 GB RAM", 
+        "graphics": "NVIDIA GeForce GT 730 / AMD Radeon R7 240",
+        "storage": "16 GB"
+      }
+    },
+    "parts": {
+      "recommended": [
+        {
+          "type": "CPU",
+          "model": "Intel Core i5-12400F",
+          "price": "25,000",
+          "description": "6コア12スレッド、2.5GHz-4.4GHz（内蔵GPU無し）",
+          "benchmarkScore": 88
+        },
+        {
+          "type": "GPU",
+          "model": "NVIDIA GeForce RTX 4060",
+          "price": "50,000",
+          "description": "8GB GDDR6、高フレームレート対応",
+          "benchmarkScore": 85
+        },
+        {
+          "type": "メモリ",
+          "model": "G.Skill Ripjaws V 16GB DDR4-3600",
+          "price": "10,000",
+          "description": "16GB (8GBx2) DDR4-3600 CL18",
+          "benchmarkScore": 85
+        },
+        {
+          "type": "ストレージ",
+          "model": "Samsung 980 500GB NVMe SSD",
+          "price": "8,000",
+          "description": "500GB NVMe PCIe 3.0 SSD、高速起動",
+          "benchmarkScore": 85
+        },
+        {
+          "type": "マザーボード",
+          "model": "ASRock B660M PRO RS",
+          "price": "12,000",
+          "description": "Intel B660チップセット、mATX",
+          "benchmarkScore": 80
+        },
+        {
+          "type": "電源",
+          "model": "Corsair CV550 550W 80+ Bronze",
+          "price": "8,000",
+          "description": "550W 80+ Bronze認証",
+          "benchmarkScore": 75
+        }
+      ],
+      "alternative": [
+        {
+          "type": "CPU",
+          "model": "AMD Ryzen 5 4500",
+          "price": "18,000",
+          "description": "6コア12スレッド、競技ゲーム向け",
+          "benchmarkScore": 75
+        },
+        {
+          "type": "GPU",
+          "model": "AMD Radeon RX 6500 XT",
+          "price": "25,000",
+          "description": "4GB GDDR6、エントリー向け",
+          "benchmarkScore": 60
+        }
+      ]
+    }
   }
 ]

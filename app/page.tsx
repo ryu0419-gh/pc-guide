@@ -1,15 +1,40 @@
 "use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import "@/styles/globals.css";
 import Layout from "@/components/layout/Layout";
-import { GameCard } from "@/components/organisms/GameCard";
-import games from "@/data/games.json";
+import { HomeTemplate } from "@/components/templates/HomeTemplate";
+import gamesData from "@/data/games.json";
 
-export default function Home() {
+export default function HomePage() {
+  const [query, setQuery] = useState("");
+  const [games, setGames] = useState(gamesData);
+  const router = useRouter();
+
+  // 検索処理
+  const handleSearch = () => {
+    setGames(
+      gamesData.filter((g) =>
+        g.title.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  };
+
+  // ゲーム選択 → 詳細ページへ遷移
+  const handleSelectGame = (id: string) => {
+    router.push(`/game/${id}`);
+  };
+
   return (
     <Layout>
-      <GameCard game={games[0]}
-      onSelect={() => {}}
+      <HomeTemplate
+        query={query}
+        onQueryChange={(e) => setQuery(e.target.value)}
+        onSearch={handleSearch}
+        games={games}
+        onSelectGame={handleSelectGame}
       />
     </Layout>
   );
 }
+

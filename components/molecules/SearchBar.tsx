@@ -15,7 +15,7 @@ export const SearchBar = ({ query, onQueryChange, onSearch }: Props) => (
       type="text"
       value={query}
       onChange={onQueryChange}
-      placeholder="ゲームを検索..."
+      placeholder="プレイしたいゲームを検索..."
     />
     <Button onClick={onSearch}>検索</Button>
   </div>
