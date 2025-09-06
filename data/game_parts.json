@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "gameId": "1",
+    "partId": "intel-i7-12700k",
+    "recommendationType": "recommended",
+    "price": "45,000"
+  },
+  {
+    "id": 2,
+    "gameId": "1",
+    "partId": "nvidia-rtx-4070",
+    "recommendationType": "recommended",
+    "price": "80,000"
+  },
+  {
+    "id": 3,
+    "gameId": "1",
+    "partId": "corsair-vengeance-32gb-ddr4-3200",
+    "recommendationType": "recommended",
+    "price": "18,000"
+  },
+  {
+    "id": 4,
+    "gameId": "1",
+    "partId": "samsung-980-pro-1tb",
+    "recommendationType": "recommended",
+    "price": "15,000"
+  },
+  {
+    "id": 5,
+    "gameId": "1",
+    "partId": "asus-rog-strix-b660a",
+    "recommendationType": "recommended",
+    "price": "25,000"
+  },
+  {
+    "id": 6,
+    "gameId": "1",
+    "partId": "corsair-rm750x",
+    "recommendationType": "recommended",
+    "price": "18,000"
+  },
+  {
+    "id": 7,
+    "gameId": "1",
+    "partId": "amd-ryzen5-5600x",
+    "recommendationType": "alternative",
+    "price": "28,000"
+  },
+  {
+    "id": 8,
+    "gameId": "1",
+    "partId": "nvidia-rtx-4060ti",
+    "recommendationType": "alternative",
+    "price": "65,000"
+  },
+  {
+    "id": 9,
+    "gameId": "1",
+    "partId": "gskill-ripjaws-16gb-ddr4-3200",
+    "recommendationType": "alternative",
+    "price": "8,000"
+  },
+  {
+    "id": 10,
+    "gameId": "2",
+    "partId": "intel-i5-12400",
+    "recommendationType": "recommended",
+    "price": "28,000"
+  },
+  {
+    "id": 11,
+    "gameId": "2",
+    "partId": "nvidia-rtx-4060",
+    "recommendationType": "recommended",
+    "price": "50,000"
+  },
+  {
+    "id": 12,
+    "gameId": "2",
+    "partId": "corsair-vengeance-16gb-ddr4-3200",
+    "recommendationType": "recommended",
+    "price": "9,000"
+  },
+  {
+    "id": 13,
+    "gameId": "2",
+    "partId": "wd-blue-sn570-500gb",
+    "recommendationType": "recommended",
+    "price": "8,000"
+  },
+  {
+    "id": 14,
+    "gameId": "2",
+    "partId": "msi-b660m-pro-b",
+    "recommendationType": "recommended",
+    "price": "15,000"
+  },
+  {
+    "id": 15,
+    "gameId": "2",
+    "partId": "seasonic-focus-gx650",
+    "recommendationType": "recommended",
+    "price": "15,000"
+  },
+  {
+    "id": 16,
+    "gameId": "2",
+    "partId": "amd-ryzen5-4500",
+    "recommendationType": "alternative",
+    "price": "18,000"
+  },
+  {
+    "id": 17,
+    "gameId": "2",
+    "partId": "amd-radeon-rx6600",
+    "recommendationType": "alternative",
+    "price": "35,000"
+  },
+  {
+    "id": 18,
+    "gameId": "3",
+    "partId": "intel-i5-12400f",
+    "recommendationType": "recommended",
+    "price": "25,000"
+  },
+  {
+    "id": 19,
+    "gameId": "3",
+    "partId": "nvidia-rtx-4060",
+    "recommendationType": "recommended",
+    "price": "50,000"
+  },
+  {
+    "id": 20,
+    "gameId": "3",
+    "partId": "gskill-ripjaws-16gb-ddr4-3600",
+    "recommendationType": "recommended",
+    "price": "10,000"
+  },
+  {
+    "id": 21,
+    "gameId": "3",
+    "partId": "samsung-980-500gb",
+    "recommendationType": "recommended",
+    "price": "8,000"
+  },
+  {
+    "id": 22,
+    "gameId": "3",
+    "partId": "asrock-b660m-pro-rs",
+    "recommendationType": "recommended",
+    "price": "12,000"
+  },
+  {
+    "id": 23,
+    "gameId": "3",
+    "partId": "corsair-cv550",
+    "recommendationType": "recommended",
+    "price": "8,000"
+  },
+  {
+    "id": 24,
+    "gameId": "3",
+    "partId": "amd-ryzen5-4500",
+    "recommendationType": "alternative",
+    "price": "18,000"
+  },
+  {
+    "id": 25,
+    "gameId": "3",
+    "partId": "amd-radeon-rx6500xt",
+    "recommendationType": "alternative",
+    "price": "25,000"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "title": "Cyberpunk 2077",
+    "thumbnail": "/images/games/cyberpunk2077.jpg",
+    "min_os": "Windows 10",
+    "min_processor": "Intel Core i5-3570K / AMD FX-8310",
+    "min_memory": "8 GB RAM",
+    "min_graphics": "NVIDIA GeForce GTX 780 / AMD Radeon RX 470",
+    "min_storage": "70 GB",
+    "rec_os": "Windows 10",
+    "rec_processor": "Intel Core i7-4790 / AMD Ryzen 3 3200G",
+    "rec_memory": "12 GB RAM",
+    "rec_graphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon R9 Fury",
+    "rec_storage": "70 GB"
+  },
+  {
+    "id": "2",
+    "title": "The Witcher 3: Wild Hunt",
+    "thumbnail": "/images/games/witcher3.jpg",
+    "min_os": "Windows 7/8/10",
+    "min_processor": "Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940",
+    "min_memory": "6 GB RAM",
+    "min_graphics": "NVIDIA GPU GeForce GTX 660 / AMD GPU Radeon HD 7870",
+    "min_storage": "35 GB",
+    "rec_os": "Windows 7/8/10",
+    "rec_processor": "Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz",
+    "rec_memory": "8 GB RAM",
+    "rec_graphics": "NVIDIA GPU GeForce GTX 770 / AMD GPU Radeon R9 290",
+    "rec_storage": "35 GB"
+  },
+  {
+    "id": "3",
+    "title": "Valorant",
+    "thumbnail": "/images/games/valorant.jpg",
+    "min_os": "Windows 7/8/10",
+    "min_processor": "Intel Core 2 Duo E8400 / AMD Athlon 200GE",
+    "min_memory": "4 GB RAM",
+    "min_graphics": "Intel HD 4000 / AMD Radeon R5 200",
+    "min_storage": "16 GB",
+    "rec_os": "Windows 7/8/10",
+    "rec_processor": "Intel Core i3-4150 / AMD FX-6300",
+    "rec_memory": "4 GB RAM",
+    "rec_graphics": "NVIDIA GeForce GT 730 / AMD Radeon R7 240",
+    "rec_storage": "16 GB"
+  }
+]

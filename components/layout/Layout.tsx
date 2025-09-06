@@ -23,7 +23,7 @@ export default function Layout({ children }: LayoutProps) {
           <nav className="space-x-4">
             <Link href="/">Home</Link>
             <Link href="/game/1">Games</Link>
-            <Link href="/parts">Parts</Link>
+            <Link href="#RecommendParts">Parts</Link>
           </nav>
         </div>
       </header>
