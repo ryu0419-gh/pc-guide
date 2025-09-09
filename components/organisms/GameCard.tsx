@@ -1,15 +1,11 @@
 import React from "react";
 import { Heading } from "../atoms/Heading";
 import Image from "next/image";
+import { Game } from "@/types/game";
 // import { SpecsTable } from "../molecules/SpecsTable";
 
 type Props = {
-  game: {
-    id: string;
-    title: string;
-    thumbnail: string;
-    recommendedSpec: string;
-  };
+  game: Game;
   onSelect: (id: string) => void;
 };
 
