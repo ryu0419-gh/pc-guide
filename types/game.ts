@@ -18,5 +18,4 @@ export interface Game {
       storage: string;
     };
   };
-  // パーツ情報も共通化したいならここに含めてもOK
 }
