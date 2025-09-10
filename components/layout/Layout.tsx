@@ -1,11 +1,5 @@
-import "@/styles/globals.css";
-import { ReactNode } from "react";
 import Link from "next/link";
-
-export const metadata = {
-  title: "PC Guide",
-  description: "PC Guide - 自作PCガイド",
-};
+import { ReactNode } from "react";
 
 type LayoutProps = {
   children: ReactNode;
@@ -13,9 +7,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <html>
-      <body>
-        <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen">
       {/* Header */}
       <header className="bg-gray-900 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
@@ -36,7 +28,5 @@ export default function Layout({ children }: LayoutProps) {
         © 2025 自作PCガイドチーム
       </footer>
     </div>
-      </body>
-    </html>
   );
 }
