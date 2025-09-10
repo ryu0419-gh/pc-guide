@@ -4,11 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface Part {
+  id: string;
   type: string;
   model: string;
   price?: string;
   description?: string;
   benchmarkScore?: number;
+  category?: string;
 }
 
 interface Game {
@@ -16,13 +18,14 @@ interface Game {
   title: string;
   thumbnail: string;
   parts: {
-    recommended: Part[];
-    alternative: Part[];
+    recommended: string[];
+    alternative: string[];
   };
 }
 
 export default function GameParts({ params }: { params: Promise<{ id: string }> }) {
   const [game, setGame] = useState<Game | null>(null);
+  const [parts, setParts] = useState<Part[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'recommended' | 'alternative'>('recommended');
   const [gameId, setGameId] = useState<string>('');
@@ -39,20 +42,28 @@ export default function GameParts({ params }: { params: Promise<{ id: string }> 
   useEffect(() => {
     if (!gameId) return;
     
-    const fetchGame = async () => {
+    const fetchGameAndParts = async () => {
       try {
-        const response = await fetch('/data/games.json');
-        const games: Game[] = await response.json();
+        // ゲームデータとパーツデータを並行取得
+        const [gamesResponse, partsResponse] = await Promise.all([
+          fetch('/data/games.json'),
+          fetch('/data/parts.json')
+        ]);
+        
+        const games: Game[] = await gamesResponse.json();
+        const allParts: Part[] = await partsResponse.json();
+        
         const selectedGame = games.find(g => g.id === gameId);
         setGame(selectedGame || null);
+        setParts(allParts);
       } catch (error) {
-        console.error('ゲームデータの読み込みに失敗:', error);
+        console.error('データの読み込みに失敗:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchGame();
+    fetchGameAndParts();
   }, [gameId]);
 
   if (loading) {
@@ -78,9 +89,16 @@ export default function GameParts({ params }: { params: Promise<{ id: string }> 
     );
   }
 
-  const renderPartsGrid = (parts: Part[]) => (
+  // パーツIDからパーツオブジェクトを取得
+  const getPartsByIds = (partIds: string[]): Part[] => {
+    return partIds.map(id => parts.find(part => part.id === id)).filter(Boolean) as Part[];
+  };
+
+  const renderPartsGrid = (partIds: string[]) => {
+    const partsData = getPartsByIds(partIds);
+    return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {parts.map((part, index) => (
+      {partsData.map((part, index) => (
         <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">{part.type}</h3>
@@ -105,8 +123,9 @@ export default function GameParts({ params }: { params: Promise<{ id: string }> 
     </div>
   );
 
-  const calculateTotalPrice = (parts: Part[]) => {
-    return parts.reduce((total, part) => {
+  const calculateTotalPrice = (partIds: string[]) => {
+    const partsData = getPartsByIds(partIds);
+    return partsData.reduce((total, part) => {
       if (part.price) {
         return total + parseInt(part.price.replace(/,/g, ''));
       }

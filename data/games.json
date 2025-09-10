@@ -20,73 +20,8 @@
       }
     },
     "parts": {
-      "recommended": [
-        {
-          "type": "CPU",
-          "model": "Intel Core i7-12700K",
-          "price": "45,000",
-          "description": "12コア20スレッド、3.6GHz-5.0GHz",
-          "benchmarkScore": 95
-        },
-        {
-          "type": "GPU",
-          "model": "NVIDIA GeForce RTX 4070",
-          "price": "80,000", 
-          "description": "12GB GDDR6X、Ray Tracing対応",
-          "benchmarkScore": 90
-        },
-        {
-          "type": "メモリ",
-          "model": "Corsair Vengeance LPX 32GB DDR4-3200",
-          "price": "18,000",
-          "description": "32GB (16GBx2) DDR4-3200 CL16",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "ストレージ",
-          "model": "Samsung 980 PRO 1TB NVMe SSD",
-          "price": "15,000",
-          "description": "1TB NVMe PCIe 4.0 SSD、読み込み7,000MB/s",
-          "benchmarkScore": 95
-        },
-        {
-          "type": "マザーボード",
-          "model": "ASUS ROG STRIX B660-A GAMING WIFI",
-          "price": "25,000",
-          "description": "Intel B660チップセット、WiFi 6対応",
-          "benchmarkScore": 88
-        },
-        {
-          "type": "電源",
-          "model": "Corsair RM750x 750W 80+ Gold",
-          "price": "18,000",
-          "description": "750W 80+ Gold認証、フルモジュラー",
-          "benchmarkScore": 92
-        }
-      ],
-      "alternative": [
-        {
-          "type": "CPU",
-          "model": "AMD Ryzen 5 5600X",
-          "price": "28,000",
-          "description": "6コア12スレッド、3.7GHz-4.6GHz",
-          "benchmarkScore": 82
-        },
-        {
-          "type": "GPU",
-          "model": "NVIDIA GeForce RTX 4060 Ti",
-          "price": "65,000",
-          "description": "16GB GDDR6、1080p-1440p向け",
-          "benchmarkScore": 75
-        },
-        {
-          "type": "メモリ",
-          "model": "G.Skill Ripjaws V 16GB DDR4-3200",
-          "price": "8,000",
-          "description": "16GB (8GBx2) DDR4-3200 CL16",
-          "benchmarkScore": 75
-        }
-      ]
+      "recommended": ["cpu-001", "gpu-001", "memory-001", "storage-001", "motherboard-001", "psu-001"],
+      "alternative": ["cpu-002", "gpu-002", "memory-002"]
     }
   },
   {
@@ -110,66 +45,8 @@
       }
     },
     "parts": {
-      "recommended": [
-        {
-          "type": "CPU",
-          "model": "Intel Core i5-12400",
-          "price": "28,000",
-          "description": "6コア12スレッド、2.5GHz-4.4GHz",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "GPU", 
-          "model": "NVIDIA GeForce RTX 4060",
-          "price": "50,000",
-          "description": "8GB GDDR6、1080p最適化",
-          "benchmarkScore": 80
-        },
-        {
-          "type": "メモリ",
-          "model": "Corsair Vengeance LPX 16GB DDR4-3200",
-          "price": "9,000",
-          "description": "16GB (8GBx2) DDR4-3200 CL16",
-          "benchmarkScore": 80
-        },
-        {
-          "type": "ストレージ",
-          "model": "Western Digital Blue SN570 500GB NVMe",
-          "price": "8,000",
-          "description": "500GB NVMe PCIe 3.0 SSD",
-          "benchmarkScore": 78
-        },
-        {
-          "type": "マザーボード",
-          "model": "MSI B660M PRO-B DDR4",
-          "price": "15,000",
-          "description": "Intel B660チップセット、mATX",
-          "benchmarkScore": 82
-        },
-        {
-          "type": "電源",
-          "model": "Seasonic Focus GX-650 650W 80+ Gold",
-          "price": "15,000",
-          "description": "650W 80+ Gold認証、セミモジュラー",
-          "benchmarkScore": 88
-        }
-      ],
-      "alternative": [
-        {
-          "type": "CPU",
-          "model": "AMD Ryzen 5 4500",
-          "price": "18,000",
-          "description": "6コア12スレッド、3.6GHz-4.1GHz",
-          "benchmarkScore": 72
-        },
-        {
-          "type": "GPU",
-          "model": "AMD Radeon RX 6600",
-          "price": "35,000",
-          "description": "8GB GDDR6、1080p向け",
-          "benchmarkScore": 68
-        }
-      ]
+      "recommended": ["cpu-003", "gpu-003", "memory-003", "storage-002", "motherboard-002", "psu-002"],
+      "alternative": ["cpu-004", "gpu-004"]
     }
   },
   {
@@ -193,66 +70,8 @@
       }
     },
     "parts": {
-      "recommended": [
-        {
-          "type": "CPU",
-          "model": "Intel Core i5-12400F",
-          "price": "25,000",
-          "description": "6コア12スレッド、2.5GHz-4.4GHz（内蔵GPU無し）",
-          "benchmarkScore": 88
-        },
-        {
-          "type": "GPU",
-          "model": "NVIDIA GeForce RTX 4060",
-          "price": "50,000",
-          "description": "8GB GDDR6、高フレームレート対応",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "メモリ",
-          "model": "G.Skill Ripjaws V 16GB DDR4-3600",
-          "price": "10,000",
-          "description": "16GB (8GBx2) DDR4-3600 CL18",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "ストレージ",
-          "model": "Samsung 980 500GB NVMe SSD",
-          "price": "8,000",
-          "description": "500GB NVMe PCIe 3.0 SSD、高速起動",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "マザーボード",
-          "model": "ASRock B660M PRO RS",
-          "price": "12,000",
-          "description": "Intel B660チップセット、mATX",
-          "benchmarkScore": 80
-        },
-        {
-          "type": "電源",
-          "model": "Corsair CV550 550W 80+ Bronze",
-          "price": "8,000",
-          "description": "550W 80+ Bronze認証",
-          "benchmarkScore": 75
-        }
-      ],
-      "alternative": [
-        {
-          "type": "CPU",
-          "model": "AMD Ryzen 5 4500",
-          "price": "18,000",
-          "description": "6コア12スレッド、競技ゲーム向け",
-          "benchmarkScore": 75
-        },
-        {
-          "type": "GPU",
-          "model": "AMD Radeon RX 6500 XT",
-          "price": "25,000",
-          "description": "4GB GDDR6、エントリー向け",
-          "benchmarkScore": 60
-        }
-      ]
+      "recommended": ["cpu-005", "gpu-003", "memory-004", "storage-003", "motherboard-003", "psu-003"],
+      "alternative": ["cpu-004", "gpu-005"]
     }
   }
 ]
