@@ -2,16 +2,21 @@ export interface GameProps {
   id: string;
   title: string;
   thumbnail: string;
-  min_os: string;
-  min_processor: string;
-  min_memory: string;
-  min_graphics: string;
-  min_storage: string;
-  rec_os: string;
-  rec_processor: string;
-  rec_memory: string;
-  rec_graphics: string;
-  rec_storage: string;
+  budgetOs: string;
+  budgetProcessor: string;
+  budgetMemory: string;
+  budgetGraphics: string;
+  budgetStorage: string;
+  recommendedOs: string;
+  recommendedProcessor: string;
+  recommendedMemory: string;
+  recommendedGraphics: string;
+  recommendedStorage: string;
+  highendOs: string;
+  highendProcessor: string;
+  highendMemory: string;
+  highendGraphics: string;
+  highendStorage: string;
 }
 
 export interface PartProps {
@@ -31,6 +36,7 @@ export interface PartProps {
   rayTracing?: boolean;
   cuda?: number;
   shaderUnits?: number;
+  executionUnits?: number;
   capacity?: string;
   memoryType?: string;
   speed?: string;
@@ -53,10 +59,32 @@ export interface GamePartProps {
   id: number;
   gameId: string;
   partId: string;
-  recommendationType: 'recommended' | 'alternative';
+  recommendationType: 'budget' | 'recommended' | 'highend';
   price: string;
 }
 
 export interface PartWithPrice extends PartProps {
   price: string;
 }
+
+
+export type SpecLevel = 'budget' | 'recommended' | 'highend';
+
+
+export const SPEC_LEVEL_NAMES: Record<SpecLevel, string> = {
+  budget: 'コスパ重視',
+  recommended: '推奨スペック',
+  highend: 'ハイエンド'
+};
+
+
+export interface GameSpecInfo {
+  os: string;
+  processor: string;
+  memory: string;
+  graphics: string;
+  storage: string;
+}
+
+
+export type ExtractGameSpec = (game: GameProps, level: SpecLevel) => GameSpecInfo;
