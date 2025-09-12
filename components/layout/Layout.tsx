@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ReactNode } from "react";
+import { Box, Flex, Container, Heading, HStack, Text } from "@chakra-ui/react";
 
 type LayoutProps = {
   children: ReactNode;
@@ -7,26 +10,46 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <Flex direction="column" minH="100vh" bg="#000000" color="#FFFFFF">
       {/* Header */}
-      <header className="bg-gray-900 text-white p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">自作PCガイド</h1>
-          <nav className="space-x-4">
-            <Link href="/">Home</Link>
-            <Link href="/game/1">Games</Link>
-            <Link href="/parts">Parts</Link>
-          </nav>
-        </div>
-      </header>
+      <Box as="header" bg="#000000" py={4}>
+        <Container maxW="container.lg">
+          <Flex justify="space-between" align="center">
+            <Heading
+              as="h1"
+              size="lg"
+              fontFamily="STAATLICHES, sans-serif"
+              fontWeight="bold"
+            >
+              MIYA Guide
+            </Heading>
+            <HStack spacing={6} fontFamily="STAATLICHES, sans-serif">
+              <Link href="/">Home</Link>
+              <Link href="/game/1">Games</Link>
+              <Link href="/parts">Parts</Link>
+            </HStack>
+          </Flex>
+        </Container>
+      </Box>
 
       {/* Main */}
-      <main className="flex-grow container mx-auto p-4">{children}</main>
+      <Box as="main" flex="1" py={6}>
+        <Container maxW="container.lg">{children}</Container>
+      </Box>
 
       {/* Footer */}
-      <footer className="bg-gray-100 text-gray-600 p-4 text-center text-sm">
-        © 2025 自作PCガイドチーム
-      </footer>
-    </div>
+      <Box
+        as="footer"
+        bg="#111111"
+        py={4}
+        textAlign="center"
+        fontSize="sm"
+        color="gray.400"
+      >
+        <Text fontFamily="STAATLICHES, sans-serif">
+          © 2025 自作PCガイドチーム
+        </Text>
+      </Box>
+    </Flex>
   );
 }

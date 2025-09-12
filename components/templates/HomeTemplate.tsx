@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Game } from "@/types/game";
 import { GameCard } from "@/components/organisms/GameCard";
 import { SearchBar } from "@/components/molecules/SearchBar";
+import { VStack, SimpleGrid, Box } from "@chakra-ui/react";
 
 type Props = {
   initialGames: Game[];
@@ -31,17 +31,22 @@ export const HomeTemplate = ({ initialGames }: Props) => {
   };
 
   return (
-    <div className="p-4">
-      <SearchBar
-        query={query}
-        onQueryChange={(e) => setQuery(e.target.value)}
-        onSearch={handleSearch}
-      />
-      <div className="grid grid-cols-3 gap-4">
+    <VStack spacing={8} align="stretch" p={4}>
+      {/* 検索バー */}
+      <Box>
+        <SearchBar
+          query={query}
+          onQueryChange={(e) => setQuery(e.target.value)}
+          onSearch={handleSearch}
+        />
+      </Box>
+
+      {/* ゲームカード一覧 */}
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
         {games.map((game) => (
           <GameCard key={game.id} game={game} onSelect={handleSelectGame} />
         ))}
-      </div>
-    </div>
+      </SimpleGrid>
+    </VStack>
   );
 };
