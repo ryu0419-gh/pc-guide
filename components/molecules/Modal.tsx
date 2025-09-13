@@ -15,24 +15,26 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.8)', // より濃い背景
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 1000
+        zIndex: 1000,
+        fontFamily: 'Staatliches, system-ui, sans-serif'
       }}
       onClick={onClose}
     >
       <div 
         style={{
-          backgroundColor: '#1F1F1F', // ダークテーマに変更
+          backgroundColor: '#000000',
           padding: '30px',
-          borderRadius: '12px',
-          maxWidth: '600px',
+          borderRadius: '16px',
+          maxWidth: '700px',
           width: '90%',
           maxHeight: '80vh',
           overflow: 'auto',
-          border: '1px solid #333333' // ボーダー追加
+          border: '2px solid #00FFFF',
+          boxShadow: '0 0 40px rgba(0, 255, 255, 0.4)'
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -41,10 +43,25 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             onClick={onClose}
             style={{
               background: 'none',
-              border: 'none',
-              fontSize: '24px',
+              border: '2px solid #00FFFF',
+              borderRadius: '8px',
+              fontSize: '20px',
               cursor: 'pointer',
-              color: '#F5F5F5' // 白色に変更
+              color: '#00FFFF',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 255, 255, 0.1)';
+              e.currentTarget.style.transform = 'scale(1.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.transform = 'scale(1)';
             }}
           >
             ×

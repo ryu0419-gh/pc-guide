@@ -378,7 +378,12 @@
     "chipset": "Intel B660",
     "formFactor": "ATX",
     "wifi": "WiFi 6",
-    "slots": "4xDIMM, 3xPCIe"
+    "bluetooth": "Bluetooth 5.2",
+    "memorySlots": 4,
+    "expansionSlots": "1x PCIe 5.0 x16, 1x PCIe 4.0 x16, 2x PCIe 3.0 x1",
+    "ioports": "USB 3.2 Gen2 x4, USB 3.2 Gen1 x4, USB 2.0 x4, HDMI, DP",
+    "ethernet": "2.5Gb Ethernet",
+    "audio": "SupremeFX 7.1 Surround"
   },
   {
     "id": "corsair-rm750x",
@@ -389,7 +394,13 @@
     "wattage": "750W",
     "efficiency": "80+ Gold",
     "modular": "フルモジュラー",
-    "warranty": "10年保証"
+    "warranty": "10年保証",
+    "certification": "80+ Gold",
+    "fanSize": "135mm",
+    "dimensions": "160 x 150 x 86 mm",
+    "connectors": "ATX24pin x1, EPS12V x2, PCIe 8pin x4, SATA x8, Molex x4",
+    "protections": "OVP, UVP, OCP, OTP, SCP",
+    "ripple": "12V: 20mV"
   },
   {
     "id": "msi-b660m-pro-b",
@@ -401,7 +412,12 @@
     "chipset": "Intel B660",
     "formFactor": "mATX",
     "wifi": "無し",
-    "slots": "2xDIMM, 2xPCIe"
+    "bluetooth": "無し",
+    "memorySlots": 4,
+    "expansionSlots": "1x PCIe 4.0 x16, 1x PCIe 3.0 x16, 2x PCIe 3.0 x1",
+    "ioports": "USB 3.2 Gen1 x4, USB 2.0 x6, HDMI, VGA",
+    "ethernet": "Realtek RTL8111H Gigabit",
+    "audio": "Realtek ALC897 Codec"
   },
   {
     "id": "seasonic-focus-gx650",
@@ -412,7 +428,13 @@
     "wattage": "650W",
     "efficiency": "80+ Gold",
     "modular": "セミモジュラー",
-    "warranty": "7年保証"
+    "warranty": "7年保証",
+    "certification": "80+ Gold",
+    "fanSize": "120mm",
+    "dimensions": "160 x 150 x 86 mm",
+    "connectors": "ATX24pin x1, EPS12V x1, PCIe 8pin x2, SATA x6, Molex x3",
+    "protections": "OVP, UVP, OCP, OTP, SCP",
+    "ripple": "12V: 20mV"
   },
   {
     "id": "asrock-b660m-pro-rs",
@@ -424,7 +446,12 @@
     "chipset": "Intel B660",
     "formFactor": "mATX",
     "wifi": "無し",
-    "slots": "4xDIMM, 2xPCIe"
+    "bluetooth": "無し",
+    "memorySlots": 4,
+    "expansionSlots": "1x PCIe 4.0 x16, 1x PCIe 3.0 x16, 1x PCIe 3.0 x1",
+    "ioports": "USB 3.2 Gen1 x4, USB 2.0 x4, HDMI, VGA",
+    "ethernet": "Realtek RTL8111H Gigabit",
+    "audio": "Realtek ALC897 Codec"
   },
   {
     "id": "corsair-cv550",
@@ -435,7 +462,13 @@
     "wattage": "550W",
     "efficiency": "80+ Bronze",
     "modular": "ノンモジュラー",
-    "warranty": "3年保証"
+    "warranty": "3年保証",
+    "certification": "80+ Bronze",
+    "fanSize": "120mm",
+    "dimensions": "160 x 150 x 86 mm",
+    "connectors": "ATX24pin x1, EPS12V x1, PCIe 6+2pin x2, SATA x4, Molex x3",
+    "protections": "OVP, UVP, OCP, OTP",
+    "ripple": "12V: 50mV"
   },
   {
     "id": "amd-ryzen5-5600x",

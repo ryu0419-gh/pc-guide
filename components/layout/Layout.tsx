@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <html>
       <body>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-black">
       {/* Header */}
       <header className="bg-gray-900 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">

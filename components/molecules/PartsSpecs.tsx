@@ -26,12 +26,30 @@ const PartSpecs: React.FC<PartSpecsProps> = ({ part, showDetailed = false }) => 
           : [`容量 ${part.capacity}`, `読込 ${part.readSpeed}`];
       case 'Motherboard':
         return showDetailed
-          ? [`ソケット ${part.socket}`, `チップセット ${part.chipset}`, `${part.formFactor}`, part.wifi]
-          : [`ソケット ${part.socket}`, `チップセット ${part.chipset}`];
+          ? [
+              `ソケット ${part.socket}`, 
+              `チップセット ${part.chipset}`, 
+              `フォームファクター ${part.formFactor}`,
+              `メモリスロット ${part.memorySlots || '4'}`,
+              `拡張スロット ${part.expansionSlots || 'PCIe x16×2, PCIe x1×4'}`,
+              part.wifi ? `WiFi ${part.wifi}` : 'WiFi なし',
+              part.bluetooth ? `Bluetooth ${part.bluetooth}` : '',
+              `I/O ${part.ioports || 'USB 3.2×6, USB-C×2'}`
+            ].filter(Boolean)
+          : [`ソケット ${part.socket}`, `チップセット ${part.chipset}`, `${part.formFactor}`];
       case 'PowerSupply':
         return showDetailed
-          ? [`${part.wattage}`, `${part.efficiency}`, part.modular, `${part.warranty}`]
-          : [`${part.wattage}`, `${part.efficiency}`];
+          ? [
+              `出力 ${part.wattage}`,
+              `効率 ${part.efficiency}`,
+              `ケーブル ${part.modular || 'セミモジュラー'}`,
+              `80PLUS ${part.certification || 'Bronze'}`,
+              `冷却 ${part.fanSize || '120mm'} ファン`,
+              `保証 ${part.warranty || '3年'}`,
+              `サイズ ${part.dimensions || 'ATX標準'}`,
+              `コネクタ ${part.connectors || 'ATX24pin, EPS8pin, PCIe8pin×4'}`
+            ].filter(Boolean)
+          : [`出力 ${part.wattage}`, `効率 ${part.efficiency}`, `${part.modular || 'セミモジュラー'}`];
       default:
         return [part.description];
     }
@@ -40,11 +58,23 @@ const PartSpecs: React.FC<PartSpecsProps> = ({ part, showDetailed = false }) => 
   const keySpecs = getKeySpecs();
 
   return (
-    <div style={{ color: '#CCCCCC', fontSize: '14px' }}>
+    <div style={{ 
+      color: '#CCCCCC', 
+      fontSize: '14px',
+      fontFamily: 'Staatliches, system-ui, sans-serif'
+    }}>
       {keySpecs.map((spec, index) => (
-        <div key={index} style={{ marginBottom: '4px' }}>{spec}</div>
+        <div key={index} style={{ 
+          marginBottom: '6px',
+          padding: '2px 0',
+          borderLeft: '2px solid rgba(0, 255, 255, 0.3)',
+          paddingLeft: '8px'
+        }}>
+          {spec}
+        </div>
       ))}
     </div>
   );
 };
+
 export default PartSpecs;
