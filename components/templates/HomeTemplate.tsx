@@ -6,6 +6,7 @@ import { Game } from "@/types/game";
 import { GameCard } from "@/components/organisms/GameCard";
 import { SearchBar } from "@/components/molecules/SearchBar";
 import { VStack, SimpleGrid, Box } from "@chakra-ui/react";
+import { HeroSection } from "../organisms/HeroSection";
 
 type Props = {
   initialGames: Game[];
@@ -31,7 +32,9 @@ export const HomeTemplate = ({ initialGames }: Props) => {
   };
 
   return (
-    <VStack spacing={8} align="stretch" p={4}>
+    <VStack spacing={8} align="stretch" p={0}>
+      {/* Heroセクション */}
+      <HeroSection />
       {/* 検索バー */}
       <Box>
         <SearchBar
