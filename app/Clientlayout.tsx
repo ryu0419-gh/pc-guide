@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
 import { ReactNode } from "react";
 import Link from "next/link";
-import { 
-  Box, 
-  Container, 
-  Flex, 
-  Heading, 
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
   Text,
   HStack,
   VStack,
@@ -19,20 +19,20 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  useBreakpointValue
-} from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 type ClientLayoutProps = {
   children: ReactNode;
 };
 
-const NavLink = ({ 
-  href, 
-  children, 
-  onClick 
-}: { 
-  href: string; 
+const NavLink = ({
+  href,
+  children,
+  onClick,
+}: {
+  href: string;
   children: ReactNode;
   onClick?: () => void;
 }) => (
@@ -47,7 +47,7 @@ const NavLink = ({
     _hover={{
       color: "brand.500",
       textShadow: "0 0 10px rgba(0, 255, 255, 0.8)",
-      transform: "translateY(-1px)"
+      transform: "translateY(-1px)",
     }}
     transition="all 0.2s ease"
     cursor="pointer"
@@ -69,7 +69,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
 
   return (
     <Flex direction="column" minH="100vh" bg="neon.black">
-      
       <Box
         as="header"
         bg="rgba(0, 0, 0, 0.95)"
@@ -83,7 +82,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       >
         <Container maxW="1400px" py={4}>
           <Flex justify="space-between" align="center">
-            
             <Heading
               as={Link}
               href="/"
@@ -95,7 +93,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
               textShadow="0 0 15px rgba(0, 255, 255, 1)"
               _hover={{
                 textShadow: "0 0 25px rgba(0, 255, 255, 1)",
-                transform: "scale(1.05)"
+                transform: "scale(1.05)",
               }}
               transition="all 0.3s ease"
               cursor="pointer"
@@ -103,7 +101,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
             >
               自作PCガイド
             </Heading>
-            
+
             <HStack spacing={8} display={{ base: "none", md: "flex" }}>
               {navigationItems.map((item) => (
                 <NavLink key={item.href} href={item.href}>
@@ -111,7 +109,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
                 </NavLink>
               ))}
             </HStack>
-            
+
             <IconButton
               aria-label="Open menu"
               icon={<HamburgerIcon />}
@@ -120,7 +118,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
               variant="neonSecondary"
               size="md"
             />
-            
           </Flex>
         </Container>
       </Box>
@@ -133,7 +130,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
           borderColor="brand.500"
           boxShadow="0 0 30px rgba(0, 255, 255, 0.4)"
         >
-          <DrawerCloseButton 
+          <DrawerCloseButton
             color="brand.500"
             _hover={{ bg: "rgba(0, 255, 255, 0.1)" }}
           />
@@ -149,23 +146,23 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
           <DrawerBody>
             <VStack spacing={6} align="start" pt={6}>
               {navigationItems.map((item) => (
-                <NavLink 
-                  key={item.href} 
-                  href={item.href}
-                  onClick={onClose}
-                >
+                <NavLink key={item.href} href={item.href} onClick={onClose}>
                   {item.label}
                 </NavLink>
               ))}
-              
+
               <Divider borderColor="rgba(0, 255, 255, 0.3)" />
-              
+
               <VStack spacing={4} align="start" w="full">
                 <Text color="neon.gray" fontSize="sm" textTransform="uppercase">
                   サポート
                 </Text>
-                <NavLink href="/help" onClick={onClose}>Help</NavLink>
-                <NavLink href="/contact" onClick={onClose}>Contact</NavLink>
+                <NavLink href="/help" onClick={onClose}>
+                  Help
+                </NavLink>
+                <NavLink href="/contact" onClick={onClose}>
+                  Contact
+                </NavLink>
               </VStack>
             </VStack>
           </DrawerBody>
@@ -191,9 +188,8 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       >
         <Container maxW="1400px">
           <VStack spacing={6}>
-            
             <Divider borderColor="rgba(0, 255, 255, 0.3)" />
-            
+
             <Flex
               direction={{ base: "column", md: "row" }}
               justify="space-between"
@@ -201,7 +197,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
               w="full"
               gap={6}
             >
-              
               <Flex
                 direction={{ base: "column", sm: "row" }}
                 gap={{ base: 4, sm: 6 }}
@@ -212,9 +207,8 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
                 <NavLink href="/privacy">Privacy</NavLink>
                 <NavLink href="/terms">Terms</NavLink>
               </Flex>
-              
             </Flex>
-            
+
             <VStack spacing={2}>
               <Text
                 fontSize="sm"
@@ -224,7 +218,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
               >
                 © 2025 MIYA NOTE 制作チーム ENGEI
               </Text>
-              
+
               <Text
                 fontSize="xs"
                 color="rgba(255, 255, 255, 0.5)"
@@ -234,11 +228,9 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
                 Powered by Chakra UI & Next.js | Neon Theme Design
               </Text>
             </VStack>
-            
           </VStack>
         </Container>
       </Box>
-
     </Flex>
   );
 }

@@ -1,20 +1,20 @@
-import { Text } from '@chakra-ui/react'
+import { Text } from "@chakra-ui/react";
 interface PriceProps {
   price: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: "sm" | "md" | "lg" | "xl";
 }
 const parsePrice = (priceString: string): number => {
-  return parseInt(priceString.replace(/,/g, ''));
+  return parseInt(priceString.replace(/,/g, ""));
 };
 
-const Price: React.FC<PriceProps> = ({ price, size = 'lg' }) => {
+const Price: React.FC<PriceProps> = ({ price, size = "lg" }) => {
   const numericPrice = parsePrice(price);
-  
+
   const sizeMap = {
-    sm: '16px',
-    md: '20px',
-    lg: '24px',
-    xl: '32px'
+    sm: "16px",
+    md: "20px",
+    lg: "24px",
+    xl: "32px",
   };
 
   return (

@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 export interface CardBaseProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export const CardBase: React.FC<CardBaseProps> = ({ 
-  children, 
-  className = '' 
+export const CardBase: React.FC<CardBaseProps> = ({
+  children,
+  className = "",
 }) => {
   return (
-    <div 
+    <div
       className={`
         w-[280px] h-[420px] 
         bg-gray-800 

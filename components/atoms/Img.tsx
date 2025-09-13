@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import Image from "next/image";
 
 export interface PartImageProps {
   src: string;
@@ -8,10 +8,10 @@ export interface PartImageProps {
   fallback?: string;
 }
 
-export const PartImage: React.FC<PartImageProps> = ({ 
-  src, 
-  alt, 
-  fallback = '/images/parts/no-image.jpg' 
+export const PartImage: React.FC<PartImageProps> = ({
+  src,
+  alt,
+  fallback = "/images/parts/no-image.jpg",
 }) => {
   const [imageSrc, setImageSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);

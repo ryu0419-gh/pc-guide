@@ -1,15 +1,11 @@
-import { ReactNode } from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
-import globalstyle from '@/styles/globalstyle'
+import { ReactNode } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import globalstyle from "@/styles/globalstyle";
 
 interface ProvidersProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function Providers({ children }: ProvidersProps) {
-  return (
-    <ChakraProvider theme={globalstyle}>
-      {children}
-    </ChakraProvider>
-  )
+  return <ChakraProvider theme={globalstyle}>{children}</ChakraProvider>;
 }
