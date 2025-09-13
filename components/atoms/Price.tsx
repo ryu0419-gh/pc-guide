@@ -1,26 +1,34 @@
+import { Text } from '@chakra-ui/react'
 interface PriceProps {
   price: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
-
 const parsePrice = (priceString: string): number => {
   return parseInt(priceString.replace(/,/g, ''));
 };
 
-const Price: React.FC<PriceProps> = ({ price }) => {
+const Price: React.FC<PriceProps> = ({ price, size = 'lg' }) => {
   const numericPrice = parsePrice(price);
   
+  const sizeMap = {
+    sm: '16px',
+    md: '20px',
+    lg: '24px',
+    xl: '32px'
+  };
+
   return (
-    <div style={{ 
-      color: '#00FFFF', 
-      fontSize: '24px', 
-      fontWeight: 'bold', 
-      marginBottom: '15px',
-      textShadow: '0 0 15px #00FFFF',
-      fontFamily: 'Staatliches, system-ui, sans-serif',
-      letterSpacing: '1px'
-    }}>
+    <Text
+      color="brand.500"
+      fontSize={sizeMap[size]}
+      fontWeight="bold"
+      mb={4}
+      textShadow="0 0 15px rgba(0, 255, 255, 1)"
+      fontFamily="heading"
+      letterSpacing="1px"
+    >
       ¥{numericPrice.toLocaleString()}
-    </div>
+    </Text>
   );
 };
 

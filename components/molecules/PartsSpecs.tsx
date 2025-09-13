@@ -1,11 +1,17 @@
-import { PartWithPrice } from "@/type/type";
+import { VStack, Text, Box } from '@chakra-ui/react'
+import { PartWithPriceProps } from "@/type/type"
 
 interface PartSpecsProps {
-  part: PartWithPrice;
+  part: PartWithPriceProps;
   showDetailed?: boolean;
+  spacing?: number;
 }
 
-const PartSpecs: React.FC<PartSpecsProps> = ({ part, showDetailed = false }) => {
+const PartSpecs: React.FC<PartSpecsProps> = ({ 
+  part, 
+  showDetailed = false, 
+  spacing = 1 
+}) => {
   const getKeySpecs = () => {
     switch (part.type) {
       case 'CPU':
@@ -58,22 +64,24 @@ const PartSpecs: React.FC<PartSpecsProps> = ({ part, showDetailed = false }) => 
   const keySpecs = getKeySpecs();
 
   return (
-    <div style={{ 
-      color: '#CCCCCC', 
-      fontSize: '14px',
-      fontFamily: 'Staatliches, system-ui, sans-serif'
-    }}>
+    <VStack align="start" spacing={spacing}>
       {keySpecs.map((spec, index) => (
-        <div key={index} style={{ 
-          marginBottom: '6px',
-          padding: '2px 0',
-          borderLeft: '2px solid rgba(0, 255, 255, 0.3)',
-          paddingLeft: '8px'
-        }}>
-          {spec}
-        </div>
+        <Box key={index} w="full">
+          <Text
+            variant="neonSpec"
+            color="neon.gray"
+            fontSize="14px"
+            fontFamily="body"
+            borderLeft="2px solid"
+            borderColor="rgba(0, 255, 255, 0.3)"
+            pl={2}
+            py="2px"
+          >
+            {spec}
+          </Text>
+        </Box>
       ))}
-    </div>
+    </VStack>
   );
 };
 

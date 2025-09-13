@@ -1,86 +1,150 @@
-import { PartWithPrice } from "@/type/type";
-import Modal from "../molecules/Modal";
-import Price from "../atoms/Price";
-import PartSpecs from "../molecules/PartsSpecs";
-import ButtonBase from "../atoms/ButtonBase";
+import { 
+  VStack, 
+  HStack, 
+  Heading, 
+  Text, 
+  Box,
+  Card,
+  CardBody,
+  Divider,
+  useToast
+} from '@chakra-ui/react'
+import { PartWithPriceProps } from "@/type/type"
+import Modal from "../molecules/Modal"
+import Price from "../atoms/Price"
+import PartSpecs from "../molecules/PartsSpecs"
+import ButtonBase from "../atoms/ButtonBase"
 
 interface PartDetailModalProps {
-  part: PartWithPrice | null;
+  part: PartWithPriceProps | null;
   isOpen: boolean;
   onClose: () => void;
+  onPurchase?: (part: PartWithPriceProps) => void;
 }
 
-const PartDetailModal: React.FC<PartDetailModalProps> = ({ part, isOpen, onClose }) => {
+const PartDetailModal: React.FC<PartDetailModalProps> = ({ 
+  part, 
+  isOpen, 
+  onClose,
+  onPurchase
+}) => {
+  const toast = useToast()
+
   if (!part) return null;
 
+  const handlePurchaseClick = () => {
+    if (onPurchase) {
+      onPurchase(part)
+    } else {
+      toast({
+        title: "購入サイトへ移動",
+        description: `${part.model}の購入ページを開きます`,
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+        position: "top"
+      })
+    }
+  }
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <div style={{ fontFamily: 'Staatliches, system-ui, sans-serif' }}>
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center', 
-          marginBottom: '20px' 
-        }}>
-          <h2 style={{ 
-            margin: 0, 
-            color: '#00FFFF',
-            fontSize: '28px',
-            textShadow: '0 0 20px #00FFFF'
-          }}>
-            {part.model}
-          </h2>
-        </div>
+    <Modal 
+      isOpen={isOpen} 
+      onClose={onClose}
+      title={part.model}
+      size="2xl"
+    >
+      <VStack spacing={6} align="start">
+        <Price price={part.price} size="xl" />
         
-        <Price price={part.price} />
-        
-        <div style={{ marginBottom: '20px' }}>
-          <h3 style={{ 
-            fontSize: '20px', 
-            marginBottom: '15px', 
-            color: '#FFFFFF',
-            borderBottom: '2px solid #00FFFF',
-            paddingBottom: '8px'
-          }}>
+        <Box w="full">
+          <Heading 
+            size="md" 
+            color="neon.white" 
+            borderBottom="2px solid" 
+            borderColor="brand.500" 
+            pb={2} 
+            mb={4}
+            fontFamily="heading"
+            textTransform="uppercase"
+            letterSpacing="1px"
+          >
             詳細仕様
-          </h3>
-          <PartSpecs part={part} showDetailed={true} />
-        </div>
+          </Heading>
+          <PartSpecs part={part} showDetailed={true} spacing={2} />
+        </Box>
         
-        <div style={{ 
-          marginBottom: '20px', 
-          padding: '20px', 
-          backgroundColor: 'rgba(0, 255, 255, 0.1)', 
-          borderRadius: '12px',
-          border: '1px solid rgba(0, 255, 255, 0.3)'
-        }}>
-          <h4 style={{ 
-            fontSize: '18px', 
-            marginBottom: '12px', 
-            color: '#FFFFFF',
-            textShadow: '0 0 10px #00FFFF'
-          }}>
-            説明
-          </h4>
-          <p style={{ 
-            margin: 0, 
-            color: '#CCCCCC', 
-            fontSize: '16px',
-            lineHeight: '1.6'
-          }}>
-            {part.description}
-          </p>
-        </div>
+        <Divider borderColor="brand.500" />
         
-        <div style={{ display: 'flex', gap: '15px', justifyContent: 'flex-end' }}>
+        <Card variant="neon" w="full">
+          <CardBody>
+            <VStack spacing={3} align="start">
+              <Heading 
+                size="sm" 
+                color="neon.white" 
+                fontFamily="heading"
+                textTransform="uppercase"
+                textShadow="0 0 10px rgba(0, 255, 255, 0.5)"
+              >
+                製品説明
+              </Heading>
+              <Text 
+                color="neon.gray" 
+                lineHeight="1.6"
+                fontSize="md"
+                fontFamily="body"
+              >
+                {part.description}
+              </Text>
+            </VStack>
+          </CardBody>
+        </Card>
+        
+        {part.benchmarkScore && (
+          <Card variant="outline" w="full" borderColor="rgba(0, 255, 255, 0.3)" bg="transparent">
+            <CardBody>
+              <HStack justify="space-between" align="center">
+                <VStack align="start" spacing={1}>
+                  <Text 
+                    fontSize="sm" 
+                    color="neon.gray"
+                    textTransform="uppercase"
+                    fontFamily="heading"
+                  >
+                    ベンチマークスコア
+                  </Text>
+                  <Text 
+                    fontSize="2xl" 
+                    fontWeight="bold" 
+                    color="brand.500"
+                    fontFamily="heading"
+                  >
+                    {part.benchmarkScore}
+                  </Text>
+                </VStack>
+                <Box>
+                  <Text fontSize="xs" color="neon.gray">
+                    {part.benchmarkScore >= 90 ? 'ハイパフォーマンス' :
+                     part.benchmarkScore >= 70 ? 'ミドルレンジ' : 
+                     'エントリーレベル'}
+                  </Text>
+                </Box>
+              </HStack>
+            </CardBody>
+          </Card>
+        )}
+        
+        <Divider borderColor="rgba(0, 255, 255, 0.2)" />
+        
+        <HStack spacing={4} w="full" justify="flex-end">
           <ButtonBase variant="secondary" onClick={onClose}>
             閉じる
           </ButtonBase>
-          <ButtonBase variant="success" onClick={() => console.log('購入サイトへ')}>
+          <ButtonBase variant="success" onClick={handlePurchaseClick}>
             購入サイトへ
           </ButtonBase>
-        </div>
-      </div>
+        </HStack>
+      </VStack>
     </Modal>
   );
 };

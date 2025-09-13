@@ -1,75 +1,103 @@
-interface ModalProps {
+import {
+  Modal as ChakraModal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  ModalProps as ChakraModalProps,
+} from '@chakra-ui/react'
+
+interface ModalProps extends Omit<ChakraModalProps, 'children'> {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  title?: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
-
+const Modal: React.FC<ModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  children, 
+  title,
+  size = 'xl',
+  ...props 
+}) => {
   return (
-    <div 
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 1000,
-        fontFamily: 'Staatliches, system-ui, sans-serif'
-      }}
-      onClick={onClose}
+    <ChakraModal 
+      isOpen={isOpen} 
+      onClose={onClose} 
+      size={size}
+      isCentered
+      {...props}
     >
-      <div 
-        style={{
-          backgroundColor: '#000000',
-          padding: '30px',
-          borderRadius: '16px',
-          maxWidth: '700px',
-          width: '90%',
-          maxHeight: '80vh',
-          overflow: 'auto',
-          border: '2px solid #00FFFF',
-          boxShadow: '0 0 40px rgba(0, 255, 255, 0.4)'
+      <ModalOverlay 
+        bg="blackAlpha.800"
+        backdropFilter="blur(4px)"
+      />
+      <ModalContent
+        bg="neon.black"
+        border="2px solid"
+        borderColor="brand.500"
+        borderRadius="16px"
+        boxShadow="0 0 40px rgba(0, 255, 255, 0.4)"
+        fontFamily="body"
+        maxH="80vh"
+        overflowY="auto"
+        css={{
+          '&::-webkit-scrollbar': {
+            width: '8px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'transparent',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(0, 255, 255, 0.3)',
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'rgba(0, 255, 255, 0.5)',
+          },
         }}
-        onClick={(e) => e.stopPropagation()}
       >
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
-          <button 
-            onClick={onClose}
-            style={{
-              background: 'none',
-              border: '2px solid #00FFFF',
-              borderRadius: '8px',
-              fontSize: '20px',
-              cursor: 'pointer',
-              color: '#00FFFF',
-              width: '40px',
-              height: '40px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(0, 255, 255, 0.1)';
-              e.currentTarget.style.transform = 'scale(1.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
+        {title && (
+          <ModalHeader
+            color="brand.500"
+            textShadow="0 0 20px rgba(0, 255, 255, 1)"
+            fontFamily="heading"
+            fontSize="xl"
+            textTransform="uppercase"
+            letterSpacing="1px"
+            pb={4}
           >
-            ×
-          </button>
-        </div>
-        {children}
-      </div>
-    </div>
+            {title}
+          </ModalHeader>
+        )}
+        
+        <ModalCloseButton
+          color="brand.500"
+          border="2px solid"
+          borderColor="brand.500"
+          borderRadius="8px"
+          boxShadow="0 0 15px rgba(0, 255, 255, 0.3)"
+          _hover={{
+            bg: 'rgba(0, 255, 255, 0.1)',
+            transform: 'scale(1.1)',
+            boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)',
+          }}
+          _active={{
+            transform: 'scale(0.95)',
+          }}
+          transition="all 0.2s ease"
+          size="lg"
+        />
+        
+        <ModalBody pb={6}>
+          {children}
+        </ModalBody>
+      </ModalContent>
+    </ChakraModal>
   );
 };
 

@@ -32,25 +32,25 @@ export interface PartProps {
   boostClock?: string;
   tdp?: string;
   socket?: string;
-  // GPU properties
+  // GPU 
   memory?: string;
   powerConsumption?: string;
   rayTracing?: boolean;
   cuda?: number;
   shaderUnits?: number;
   executionUnits?: number;
-  // Memory properties
+  // Memory 
   capacity?: string;
   memoryType?: string;
   speed?: string;
   modules?: string;
   latency?: string;
-  // Storage properties
+  // Storage
   interface?: string;
   readSpeed?: string;
   writeSpeed?: string;
   formFactor?: string;
-  // Motherboard properties
+  // Motherboard
   chipset?: string;
   wifi?: string;
   bluetooth?: string;
@@ -59,8 +59,8 @@ export interface PartProps {
   ioports?: string;
   ethernet?: string;
   audio?: string;
-  slots?: string; // 既存のプロパティ（後方互換性のため保持）
-  // PowerSupply properties
+  slots?: string;
+  // PowerSupply
   wattage?: string;
   efficiency?: string;
   modular?: string;
@@ -81,7 +81,7 @@ export interface GamePartProps {
   price: string;
 }
 
-export interface PartWithPrice extends PartProps {
+export interface PartWithPriceProps extends PartProps {
   price: string;
 }
 

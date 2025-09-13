@@ -1,49 +1,40 @@
+import { ButtonGroup, Button } from '@chakra-ui/react'
+
 interface ToggleButtonProps {
   options: { value: string; label: string }[];
   selected: string;
   onChange: (value: string) => void;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({ options, selected, onChange }) => (
-  <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
+const ToggleButton: React.FC<ToggleButtonProps> = ({ 
+  options, 
+  selected, 
+  onChange, 
+  size = 'md' 
+}) => (
+  <ButtonGroup spacing={3} mb={5}>
     {options.map((option) => (
-      <button
+      <Button
         key={option.value}
-        style={{
-          padding: '16px 32px',
-          border: '2px solid #00FFFF',
-          backgroundColor: selected === option.value ? '#00FFFF' : 'transparent',
-          color: selected === option.value ? '#000000' : '#FFFFFF',
-          borderRadius: '12px',
-          cursor: 'pointer',
-          fontSize: '16px',
-          fontWeight: 'bold',
-          fontFamily: 'Staatliches, system-ui, sans-serif',
-          textTransform: 'uppercase',
-          letterSpacing: '1px',
-          boxShadow: selected === option.value 
-            ? '0 0 25px rgba(0, 255, 255, 0.6)' 
-            : '0 0 10px rgba(0, 255, 255, 0.3)',
-          transition: 'all 0.3s ease'
-        }}
-        onMouseEnter={(e) => {
-          if (selected !== option.value) {
-            e.currentTarget.style.backgroundColor = 'rgba(0, 255, 255, 0.1)';
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.5)';
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (selected !== option.value) {
-            e.currentTarget.style.backgroundColor = 'transparent';
-            e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 255, 255, 0.3)';
-          }
-        }}
+        variant={selected === option.value ? "neonPrimary" : "neonSecondary"}
+        size={size}
         onClick={() => onChange(option.value)}
+        fontFamily="heading"
+        textTransform="uppercase"
+        letterSpacing="1px"
+        _hover={{
+          transform: 'scale(1.02)',
+        }}
+        _active={{
+          transform: 'scale(0.98)',
+        }}
+        transition="all 0.2s ease"
       >
         {option.label}
-      </button>
+      </Button>
     ))}
-  </div>
+  </ButtonGroup>
 );
 
 export default ToggleButton;
