@@ -10,11 +10,11 @@ export default function Header() {
   return (
     <MotionHeader
       style={{
-        backgroundColor: '#000000',
-        paddingTop: '1rem',
-        paddingBottom: '1rem',
-        borderBottom: '2px solid rgba(0, 255, 255, 0.2)',
-        boxShadow: '0 0 20px rgba(0, 255, 255, 0.1)',
+        backgroundColor: "#000000",
+        paddingTop: "1rem",
+        paddingBottom: "1rem",
+        borderBottom: "2px solid rgba(0, 255, 255, 0.2)",
+        boxShadow: "0 0 20px rgba(0, 255, 255, 0.1)",
       }}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}

@@ -43,7 +43,6 @@ import {
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
-
 const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
   const [globalRank, setGlobalRank] = useState<
     "budget" | "recommended" | "highend"

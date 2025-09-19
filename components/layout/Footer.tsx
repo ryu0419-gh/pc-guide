@@ -9,14 +9,14 @@ export default function Footer() {
   return (
     <MotionFooter
       style={{
-        backgroundColor: '#1a202c',
-        paddingTop: '1.5rem',
-        paddingBottom: '1.5rem',
-        textAlign: 'center',
-        fontSize: '0.875rem',
-        color: '#cccccc',
-        borderTop: '2px solid rgba(0, 255, 255, 0.2)',
-        boxShadow: '0 0 20px rgba(0, 255, 255, 0.1)',
+        backgroundColor: "#1a202c",
+        paddingTop: "1.5rem",
+        paddingBottom: "1.5rem",
+        textAlign: "center",
+        fontSize: "0.875rem",
+        color: "#cccccc",
+        borderTop: "2px solid rgba(0, 255, 255, 0.2)",
+        boxShadow: "0 0 20px rgba(0, 255, 255, 0.1)",
       }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

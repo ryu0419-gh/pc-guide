@@ -357,101 +357,105 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                 </Tbody>
               </Table>
             </Box>
-<Box mt={6} marginLeft={{ base: "0", md: "80px" }} maxW={{ base: "100%", md: "500px" }}>
-  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-    {/* 最低動作環境 - 赤系ネオン */}
-    <Box
-      p={4}
-      border="2px solid"
-      borderColor="neon.red"
-      borderRadius="12px"
-      bg="rgba(239, 68, 68, 0.05)"
-      boxShadow="0 0 15px rgba(239, 68, 68, 0.3)"
-      _hover={{
-        boxShadow: "0 0 25px rgba(239, 68, 68, 0.5)",
-        transform: "scale(1.02)",
-      }}
-      transition="all 0.2s ease"
-    >
-      <VStack align="start" spacing={2}>
-        <HStack>
-          <Circle 
-            size="16px" 
-            bg="neon.red"
-            boxShadow="0 0 10px rgba(239, 68, 68, 0.8)"
-          />
-          <Text 
-            fontWeight="bold" 
-            color="neon.red"
-            fontFamily="heading"
-            textTransform="uppercase"
-            letterSpacing="1px"
-            fontSize="sm"
-            textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
-          >
-            最低動作環境
-          </Text>
-        </HStack>
-        <Text 
-          fontSize="xs" 
-          color="neon.gray"
-          fontFamily="body"
-          lineHeight="1.4"
-          borderLeft="2px solid rgba(239, 68, 68, 0.3)"
-          pl={2}
-        >
-          ゲームが動作する最低限のスペックです。快適性は期待できません。
-        </Text>
-      </VStack>
-    </Box>
-    
-    {/* 推奨スペック - シアン系ネオン */}
-    <Box
-      p={4}
-      border="2px solid"
-      borderColor="brand.500"
-      borderRadius="12px"
-      bg="rgba(0, 255, 255, 0.05)"
-      boxShadow="0 0 15px rgba(0, 255, 255, 0.3)"
-      _hover={{
-        boxShadow: "0 0 25px rgba(0, 255, 255, 0.5)",
-        transform: "scale(1.02)",
-      }}
-      transition="all 0.2s ease"
-    >
-      <VStack align="start" spacing={2}>
-        <HStack>
-          <Circle 
-            size="16px" 
-            bg="brand.500"
-            boxShadow="0 0 10px rgba(0, 255, 255, 0.8)"
-          />
-          <Text 
-            fontWeight="bold" 
-            color="brand.500"
-            fontFamily="heading"
-            textTransform="uppercase"
-            letterSpacing="1px"
-            fontSize="sm"
-            textShadow="0 0 8px rgba(0, 255, 255, 0.8)"
-          >
-            推奨スペック
-          </Text>
-        </HStack>
-        <Text 
-          fontSize="xs" 
-          color="neon.gray"
-          fontFamily="body"
-          lineHeight="1.4"
-          borderLeft="2px solid rgba(0, 255, 255, 0.3)"
-          pl={2}
-        >
-          快適にゲームをプレイできるスペックです。このスペック以上を推奨します。
-        </Text>
-      </VStack>
-    </Box>
-  </SimpleGrid>
-</Box>
+            <Box
+              mt={6}
+              marginLeft={{ base: "0", md: "80px" }}
+              maxW={{ base: "100%", md: "500px" }}
+            >
+              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                {/* 最低動作環境 - 赤系ネオン */}
+                <Box
+                  p={4}
+                  border="2px solid"
+                  borderColor="neon.red"
+                  borderRadius="12px"
+                  bg="rgba(239, 68, 68, 0.05)"
+                  boxShadow="0 0 15px rgba(239, 68, 68, 0.3)"
+                  _hover={{
+                    boxShadow: "0 0 25px rgba(239, 68, 68, 0.5)",
+                    transform: "scale(1.02)",
+                  }}
+                  transition="all 0.2s ease"
+                >
+                  <VStack align="start" spacing={2}>
+                    <HStack>
+                      <Circle
+                        size="16px"
+                        bg="neon.red"
+                        boxShadow="0 0 10px rgba(239, 68, 68, 0.8)"
+                      />
+                      <Text
+                        fontWeight="bold"
+                        color="neon.red"
+                        fontFamily="heading"
+                        textTransform="uppercase"
+                        letterSpacing="1px"
+                        fontSize="sm"
+                        textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
+                      >
+                        最低動作環境
+                      </Text>
+                    </HStack>
+                    <Text
+                      fontSize="xs"
+                      color="neon.gray"
+                      fontFamily="body"
+                      lineHeight="1.4"
+                      borderLeft="2px solid rgba(239, 68, 68, 0.3)"
+                      pl={2}
+                    >
+                      ゲームが動作する最低限のスペックです。快適性は期待できません。
+                    </Text>
+                  </VStack>
+                </Box>
+
+                {/* 推奨スペック - シアン系ネオン */}
+                <Box
+                  p={4}
+                  border="2px solid"
+                  borderColor="brand.500"
+                  borderRadius="12px"
+                  bg="rgba(0, 255, 255, 0.05)"
+                  boxShadow="0 0 15px rgba(0, 255, 255, 0.3)"
+                  _hover={{
+                    boxShadow: "0 0 25px rgba(0, 255, 255, 0.5)",
+                    transform: "scale(1.02)",
+                  }}
+                  transition="all 0.2s ease"
+                >
+                  <VStack align="start" spacing={2}>
+                    <HStack>
+                      <Circle
+                        size="16px"
+                        bg="brand.500"
+                        boxShadow="0 0 10px rgba(0, 255, 255, 0.8)"
+                      />
+                      <Text
+                        fontWeight="bold"
+                        color="brand.500"
+                        fontFamily="heading"
+                        textTransform="uppercase"
+                        letterSpacing="1px"
+                        fontSize="sm"
+                        textShadow="0 0 8px rgba(0, 255, 255, 0.8)"
+                      >
+                        推奨スペック
+                      </Text>
+                    </HStack>
+                    <Text
+                      fontSize="xs"
+                      color="neon.gray"
+                      fontFamily="body"
+                      lineHeight="1.4"
+                      borderLeft="2px solid rgba(0, 255, 255, 0.3)"
+                      pl={2}
+                    >
+                      快適にゲームをプレイできるスペックです。このスペック以上を推奨します。
+                    </Text>
+                  </VStack>
+                </Box>
+              </SimpleGrid>
+            </Box>
             {/* 注釈 */}
             <Text
               fontSize="xs"
