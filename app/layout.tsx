@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
-import '@/styles/globals.css';
-import { Providers } from './providers';
+
+import { Providers } from "@/components/providers/Chakra";
+import "@/styles/globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'PC構成ガイド',
-  description: 'ゲームに最適なPC構成を見つけよう',
+  title: "PC Guide",
+  description: "ゲームごとの推奨スペックを確認できるサイト",
 };
 
 export default function RootLayout({
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
