@@ -76,7 +76,7 @@ const globalstyle = extendTheme({
           },
         },
         neonSuccess: {
-          bg: "neon.green",
+          bg: "rgba(57, 255, 20, 0.12)",
           color: "neon.white",
           border: "2px solid",
           borderColor: "neon.green",
@@ -134,17 +134,17 @@ const globalstyle = extendTheme({
     Badge: {
       variants: {
         budget: {
-          bg: "rgba(57, 255, 20, 0.12)", // ライムグリーン
+          bg: "rgba(57, 255, 20, 0.12)",
           color: "#39ff14",
           border: "1px solid #39ff14",
         },
         recommended: {
-          bg: "rgba(0, 255, 255, 0.12)", // シアン（既存のbrand色）
+          bg: "rgba(0, 255, 255, 0.12)", 
           color: "#00ffff",
           border: "1px solid #00ffff",
         },
         highend: {
-          bg: "rgba(255, 105, 180, 0.12)", // ホットピンク
+          bg: "rgba(255, 105, 180, 0.12)", 
           color: "#ff69b4",
           border: "1px solid #ff69b4",
         },

@@ -153,9 +153,8 @@ const PCPartsTemplates: React.FC = () => {
     <Box minH="100vh" bg="neon.black">
       <Container maxW="1400px" py={8}>
         <VStack spacing={8}>
-          {/* メインタイトル */}
           <MotionBox
-            initial={{ opacity: 0, y: -20 }}
+            initial={false} 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -168,11 +167,10 @@ const PCPartsTemplates: React.FC = () => {
             </Heading>
           </MotionBox>
 
-          {/* ゲーム情報カード */}
           <MotionCard
             variant="neonHighlight"
             w="full"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={false} 
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
@@ -198,11 +196,9 @@ const PCPartsTemplates: React.FC = () => {
               </VStack>
             </CardBody>
           </MotionCard>
-
-          {/* 構成選択 */}
           <MotionBox
             w="full"
-            initial={{ opacity: 0 }}
+            initial={false} 
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
@@ -219,11 +215,10 @@ const PCPartsTemplates: React.FC = () => {
             </VStack>
           </MotionBox>
 
-          {/* 構成サマリー */}
           <MotionCard
             variant="neon"
             w="full"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false} 
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
@@ -325,7 +320,6 @@ const PCPartsTemplates: React.FC = () => {
             </CardBody>
           </MotionCard>
 
-          {/* パーツ一覧 */}
           <VStack spacing={6} w="full">
             <Heading variant="neonSubtitle">推奨パーツ構成</Heading>
 
@@ -339,7 +333,7 @@ const PCPartsTemplates: React.FC = () => {
                   {currentParts.map((part, index) => (
                     <MotionBox
                       key={`${part.type}-${index}`}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={false} 
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8 + index * 0.1 }}
                     >
