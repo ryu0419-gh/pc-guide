@@ -4,7 +4,7 @@ import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import Image from "next/image";
 import { GameProps } from "@/type/type";
-// import { SpecsTable } from "../molecules/SpecsTable";
+
 
 type Props = {
   game: GameProps;
@@ -18,11 +18,11 @@ export const GameCard = ({ game, onSelect }: Props) => {
   borderRadius="md"
   overflow="hidden"
   boxShadow="md"
-  _hover={{ boxShadow: "lg", bg: "gray.700" }} // ← hover時に背景を少し変える
+  _hover={{ boxShadow: "lg", bg: "gray.700" }}
   p={3}
   cursor="pointer"
   onClick={() => onSelect(game.id)}
-  bg="gray.900" // Chakraのテーマカラー
+  bg="gray.900"
   color="white"
 >
   <Box position="relative" w="100%" h="200px">
@@ -41,7 +41,6 @@ export const GameCard = ({ game, onSelect }: Props) => {
   >
     {game.title}
       </Heading>
-      {/* <SpecsTable specs={game.specs} /> */}
     </Box>
   );
 };

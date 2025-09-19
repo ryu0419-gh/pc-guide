@@ -47,7 +47,7 @@ const parsePrice = (priceString: string): number => {
   return parseInt(priceString.replace(/,/g, ""));
 };
 
-const PCPartsTemplates: React.FC = () => {
+const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
   const [globalRank, setGlobalRank] = useState<
     "budget" | "recommended" | "highend"
   >("recommended");
@@ -60,7 +60,7 @@ const PCPartsTemplates: React.FC = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const currentGame = gameData[0];
+  const currentGame = gameData.find(g => g.id === gameId) || gameData[0];
 
   const getCurrentParts = (): PartWithPriceProps[] => {
     const categoryOrder = [
