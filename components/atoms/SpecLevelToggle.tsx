@@ -1,6 +1,6 @@
-import React from 'react';
-import ToggleButton from '@/components/atoms/ToggleButton';
-import { SpecLevel, SPEC_LEVEL_NAMES } from '@/type/type';
+import React from "react";
+import ToggleButton from "@/components/atoms/ToggleButton";
+import { SpecLevel, SPEC_LEVEL_NAMES } from "@/type/type";
 
 interface SpecLevelToggleProps {
   selectedLevel: SpecLevel;
@@ -8,14 +8,14 @@ interface SpecLevelToggleProps {
   size?: "sm" | "md" | "lg";
 }
 
-export const SpecLevelToggle = ({ 
-  selectedLevel, 
-  onLevelChange, 
-  size = "md" 
+export const SpecLevelToggle = ({
+  selectedLevel,
+  onLevelChange,
+  size = "md",
 }: SpecLevelToggleProps) => {
   const options = Object.entries(SPEC_LEVEL_NAMES).map(([value, label]) => ({
     value,
-    label
+    label,
   }));
 
   return (

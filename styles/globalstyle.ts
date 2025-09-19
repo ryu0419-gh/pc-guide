@@ -146,12 +146,12 @@ const globalstyle = extendTheme({
           border: "1px solid #39ff14",
         },
         recommended: {
-          bg: "rgba(0, 255, 255, 0.12)", 
+          bg: "rgba(0, 255, 255, 0.12)",
           color: "#00ffff",
           border: "1px solid #00ffff",
         },
         highend: {
-          bg: "rgba(255, 105, 180, 0.12)", 
+          bg: "rgba(255, 105, 180, 0.12)",
           color: "#ff69b4",
           border: "1px solid #ff69b4",
         },

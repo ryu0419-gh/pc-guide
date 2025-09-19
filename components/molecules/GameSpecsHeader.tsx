@@ -1,7 +1,7 @@
-import React from 'react';
-import { HStack, VStack, Heading, Text } from '@chakra-ui/react';
-import { GameThumbnail } from '@/components/atoms/GameThumbnail';
-import { GameProps } from '@/type/type';
+import React from "react";
+import { HStack, VStack, Heading, Text } from "@chakra-ui/react";
+import { GameThumbnail } from "@/components/atoms/GameThumbnail";
+import { GameProps } from "@/type/type";
 
 interface GameSpecsHeaderProps {
   game: GameProps;
@@ -10,11 +10,7 @@ interface GameSpecsHeaderProps {
 
 export const GameSpecsHeader = ({ game, subtitle }: GameSpecsHeaderProps) => (
   <HStack spacing={6} align="center" w="full">
-    <GameThumbnail 
-      src={game.thumbnail} 
-      alt={game.title} 
-      size="lg"
-    />
+    <GameThumbnail src={game.thumbnail} alt={game.title} size="lg" />
     <VStack align="start" spacing={2} flex={1}>
       <Heading
         variant="neonTitle"

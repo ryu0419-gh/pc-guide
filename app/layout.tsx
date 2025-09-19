@@ -6,7 +6,7 @@ import Layout from "@/components/layout/Layout";
 export const metadata: Metadata = {
   title: {
     template: "%s | 自作PCガイド",
-    default: "自作PCガイド"
+    default: "自作PCガイド",
   },
   description: "ゲームごとの推奨スペックとパーツ選びをサポートするガイド",
 };

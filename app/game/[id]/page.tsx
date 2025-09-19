@@ -17,7 +17,7 @@ export default function GameDetailPage({ params }: GameDetailPageProps) {
 
   useEffect(() => {
     // ゲームデータから該当するゲームを検索
-    const foundGame = gamesData.find(g => g.id === params.id);
+    const foundGame = gamesData.find((g) => g.id === params.id);
     setGame(foundGame || null);
     setLoading(false);
   }, [params.id]);

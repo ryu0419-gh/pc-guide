@@ -47,12 +47,20 @@ const ButtonBase: React.FC<ButtonBaseProps> = ({
       fontFamily="heading"
       textTransform="uppercase"
       letterSpacing="1px"
-      _hover={!disabled && !isLoading ? {
-        transform: "scale(1.05)",
-      } : {}}
-      _active={!disabled && !isLoading ? {
-        transform: "scale(0.98)",
-      } : {}}
+      _hover={
+        !disabled && !isLoading
+          ? {
+              transform: "scale(1.05)",
+            }
+          : {}
+      }
+      _active={
+        !disabled && !isLoading
+          ? {
+              transform: "scale(0.98)",
+            }
+          : {}
+      }
       transition="all 0.2s ease"
       {...props}
     >

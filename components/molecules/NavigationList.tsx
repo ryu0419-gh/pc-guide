@@ -12,17 +12,19 @@ interface NavigationListProps {
   direction?: "horizontal" | "vertical";
 }
 
-export default function NavigationList({ 
-  items, 
-  onItemClick, 
-  direction = "horizontal" 
+export default function NavigationList({
+  items,
+  onItemClick,
+  direction = "horizontal",
 }: NavigationListProps) {
   const Container = direction === "horizontal" ? HStack : VStack;
-  
+
   return (
-    <Container 
-      spacing={direction === "horizontal" ? 8 : 6} 
-      display={direction === "horizontal" ? { base: "none", md: "flex" } : "flex"}
+    <Container
+      spacing={direction === "horizontal" ? 8 : 6}
+      display={
+        direction === "horizontal" ? { base: "none", md: "flex" } : "flex"
+      }
       align="start"
     >
       {items.map((item) => (

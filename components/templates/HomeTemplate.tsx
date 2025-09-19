@@ -21,8 +21,8 @@ export const HomeTemplate = ({ initialGames }: Props) => {
   const handleSearch = () => {
     setGames(
       initialGames.filter((g) =>
-        g.title.toLowerCase().includes(query.toLowerCase())
-      )
+        g.title.toLowerCase().includes(query.toLowerCase()),
+      ),
     );
   };
 

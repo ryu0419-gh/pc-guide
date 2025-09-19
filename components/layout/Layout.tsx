@@ -6,7 +6,6 @@ import { Box, Flex, Container, Heading, HStack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionFlex = motion(Flex);
 
 type LayoutProps = {
   children: ReactNode;
@@ -29,22 +28,23 @@ export default function Layout({ children }: LayoutProps) {
       >
         <Container maxW="container.xl" px={6}>
           <Flex justify="space-between" align="center">
-<Heading
-  as="h1"
-  variant="neonTitle"
-  fontSize={{ base: "xl", md: "2xl" }}
-  fontFamily="STAATLICHES, sans-serif"
-  textShadow="0 0 20px rgba(0, 255, 255, 1)"
-  _hover={{
-    textShadow: "0 0 30px rgba(0, 255, 255, 1)",
-    transform: "scale(1.05)",
-  }}
-  transition="all 0.3s ease"
-  cursor="pointer"
-  onClick={() => window.location.href = '/'}
->
-  MIYA Guide
-</Heading>
+            <Heading
+              as={Link}
+              href="/"
+              variant="neonTitle"
+              fontSize={{ base: "xl", md: "2xl" }}
+              fontFamily="STAATLICHES, sans-serif"
+              textShadow="0 0 20px rgba(0, 255, 255, 1)"
+              _hover={{
+                textShadow: "0 0 30px rgba(0, 255, 255, 1)",
+                transform: "scale(1.05)",
+              }}
+              transition="all 0.3s ease"
+              cursor="pointer"
+              textDecoration="none"
+            >
+              MIYA Guide
+            </Heading>
             <HStack spacing={8} fontFamily="STAATLICHES, sans-serif">
               <Text
                 as={Link}
@@ -58,7 +58,7 @@ export default function Layout({ children }: LayoutProps) {
                 px={3}
                 py={2}
                 borderRadius="8px"
-                _hover={{ 
+                _hover={{
                   color: "brand.500",
                   textShadow: "0 0 15px rgba(0, 255, 255, 0.8)",
                   transform: "translateY(-2px)",
@@ -91,7 +91,7 @@ export default function Layout({ children }: LayoutProps) {
                 sx={{
                   "&:hover::after": {
                     width: "100%",
-                  }
+                  },
                 }}
                 transition="all 0.3s ease"
                 cursor="pointer"
@@ -105,7 +105,9 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Main */}
       <Box as="main" flex="1" py={6}>
-        <Container maxW="container.xl" px={6}>{children}</Container>
+        <Container maxW="container.xl" px={6}>
+          {children}
+        </Container>
       </Box>
 
       {/* Footer */}
@@ -123,8 +125,8 @@ export default function Layout({ children }: LayoutProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <Text 
-          fontFamily="STAATLICHES, sans-serif" 
+        <Text
+          fontFamily="STAATLICHES, sans-serif"
           letterSpacing="2px"
           textTransform="uppercase"
           color="neon.white"

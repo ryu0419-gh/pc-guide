@@ -46,8 +46,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </DrawerHeader>
         <DrawerBody>
           <VStack spacing={6} align="start" pt={6}>
-            <NavigationList 
-              items={navigationItems} 
+            <NavigationList
+              items={navigationItems}
               onItemClick={onClose}
               direction="vertical"
             />

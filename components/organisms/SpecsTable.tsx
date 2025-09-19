@@ -1,5 +1,5 @@
 // components/organisms/GameSpecsDetailTable.tsx
-import React from 'react';
+import React from "react";
 import {
   Box,
   Table,
@@ -13,10 +13,10 @@ import {
   VStack,
   Card,
   CardBody,
-} from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import ButtonBase from '@/components/atoms/ButtonBase';
-import { GameProps } from '@/type/type';
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import ButtonBase from "@/components/atoms/ButtonBase";
+import { GameProps } from "@/type/type";
 
 const MotionCard = motion(Card);
 
@@ -40,13 +40,13 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
     );
   }
 
-const handleViewParts = () => {
-  if (onViewParts) {
-    onViewParts();
-  } else {
-    window.location.href = `/game/${game.id}/parts`;
-  }
-};
+  const handleViewParts = () => {
+    if (onViewParts) {
+      onViewParts();
+    } else {
+      window.location.href = `/game/${game.id}/parts`;
+    }
+  };
 
   return (
     <Box maxW="800px" mx="auto" w="full">
@@ -74,8 +74,8 @@ const handleViewParts = () => {
             </VStack>
 
             {/* スペック比較テーブル */}
-            <Box 
-              w="full" 
+            <Box
+              w="full"
               overflowX="auto"
               border="2px solid"
               borderColor="rgba(0, 255, 255, 0.3)"
@@ -85,7 +85,7 @@ const handleViewParts = () => {
               <Table variant="simple" size="md">
                 <Thead>
                   <Tr borderBottomWidth="2px" borderColor="brand.500">
-                    <Th 
+                    <Th
                       color="brand.500"
                       fontFamily="heading"
                       textTransform="uppercase"
@@ -99,9 +99,9 @@ const handleViewParts = () => {
                     >
                       項目
                     </Th>
-                    <Th 
+                    <Th
                       color="neon.white"
-                      fontFamily="heading" 
+                      fontFamily="heading"
                       textTransform="uppercase"
                       fontSize="sm"
                       letterSpacing="1px"
@@ -112,7 +112,7 @@ const handleViewParts = () => {
                     >
                       最低動作スペック
                     </Th>
-                    <Th 
+                    <Th
                       color="brand.500"
                       fontFamily="heading"
                       textTransform="uppercase"
@@ -130,15 +130,15 @@ const handleViewParts = () => {
                 </Thead>
                 <Tbody>
                   {/* OS */}
-                  <Tr 
-                    borderBottomWidth="1px" 
+                  <Tr
+                    borderBottomWidth="1px"
                     borderColor="rgba(0, 255, 255, 0.2)"
                     _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <Td 
-                      fontWeight="bold" 
-                      color="neon.white" 
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
                       fontSize="sm"
@@ -149,7 +149,7 @@ const handleViewParts = () => {
                     >
                       OS
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.gray"
                       fontSize="sm"
                       fontFamily="body"
@@ -160,7 +160,7 @@ const handleViewParts = () => {
                     >
                       {game.budgetOs}
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.white"
                       fontSize="sm"
                       fontFamily="body"
@@ -175,15 +175,15 @@ const handleViewParts = () => {
                   </Tr>
 
                   {/* CPU */}
-                  <Tr 
-                    borderBottomWidth="1px" 
+                  <Tr
+                    borderBottomWidth="1px"
                     borderColor="rgba(0, 255, 255, 0.2)"
                     _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <Td 
-                      fontWeight="bold" 
-                      color="neon.white" 
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
                       fontSize="sm"
@@ -194,7 +194,7 @@ const handleViewParts = () => {
                     >
                       CPU
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.gray"
                       fontSize="sm"
                       fontFamily="body"
@@ -205,7 +205,7 @@ const handleViewParts = () => {
                     >
                       {game.budgetProcessor}
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.white"
                       fontSize="sm"
                       fontFamily="body"
@@ -220,15 +220,15 @@ const handleViewParts = () => {
                   </Tr>
 
                   {/* GPU */}
-                  <Tr 
-                    borderBottomWidth="1px" 
+                  <Tr
+                    borderBottomWidth="1px"
                     borderColor="rgba(0, 255, 255, 0.2)"
                     _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <Td 
-                      fontWeight="bold" 
-                      color="neon.white" 
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
                       fontSize="sm"
@@ -239,7 +239,7 @@ const handleViewParts = () => {
                     >
                       GPU
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.gray"
                       fontSize="sm"
                       fontFamily="body"
@@ -250,7 +250,7 @@ const handleViewParts = () => {
                     >
                       {game.budgetGraphics}
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.white"
                       fontSize="sm"
                       fontFamily="body"
@@ -265,15 +265,15 @@ const handleViewParts = () => {
                   </Tr>
 
                   {/* RAM */}
-                  <Tr 
-                    borderBottomWidth="1px" 
+                  <Tr
+                    borderBottomWidth="1px"
                     borderColor="rgba(0, 255, 255, 0.2)"
                     _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <Td 
-                      fontWeight="bold" 
-                      color="neon.white" 
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
                       fontSize="sm"
@@ -284,7 +284,7 @@ const handleViewParts = () => {
                     >
                       RAM
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.gray"
                       fontSize="sm"
                       fontFamily="body"
@@ -295,7 +295,7 @@ const handleViewParts = () => {
                     >
                       {game.budgetMemory}
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.white"
                       fontSize="sm"
                       fontFamily="body"
@@ -310,13 +310,13 @@ const handleViewParts = () => {
                   </Tr>
 
                   {/* ストレージ */}
-                  <Tr 
+                  <Tr
                     _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <Td 
-                      fontWeight="bold" 
-                      color="neon.white" 
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
                       fontSize="sm"
@@ -327,7 +327,7 @@ const handleViewParts = () => {
                     >
                       ストレージ
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.gray"
                       fontSize="sm"
                       fontFamily="body"
@@ -338,7 +338,7 @@ const handleViewParts = () => {
                     >
                       {game.budgetStorage}
                     </Td>
-                    <Td 
+                    <Td
                       color="neon.white"
                       fontSize="sm"
                       fontFamily="body"
@@ -356,14 +356,15 @@ const handleViewParts = () => {
             </Box>
 
             {/* 注釈 */}
-            <Text 
-              fontSize="xs" 
-              color="rgba(255, 255, 255, 0.5)" 
+            <Text
+              fontSize="xs"
+              color="rgba(255, 255, 255, 0.5)"
               textAlign="center"
               fontFamily="body"
               lineHeight="1.4"
             >
-              ※ 推奨スペックは快適にゲームをプレイできる性能です<br />
+              ※ 推奨スペックは快適にゲームをプレイできる性能です
+              <br />
               最低動作スペックでは画質やフレームレートが制限される場合があります
             </Text>
 

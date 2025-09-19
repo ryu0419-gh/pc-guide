@@ -47,7 +47,7 @@ const parsePrice = (priceString: string): number => {
   return parseInt(priceString.replace(/,/g, ""));
 };
 
-const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
+const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
   const [globalRank, setGlobalRank] = useState<
     "budget" | "recommended" | "highend"
   >("recommended");
@@ -60,7 +60,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const currentGame = gameData.find(g => g.id === gameId) || gameData[0];
+  const currentGame = gameData.find((g) => g.id === gameId) || gameData[0];
 
   const getCurrentParts = (): PartWithPriceProps[] => {
     const categoryOrder = [
@@ -154,7 +154,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
       <Container maxW="1400px" py={8}>
         <VStack spacing={8}>
           <MotionBox
-            initial={false} 
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -167,13 +167,12 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
             </Heading>
           </MotionBox>
 
-          
-<MotionCard
+          <MotionCard
             variant="neonHighlight"
             w="full"
             position="relative"
             overflow="hidden"
-            initial={false} 
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
@@ -191,7 +190,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
               filter="blur(2px)"
               zIndex={0}
             />
-            
+
             {/* オーバーレイ */}
             <Box
               position="absolute"
@@ -205,7 +204,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
 
             <CardBody position="relative" zIndex={2}>
               <VStack spacing={4}>
-                <Heading 
+                <Heading
                   variant="neonSubtitle"
                   fontSize=""
                   textShadow="0 0 10px rgba(0, 255, 255, 0.8)"
@@ -231,7 +230,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
           </MotionCard>
           <MotionBox
             w="full"
-            initial={false} 
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
@@ -251,7 +250,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
           <MotionCard
             variant="neon"
             w="full"
-            initial={false} 
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
@@ -366,7 +365,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) =>  {
                   {currentParts.map((part, index) => (
                     <MotionBox
                       key={`${part.type}-${index}`}
-                      initial={false} 
+                      initial={false}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8 + index * 0.1 }}
                     >

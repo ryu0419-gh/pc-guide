@@ -15,11 +15,11 @@ const sizeMap = {
   lg: { width: "160px", height: "160px" },
 };
 
-export const GameThumbnail = ({ 
-  src, 
-  alt, 
+export const GameThumbnail = ({
+  src,
+  alt,
   fallback = "/api/placeholder/400/400",
-  size = "md"
+  size = "md",
 }: GameThumbnailProps) => {
   const [imageSrc, setImageSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +36,7 @@ export const GameThumbnail = ({
   const { width, height } = sizeMap[size];
 
   return (
-    <div 
+    <div
       className="relative rounded-lg overflow-hidden bg-gray-900 border-2 border-cyan-500/20"
       style={{ width, height }}
     >

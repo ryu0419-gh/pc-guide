@@ -7,7 +7,7 @@ interface RankBadgeProps {
 
 const RANK_LABELS = {
   budget: "コスパ重視",
-  recommended: "推奨", 
+  recommended: "推奨",
   highend: "ハイエンド",
 } as const;
 
