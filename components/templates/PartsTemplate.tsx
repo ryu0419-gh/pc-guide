@@ -10,7 +10,6 @@ import {
   VStack,
   HStack,
   Grid,
-  Image,
   Stat,
   StatLabel,
   StatNumber,
@@ -29,6 +28,7 @@ import ToggleButton from "@/components/atoms/ToggleButton";
 import PartsCard from "@/components/organisms/PartsCard";
 import ButtonBase from "@/components/atoms/ButtonBase";
 import PartDetailModal from "@/components/organisms/PartsModalCard";
+import { parsePrice } from "@/components/atoms/Price";
 
 import gameData from "@/data/games.json";
 import partsData from "@/data/parts.json";
@@ -43,9 +43,6 @@ import {
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
-const parsePrice = (priceString: string): number => {
-  return parseInt(priceString.replace(/,/g, ""));
-};
 
 const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
   const [globalRank, setGlobalRank] = useState<

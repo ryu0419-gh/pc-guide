@@ -1,30 +1,31 @@
 // app/game/[id]/page.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { SpecsTable } from "@/components/organisms/SpecsTable";
 import { GameProps } from "@/type/type";
 import gamesData from "@/data/games.json";
 import { Box, Container, Text, VStack } from "@chakra-ui/react";
 
 interface GameDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default function GameDetailPage({ params }: GameDetailPageProps) {
+  const { id } = use(params);
   const [game, setGame] = useState<GameProps | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // ゲームデータから該当するゲームを検索
-    const foundGame = gamesData.find((g) => g.id === params.id);
+    const foundGame = gamesData.find((g) => g.id === id);
     setGame(foundGame || null);
     setLoading(false);
-  }, [params.id]);
+  }, [id]);
 
   const handleViewParts = () => {
     // パーツページへの遷移
-    window.location.href = `/game/${params.id}/parts`;
+    window.location.href = `/game/${id}/parts`;
   };
 
   if (loading) {

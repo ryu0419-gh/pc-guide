@@ -5,7 +5,7 @@ interface PriceProps {
   size?: "sm" | "md" | "lg" | "xl";
 }
 
-const parsePrice = (priceString: string): number => {
+export const parsePrice = (priceString: string): number => {
   const cleaned = priceString.replace(/[^0-9]/g, "");
   const parsed = parseInt(cleaned);
   return isNaN(parsed) ? 0 : parsed;
