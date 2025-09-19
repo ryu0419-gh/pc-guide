@@ -415,7 +415,6 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
               onClick={() => {
                 // 後でリンクに変更予定
                 console.log("購入サイトリンク表示");
-                // 将来的にはここにルーティング処理を追加
               }}
             >
               購入サイトはこちら
