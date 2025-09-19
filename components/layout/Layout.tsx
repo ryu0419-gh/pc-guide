@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { Box, Flex, Container, Heading, HStack, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
 
 type LayoutProps = {
   children: ReactNode;
@@ -10,46 +14,228 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <Flex direction="column" minH="100vh" bg="#000000" color="#FFFFFF">
+    <Flex direction="column" minH="100vh" bg="neon.black" color="neon.white">
       {/* Header */}
-      <Box as="header" bg="#000000" py={4}>
-        <Container maxW="container.lg">
+      <MotionBox
+        as="header"
+        bg="neon.black"
+        py={4}
+        borderBottom="2px solid"
+        borderColor="rgba(0, 255, 255, 0.2)"
+        boxShadow="0 0 20px rgba(0, 255, 255, 0.1)"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Container maxW="container.xl" px={6}>
           <Flex justify="space-between" align="center">
             <Heading
               as="h1"
-              size="lg"
+              variant="neonTitle"
+              fontSize={{ base: "xl", md: "2xl" }}
               fontFamily="STAATLICHES, sans-serif"
-              fontWeight="bold"
+              textShadow="0 0 20px rgba(0, 255, 255, 1)"
+              _hover={{
+                textShadow: "0 0 30px rgba(0, 255, 255, 1)",
+                transform: "scale(1.05)",
+              }}
+              transition="all 0.3s ease"
+              cursor="pointer"
             >
               MIYA Guide
             </Heading>
-            <HStack spacing={6} fontFamily="STAATLICHES, sans-serif">
-              <Link href="/">Home</Link>
-              <Link href="/game/1">Games</Link>
-              <Link href="/parts">Parts</Link>
+            <HStack spacing={8} fontFamily="STAATLICHES, sans-serif">
+              <Text
+                as={Link}
+                href="/"
+                color="neon.white"
+                fontSize="lg"
+                fontWeight="bold"
+                textTransform="uppercase"
+                letterSpacing="2px"
+                position="relative"
+                px={3}
+                py={2}
+                borderRadius="8px"
+                _hover={{ 
+                  color: "brand.500",
+                  textShadow: "0 0 15px rgba(0, 255, 255, 0.8)",
+                  transform: "translateY(-2px)",
+                  bg: "rgba(0, 255, 255, 0.1)",
+                  borderColor: "brand.500",
+                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)",
+                }}
+                _before={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "2px",
+                  bg: "transparent",
+                  transition: "all 0.3s ease",
+                }}
+                _after={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: "50%",
+                  width: 0,
+                  height: "2px",
+                  bg: "brand.500",
+                  boxShadow: "0 0 10px rgba(0, 255, 255, 0.8)",
+                  transform: "translateX(-50%)",
+                  transition: "all 0.3s ease",
+                }}
+                sx={{
+                  "&:hover::after": {
+                    width: "100%",
+                  }
+                }}
+                transition="all 0.3s ease"
+                cursor="pointer"
+              >
+                Home
+              </Text>
+              <Text
+                as={Link}
+                href="/games"
+                color="neon.white"
+                fontSize="lg"
+                fontWeight="bold"
+                textTransform="uppercase"
+                letterSpacing="2px"
+                position="relative"
+                px={3}
+                py={2}
+                borderRadius="8px"
+                _hover={{ 
+                  color: "brand.500",
+                  textShadow: "0 0 15px rgba(0, 255, 255, 0.8)",
+                  transform: "translateY(-2px)",
+                  bg: "rgba(0, 255, 255, 0.1)",
+                  borderColor: "brand.500",
+                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)",
+                }}
+                _before={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "2px",
+                  bg: "transparent",
+                  transition: "all 0.3s ease",
+                }}
+                _after={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: "50%",
+                  width: 0,
+                  height: "2px",
+                  bg: "brand.500",
+                  boxShadow: "0 0 10px rgba(0, 255, 255, 0.8)",
+                  transform: "translateX(-50%)",
+                  transition: "all 0.3s ease",
+                }}
+                sx={{
+                  "&:hover::after": {
+                    width: "100%",
+                  }
+                }}
+                transition="all 0.3s ease"
+                cursor="pointer"
+              >
+                Games
+              </Text>
+              <Text
+                as={Link}
+                href="/parts"
+                color="neon.white"
+                fontSize="lg"
+                fontWeight="bold"
+                textTransform="uppercase"
+                letterSpacing="2px"
+                position="relative"
+                px={3}
+                py={2}
+                borderRadius="8px"
+                _hover={{ 
+                  color: "brand.500",
+                  textShadow: "0 0 15px rgba(0, 255, 255, 0.8)",
+                  transform: "translateY(-2px)",
+                  bg: "rgba(0, 255, 255, 0.1)",
+                  borderColor: "brand.500",
+                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)",
+                }}
+                _before={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "2px",
+                  bg: "transparent",
+                  transition: "all 0.3s ease",
+                }}
+                _after={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: "50%",
+                  width: 0,
+                  height: "2px",
+                  bg: "brand.500",
+                  boxShadow: "0 0 10px rgba(0, 255, 255, 0.8)",
+                  transform: "translateX(-50%)",
+                  transition: "all 0.3s ease",
+                }}
+                sx={{
+                  "&:hover::after": {
+                    width: "100%",
+                  }
+                }}
+                transition="all 0.3s ease"
+                cursor="pointer"
+              >
+                Parts
+              </Text>
             </HStack>
           </Flex>
         </Container>
-      </Box>
+      </MotionBox>
 
       {/* Main */}
       <Box as="main" flex="1" py={6}>
-        <Container maxW="container.lg">{children}</Container>
+        <Container maxW="container.xl" px={6}>{children}</Container>
       </Box>
 
       {/* Footer */}
-      <Box
+      <MotionBox
         as="footer"
-        bg="#111111"
-        py={4}
+        bg="gray.900"
+        py={6}
         textAlign="center"
         fontSize="sm"
-        color="gray.400"
+        color="neon.gray"
+        borderTop="2px solid"
+        borderColor="rgba(0, 255, 255, 0.2)"
+        boxShadow="0 0 20px rgba(0, 255, 255, 0.1)"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <Text fontFamily="STAATLICHES, sans-serif">
+        <Text 
+          fontFamily="STAATLICHES, sans-serif" 
+          letterSpacing="2px"
+          textTransform="uppercase"
+          color="neon.white"
+          textShadow="0 0 10px rgba(0, 255, 255, 0.5)"
+        >
           © 2025 自作PCガイドチーム
         </Text>
-      </Box>
+      </MotionBox>
     </Flex>
   );
 }

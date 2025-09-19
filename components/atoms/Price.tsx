@@ -1,10 +1,14 @@
 import { Text } from "@chakra-ui/react";
+
 interface PriceProps {
   price: string;
   size?: "sm" | "md" | "lg" | "xl";
 }
+
 const parsePrice = (priceString: string): number => {
-  return parseInt(priceString.replace(/,/g, ""));
+  const cleaned = priceString.replace(/[^0-9]/g, "");
+  const parsed = parseInt(cleaned);
+  return isNaN(parsed) ? 0 : parsed;
 };
 
 const Price: React.FC<PriceProps> = ({ price, size = "lg" }) => {
@@ -15,7 +19,7 @@ const Price: React.FC<PriceProps> = ({ price, size = "lg" }) => {
     md: "20px",
     lg: "24px",
     xl: "32px",
-  };
+  } as const;
 
   return (
     <Text

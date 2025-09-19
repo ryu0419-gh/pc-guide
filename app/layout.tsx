@@ -1,58 +1,22 @@
 import { ReactNode } from "react";
-import {Staatliches} from "next/font/google"
-import { Providers } from "./providers";
-import ClientLayout from "./Clientlayout";
-
-export const metadata = {
-  title: "MIYA Guide",
-  description: "MIYA Guide - 自作PCガイド",
-};
-
-const staatliches = Staatliches({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-staatliches',
-})
-
-type LayoutProps = {
-  children: ReactNode;
-};
-
-export default function RootLayout({ children }: LayoutProps) {
-  return (
-    <html lang="ja" className={staatliches.variable}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body>
-        <Providers>
-          <ClientLayout>{children}</ClientLayout>
-        </Providers>
-      </body>
-    </html>
-  );
-}
-
-import { Providers } from "@/components/providers/Chakra";
-import "@/styles/globals.css";
 import type { Metadata } from "next";
+import { Providers } from "@/components/providers/Chakra";
+import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
-  title: "PC Guide",
-  description: "ゲームごとの推奨スペックを確認できるサイト",
+  title: {
+    template: "%s | 自作PCガイド",
+    default: "自作PCガイド"
+  },
+  description: "ゲームごとの推奨スペックとパーツ選びをサポートするガイド",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       <body>
         <Providers>
-          {children}
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>

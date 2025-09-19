@@ -18,7 +18,6 @@ export interface GameProps {
   highendGraphics: string;
   highendStorage: string;
 }
-
 export interface PartProps {
   id: string;
   model: string;
@@ -32,25 +31,25 @@ export interface PartProps {
   boostClock?: string;
   tdp?: string;
   socket?: string;
-  // GPU
+  // GPU properties
   memory?: string;
   powerConsumption?: string;
   rayTracing?: boolean;
   cuda?: number;
   shaderUnits?: number;
   executionUnits?: number;
-  // Memory
+  // Memory properties
   capacity?: string;
   memoryType?: string;
   speed?: string;
   modules?: string;
   latency?: string;
-  // Storage
+  // Storage properties
   interface?: string;
   readSpeed?: string;
   writeSpeed?: string;
   formFactor?: string;
-  // Motherboard
+  // Motherboard properties
   chipset?: string;
   wifi?: string;
   bluetooth?: string;
@@ -60,7 +59,7 @@ export interface PartProps {
   ethernet?: string;
   audio?: string;
   slots?: string;
-  // PowerSupply
+  // PowerSupply properties
   wattage?: string;
   efficiency?: string;
   modular?: string;
@@ -72,7 +71,6 @@ export interface PartProps {
   protections?: string;
   ripple?: string;
 }
-
 export interface GamePartProps {
   id: number;
   gameId: string;
@@ -92,8 +90,7 @@ export const SPEC_LEVEL_NAMES: Record<SpecLevel, string> = {
   recommended: "推奨スペック",
   highend: "ハイエンド",
 };
-
-export interface GameSpecInfo {
+export interface GameSpecInfoProps {
   os: string;
   processor: string;
   memory: string;
@@ -101,7 +98,7 @@ export interface GameSpecInfo {
   storage: string;
 }
 
-export type ExtractGameSpec = (
+export type ExtractGameSpecProps = (
   game: GameProps,
   level: SpecLevel,
-) => GameSpecInfo;
+) => GameSpecInfoProps;

@@ -3,11 +3,11 @@
 import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import Image from "next/image";
-import { Game } from "@/types/game";
+import { GameProps } from "@/type/type";
 // import { SpecsTable } from "../molecules/SpecsTable";
 
 type Props = {
-  game: Game;
+  game: GameProps;
   onSelect: (id: string) => void;
 };
 
