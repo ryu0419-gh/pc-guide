@@ -18,4 +18,20 @@ export interface Game {
       storage: string;
     };
   };
+  parts: {
+    recommended: Array<{
+      type: string;
+      model: string;
+      price: string;
+      description: string;
+      benchmarkScore: number;
+    }>;
+    alternative: Array<{
+      type: string;
+      model: string;
+      price: string;
+      description: string;
+      benchmarkScore: number;
+    }>;
+  };
 }

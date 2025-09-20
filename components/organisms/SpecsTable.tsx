@@ -2,6 +2,27 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { 
+  Box, 
+  Container, 
+  Flex, 
+  HStack, 
+  VStack,
+  Stack,
+  Text, 
+  Heading, 
+  Image, 
+  SimpleGrid, 
+  Table, 
+  Thead, 
+  Tbody, 
+  Tr, 
+  Th, 
+  Td,
+  Button,
+  Icon
+} from '@chakra-ui/react';
+import { Game } from "@/types/game";
 
 interface GameSpecs {
   minimum: {
@@ -20,13 +41,13 @@ interface GameSpecs {
   };
 }
 
-interface Game {
-  id: string;
-  title: string;
-  thumbnail: string;
-  specs: GameSpecs;
-  screenshots?: string[];
-}
+// interface Game {
+//   id: string;
+//   title: string;
+//   thumbnail: string;
+//   specs: GameSpecs;
+//   screenshots?: string[];
+// }
 
 interface SpecsTableProps {
   game: Game;
@@ -34,30 +55,237 @@ interface SpecsTableProps {
 
 export default function SpecsTable({ game }: SpecsTableProps) {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <Box minH="100vh" bg="gray.50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-gray-900">PC Guide</Link>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-gray-900">ホーム</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Box bg="white" shadow="sm" borderBottomWidth="1px">
+        <Container maxW="6xl" px={4} py={4}>
+          <Flex align="center" justify="space-between">
+            <Link href="/">
+              <Text fontSize="xl" fontWeight="bold" color="gray.900" cursor="pointer">
+                PC Guide
+              </Text>
+            </Link>
+            <HStack spacing={6} display={{ base: "none", md: "flex" }}>
+              <Link href="/">
+                <Text color="gray.600" _hover={{ color: "gray.900" }} cursor="pointer">
+                  ホーム
+                </Text>
+              </Link>
+            </HStack>
+          </Flex>
+        </Container>
+      </Box>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <Container maxW="4xl" px={4} py={8}>
         {/* ゲームタイトル + サムネイル画像 */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="flex items-center gap-6">
-            <img 
-              src={game.thumbnail} 
+        <Box bg="white" rounded="lg" shadow="lg" p={6} mb={8}>
+          <Flex align="center" gap={6}>
+            <Image
+              src={game.thumbnail}
               alt={game.title}
-              className="w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover shadow-md"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/api/placeholder/400/400';
-              }}
+              width={{ base: "96px", md: "128px" }}
+              height={{ base: "96px", md: "128px" }}
+              rounded="lg"
+              objectFit="cover"
+              shadow="md"
+              fallbackSrc="/api/placeholder/400/400"
+            />
+            <Box>
+              <Heading as="h1" size={{ base: "lg", md: "xl" }} color="gray.900" mb={2}>
+                {game.title}
+              </Heading>
+              <Text color="gray.600">システム要件比較表</Text>
+            </Box>
+          </Flex>
+        </Box>
+
+        {/* 公式スクリーンショット（任意） */}
+        {game.screenshots && game.screenshots.length > 0 && (
+          <Box bg="white" rounded="lg" shadow="lg" p={6} mb={8}>
+            <Heading as="h2" size="lg" color="gray.900" mb={4}>
+              ゲームスクリーンショット
+            </Heading>
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4}>
+              {game.screenshots.map((screenshot, index) => (
+                <Image
+                  key={index}
+                  src={screenshot}
+                  alt={`${game.title} スクリーンショット ${index + 1}`}
+                  width="full"
+                  height="48"
+                  objectFit="cover"
+                  rounded="lg"
+                  shadow="sm"
+                  _hover={{ shadow: "md" }}
+                  transition="all 0.2s"
+                  fallbackSrc="/api/placeholder/400/300"
+                />
+              ))}
+            </SimpleGrid>
+          </Box>
+        )}
+
+        {/* スペック比較表 */}
+        <Box bg="white" rounded="lg" shadow="lg" p={6} mb={8}>
+          <Heading as="h2" size="lg" color="gray.900" mb={6} textAlign="center">
+            スペック比較表
+          </Heading>
+          
+          <Box overflowX="auto">
+            <Table variant="simple">
+              <Thead>
+                <Tr borderBottomWidth="2px" borderColor="gray.200">
+                  <Th 
+                    textAlign="left" 
+                    py={4} 
+                    px={4} 
+                    fontWeight="bold" 
+                    color="gray.700" 
+                    bg="gray.50"
+                    roundedTopLeft="lg"
+                  >
+                    項目
+                  </Th>
+                  <Th 
+                    textAlign="center" 
+                    py={4} 
+                    px={4} 
+                    fontWeight="bold" 
+                    color="red.600" 
+                    bg="red.50"
+                  >
+                    最低動作環境
+                  </Th>
+                  <Th 
+                    textAlign="center" 
+                    py={4} 
+                    px={4} 
+                    fontWeight="bold" 
+                    color="blue.600" 
+                    bg="blue.50"
+                    roundedTopRight="lg"
+                  >
+                    推奨スペック
+                  </Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr borderBottomWidth="1px" borderColor="gray.100" _hover={{ bg: "gray.50" }}>
+                  <Td py={4} px={4} fontWeight="medium" color="gray.700" bg="gray.50">OS</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.minimum.os}</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.recommended.os}</Td>
+                </Tr>
+                <Tr borderBottomWidth="1px" borderColor="gray.100" _hover={{ bg: "gray.50" }}>
+                  <Td py={4} px={4} fontWeight="medium" color="gray.700" bg="gray.50">CPU</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.minimum.processor}</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.recommended.processor}</Td>
+                </Tr>
+                <Tr borderBottomWidth="1px" borderColor="gray.100" _hover={{ bg: "gray.50" }}>
+                  <Td py={4} px={4} fontWeight="medium" color="gray.700" bg="gray.50">GPU</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.minimum.graphics}</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.recommended.graphics}</Td>
+                </Tr>
+                <Tr borderBottomWidth="1px" borderColor="gray.100" _hover={{ bg: "gray.50" }}>
+                  <Td py={4} px={4} fontWeight="medium" color="gray.700" bg="gray.50">RAM</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.minimum.memory}</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.recommended.memory}</Td>
+                </Tr>
+                <Tr _hover={{ bg: "gray.50" }}>
+                  <Td py={4} px={4} fontWeight="medium" color="gray.700" bg="gray.50" roundedBottomLeft="lg">
+                    ストレージ
+                  </Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600">{game.specs.minimum.storage}</Td>
+                  <Td py={4} px={4} textAlign="center" color="gray.600" roundedBottomRight="lg">
+                    {game.specs.recommended.storage}
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
+          </Box>
+
+          {/* スペック判定インジケーター */}
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} mt={6}>
+            <Box p={4} borderWidth="2px" borderColor="red.200" rounded="lg" bg="red.50">
+              <HStack mb={2}>
+                <Box w={4} h={4} bg="red.500" rounded="full" />
+                <Heading as="h3" size="sm" color="red.700">最低動作環境</Heading>
+              </HStack>
+              <Text fontSize="sm" color="red.600">
+                ゲームが動作する最低限のスペックです。快適性は期待できません。
+              </Text>
+            </Box>
+            <Box p={4} borderWidth="2px" borderColor="blue.200" rounded="lg" bg="blue.50">
+              <HStack mb={2}>
+                <Box w={4} h={4} bg="blue.500" rounded="full" />
+                <Heading as="h3" size="sm" color="blue.700">推奨スペック</Heading>
+              </HStack>
+              <Text fontSize="sm" color="blue.600">
+                快適にゲームをプレイできるスペックです。このスペック以上を推奨します。
+              </Text>
+            </Box>
+          </SimpleGrid>
+        </Box>
+
+        {/* 推奨パーツを見るボタン */}
+        <Box bg="white" rounded="lg" shadow="lg" p={6}>
+          <VStack spacing={6} textAlign="center">
+            <Heading as="h3" size="lg" color="gray.900">PC構成をチェック</Heading>
+            <Text color="gray.600">このゲームに最適なパーツ構成を確認しましょう</Text>
+            <Stack direction={{ base: "column", sm: "row" }} spacing={4}>
+              <Link href={`/game/${game.id}/parts`}>
+                <Button
+                  size="lg"
+                  bgGradient="linear(to-r, blue.600, blue.700)"
+                  color="white"
+                  _hover={{ 
+                    bgGradient: "linear(to-r, blue.700, blue.800)",
+                    transform: "scale(1.05)"
+                  }}
+                  shadow="lg"
+                  _hover={{ shadow: "xl" }}
+                  transition="all 0.2s"
+                  leftIcon={<Icon viewBox="0 0 24 24">
+                    <path 
+                      fill="currentColor" 
+                      d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                    />
+                  </Icon>}
+                  rightIcon={<Icon viewBox="0 0 24 24">
+                    <path 
+                      fill="currentColor" 
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </Icon>}
+                >
+                  このゲーム用の推奨パーツを見る
+                </Button>
+              </Link>
+              
+              <Link href="/">
+                <Button
+                  size="lg"
+                  bg="gray.200"
+                  color="gray.700"
+                  _hover={{ bg: "gray.300" }}
+                  transition="all 0.2s"
+                >
+                  他のゲームを見る
+                </Button>
+              </Link>
+            </Stack>
+          </VStack>
+        </Box>
+      </Container>
+
+      {/* Footer */}
+      <Box bg="gray.800" color="white" py={8} mt={12}>
+        <Container maxW="6xl" textAlign="center">
+          <Text color="gray.400">© 2024 PC Guide - ゲーミングPC構成ガイド</Text>
+        </Container>
+      </Box>
+    </Box>
+  );
+}
             />
             <div>
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{game.title}</h1>

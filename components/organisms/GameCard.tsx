@@ -21,7 +21,10 @@ export const GameCard = ({ game, onSelect }: Props) => {
   _hover={{ boxShadow: "lg", bg: "gray.700" }} // ← hover時に背景を少し変える
   p={3}
   cursor="pointer"
-  onClick={() => onSelect(game.id)}
+  onClick={() => {
+    console.log("GameCard clicked:", game.id, game.title);
+    onSelect(game.id);
+  }}
   bg="gray.900" // Chakraのテーマカラー
   color="white"
 >
