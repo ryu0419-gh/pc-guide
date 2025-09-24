@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -264,3 +265,14 @@ export default function GameParts({ params }: { params: Promise<{ id: string }> 
     </div>
   );
 }
+=======
+import PCPartsTemplates from "@/components/templates/PartsTemplate";
+
+interface PartsPageProps {
+  params: { id: string };
+}
+
+export default function PartsPage({ params }: PartsPageProps) {
+  return <PCPartsTemplates gameId={params.id} />;
+}
+>>>>>>> origin/feature/test

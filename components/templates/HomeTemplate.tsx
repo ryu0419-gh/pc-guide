@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Game } from "@/types/game";
 import { GameCard } from "@/components/organisms/GameCard";
 import { SearchBar } from "@/components/molecules/SearchBar";
 import { VStack, SimpleGrid, Box } from "@chakra-ui/react";
 import { HeroSection } from "../organisms/HeroSection";
+import { GameProps } from "@/type/type";
 
 type Props = {
-  initialGames: Game[];
+  initialGames: GameProps[];
 };
 
 export const HomeTemplate = ({ initialGames }: Props) => {
@@ -25,8 +25,8 @@ export const HomeTemplate = ({ initialGames }: Props) => {
   const handleSearch = () => {
     setGames(
       initialGames.filter((g) =>
-        g.title.toLowerCase().includes(query.toLowerCase())
-      )
+        g.title.toLowerCase().includes(query.toLowerCase()),
+      ),
     );
   };
 
@@ -37,9 +37,7 @@ export const HomeTemplate = ({ initialGames }: Props) => {
 
   return (
     <VStack spacing={8} align="stretch" p={0}>
-      {/* Heroセクション */}
       <HeroSection />
-      {/* 検索バー */}
       <Box>
         <SearchBar
           query={query}
@@ -48,7 +46,6 @@ export const HomeTemplate = ({ initialGames }: Props) => {
         />
       </Box>
 
-      {/* ゲームカード一覧 */}
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
         {games.map((game) => (
           <GameCard key={game.id} game={game} onSelect={handleSelectGame} />

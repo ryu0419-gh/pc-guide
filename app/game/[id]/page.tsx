@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -82,11 +83,51 @@ export default function GameDetail({ params }: { params: Promise<{ id: string }>
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
         </div>
       </div>
+=======
+// app/game/[id]/page.tsx
+"use client";
+
+import React, { useState, useEffect, use } from "react";
+import { SpecsTable } from "@/components/organisms/SpecsTable";
+import { GameProps } from "@/type/type";
+import gamesData from "@/data/games.json";
+import { Box, Container, Text, VStack } from "@chakra-ui/react";
+
+interface GameDetailPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function GameDetailPage({ params }: GameDetailPageProps) {
+  const { id } = use(params);
+  const [game, setGame] = useState<GameProps | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // ゲームデータから該当するゲームを検索
+    const foundGame = gamesData.find((g) => g.id === id);
+    setGame(foundGame || null);
+    setLoading(false);
+  }, [id]);
+
+  const handleViewParts = () => {
+    // パーツページへの遷移
+    window.location.href = `/game/${id}/parts`;
+  };
+
+  if (loading) {
+    return (
+      <Container maxW="1200px" py={8}>
+        <Text color="neon.gray" textAlign="center">
+          読み込み中...
+        </Text>
+      </Container>
+>>>>>>> origin/feature/test
     );
   }
 
   if (!game) {
     return (
+<<<<<<< HEAD
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-20 text-center">
           <h2 className="text-2xl font-bold text-red-600 mb-4">ゲームが見つかりませんでした</h2>
@@ -95,10 +136,18 @@ export default function GameDetail({ params }: { params: Promise<{ id: string }>
           </Link>
         </div>
       </div>
+=======
+      <Container maxW="1200px" py={8}>
+        <Text color="neon.gray" textAlign="center">
+          ゲームが見つかりませんでした
+        </Text>
+      </Container>
+>>>>>>> origin/feature/test
     );
   }
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
@@ -264,3 +313,12 @@ export default function GameDetail({ params }: { params: Promise<{ id: string }>
     </div>
   );
 }
+=======
+    <Box py={8} px={4} w="full">
+      <VStack spacing={8} w="full">
+        <SpecsTable game={game} onViewParts={handleViewParts} />
+      </VStack>
+    </Box>
+  );
+}
+>>>>>>> origin/feature/test

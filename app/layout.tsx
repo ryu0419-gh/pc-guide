@@ -1,23 +1,22 @@
-
-import { Providers } from "@/components/providers/Chakra";
-import "@/styles/globals.css";
+import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Providers } from "@/components/providers/Chakra";
+import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
-  title: "PC Guide",
-  description: "ゲームごとの推奨スペックを確認できるサイト",
+  title: {
+    template: "%s | 自作PCガイド",
+    default: "自作PCガイド",
+  },
+  description: "ゲームごとの推奨スペックとパーツ選びをサポートするガイド",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       <body>
         <Providers>
-          {children}
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>
