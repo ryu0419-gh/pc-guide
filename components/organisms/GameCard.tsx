@@ -13,37 +13,6 @@ type Props = {
 export const GameCard = ({ game, onSelect }: Props) => {
   return (
     <Box
-<<<<<<< HEAD
-  borderWidth="1px"
-  borderRadius="md"
-  overflow="hidden"
-  boxShadow="md"
-  _hover={{ boxShadow: "lg", bg: "gray.700" }} // ← hover時に背景を少し変える
-  p={3}
-  cursor="pointer"
-  onClick={() => {
-    console.log("GameCard clicked:", game.id, game.title);
-    onSelect(game.id);
-  }}
-  bg="gray.900" // Chakraのテーマカラー
-  color="white"
->
-  <Box position="relative" w="100%" h="200px">
-    <Image
-      src={game.thumbnail}
-      alt={game.title}
-      fill
-      style={{ objectFit: "cover", borderRadius: "0.375rem" }}
-    />
-  </Box>
-  <Heading
-    as="h3"
-    size="md"
-    mt={2}
-    fontFamily="'Staatliches', sans-serif"
-  >
-    {game.title}
-=======
       borderWidth="1px"
       borderRadius="md"
       overflow="hidden"
@@ -65,7 +34,6 @@ export const GameCard = ({ game, onSelect }: Props) => {
       </Box>
       <Heading as="h3" size="md" mt={2} fontFamily="'Staatliches', sans-serif">
         {game.title}
->>>>>>> origin/feature/test
       </Heading>
     </Box>
   );

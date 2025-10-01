@@ -1,36 +1,40 @@
-import { Badge } from "@chakra-ui/react";
+import { ButtonGroup, Button } from "@chakra-ui/react";
 
-interface RankBadgeProps {
-  rank: "budget" | "recommended" | "highend";
+interface ToggleButtonProps {
+  options: { value: string; label: string }[];
+  selected: string;
+  onChange: (value: string) => void;
   size?: "sm" | "md" | "lg";
 }
 
-const RANK_LABELS = {
-  budget: "コスパ重視",
-  recommended: "推奨",
-  highend: "ハイエンド",
-} as const;
+const ToggleButton: React.FC<ToggleButtonProps> = ({
+  options,
+  selected,
+  onChange,
+  size = "md",
+}) => (
+  <ButtonGroup spacing={3} mb={5}>
+    {options.map((option) => (
+      <Button
+        key={option.value}
+        variant={selected === option.value ? "neonPrimary" : "neonSecondary"}
+        size={size}
+        onClick={() => onChange(option.value)}
+        fontFamily="heading"
+        textTransform="uppercase"
+        letterSpacing="1px"
+        _hover={{
+          transform: "scale(1.02)",
+        }}
+        _active={{
+          transform: "scale(0.98)",
+        }}
+        transition="all 0.2s ease"
+      >
+        {option.label}
+      </Button>
+    ))}
+  </ButtonGroup>
+);
 
-const SIZE_STYLES = {
-  sm: { px: 2, py: 1, fontSize: "10px" },
-  md: { px: 3, py: 1, fontSize: "12px" },
-  lg: { px: 4, py: 2, fontSize: "14px" },
-} as const;
-
-const RankBadge: React.FC<RankBadgeProps> = ({ rank, size = "md" }) => {
-  return (
-    <Badge
-      variant={rank}
-      {...SIZE_STYLES[size]}
-      borderRadius="8px"
-      fontFamily="heading"
-      textTransform="uppercase"
-      letterSpacing="1px"
-      fontWeight="bold"
-    >
-      {RANK_LABELS[rank]}
-    </Badge>
-  );
-};
-
-export default RankBadge;
+export default ToggleButton;

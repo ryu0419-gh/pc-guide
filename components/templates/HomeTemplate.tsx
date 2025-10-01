@@ -15,10 +15,6 @@ type Props = {
 export const HomeTemplate = ({ initialGames }: Props) => {
   const [query, setQuery] = useState("");
   const [games, setGames] = useState(initialGames);
-  
-  // デバッグ用ログ
-  console.log("initialGames:", initialGames);
-  console.log("games length:", games.length);
   const router = useRouter();
 
   // 検索処理
