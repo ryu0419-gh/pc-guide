@@ -1,11 +1,6 @@
-import "@/styles/globals.css";
-import Layout from "@/components/layout/Layout";
-import GameCard from "@/components/organisms/GameCard";
+import { HomeTemplate } from "@/components/templates/HomeTemplate";
+import gamesData from "@/data/games.json";
 
-export default function Home() {
-  return (
-    <Layout>
-        <GameCard />
-        </Layout>
-  );
+export default function HomePage() {
+  return <HomeTemplate initialGames={gamesData} />;
 }
