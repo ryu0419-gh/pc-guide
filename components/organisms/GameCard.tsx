@@ -22,6 +22,7 @@ export const GameCard = ({ game, onSelect }: Props) => {
       cursor="pointer"
       onClick={() => onSelect(game.id)}
       bg="gray.900"
+      borderColor="#44D7DA"
       color="white"
       role="group"
     >

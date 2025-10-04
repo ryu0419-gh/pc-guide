@@ -33,7 +33,7 @@ export const HeroSection = () => {
           fontSize="clamp(3rem, 6vw, 6rem)"
           lineHeight="1.1"
         >
-          MIYA GUIDE
+          Play Spec
         </Heading>
       </Box>
 
@@ -46,7 +46,11 @@ export const HeroSection = () => {
         textShadow="0 0 12px rgba(0,0,0,0.8)"
         maxW="700px"
       >
-        <Text fontSize={{ base: "lg", md: "xl" }} lineHeight="1.6">
+        <Text 
+          fontSize={{ base: "lg", md: "xl" }} 
+          lineHeight="1.6"
+          fontFamily="'Noto Sans JP', sans-serif"
+        >
           遊びたいゲームから推奨スペックとおすすめパーツを表示。
           <br />
           迷わず最適なPCを選べます。
