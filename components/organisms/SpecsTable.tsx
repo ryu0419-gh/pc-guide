@@ -144,7 +144,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                       color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
-                      fontSize="sm"
+                      fontSize="lg"
                       py={4}
                       px={4}
                       borderRight="1px solid rgba(0, 255, 255, 0.2)"
@@ -154,7 +154,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -165,7 +165,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -189,7 +189,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                       color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
-                      fontSize="sm"
+                      fontSize=""
                       py={4}
                       px={4}
                       borderRight="1px solid rgba(0, 255, 255, 0.2)"
@@ -199,7 +199,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="md"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -210,7 +210,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="md"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -234,7 +234,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                       color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
-                      fontSize="sm"
+                      fontSize="md"
                       py={4}
                       px={4}
                       borderRight="1px solid rgba(0, 255, 255, 0.2)"
@@ -279,7 +279,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                       color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
-                      fontSize="sm"
+                      fontSize="md"
                       py={4}
                       px={4}
                       borderRight="1px solid rgba(0, 255, 255, 0.2)"
@@ -289,7 +289,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -300,7 +300,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -322,7 +322,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                       color="neon.white"
                       fontFamily="heading"
                       textTransform="uppercase"
-                      fontSize="sm"
+                      fontSize="ms"
                       py={4}
                       px={4}
                       borderRight="1px solid rgba(0, 255, 255, 0.2)"
@@ -332,7 +332,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="lg"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -343,7 +343,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="lg"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
