@@ -10,7 +10,7 @@ interface PartSpecsProps {
 const PartSpecs: React.FC<PartSpecsProps> = ({
   part,
   showDetailed = false,
-  spacing = 1,
+  spacing = 3,
 }) => {
   const getKeySpecs = () => {
     switch (part.type) {
@@ -98,14 +98,15 @@ const PartSpecs: React.FC<PartSpecsProps> = ({
       {keySpecs.map((spec, index) => (
         <Box key={index} w="full">
           <Text
-            variant="neonSpec"
-            color="neon.gray"
-            fontSize="14px"
+            color="neon.white"
+            fontSize="lg"
             fontFamily="body"
-            borderLeft="2px solid"
-            borderColor="rgba(0, 255, 255, 0.3)"
-            pl={2}
-            py="2px"
+            fontWeight="semibold"
+            borderLeft="3px solid"
+            borderColor="rgba(0, 255, 255, 0.5)"
+            pl={4}
+            py={2}
+            lineHeight="1.5"
           >
             {spec}
           </Text>

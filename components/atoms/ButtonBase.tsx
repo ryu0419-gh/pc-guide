@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 
 interface ButtonBaseProps {
-  variant: "primary" | "secondary" | "success" | "small";
+  variant: "primary" | "secondary" | "success" | "small" | "budget" | "recommended" | "highend";
   children: React.ReactNode;
   onClick: () => void;
   fullWidth?: boolean;
@@ -25,6 +25,9 @@ const ButtonBase: React.FC<ButtonBaseProps> = ({
     secondary: "neonSecondary",
     success: "neonSuccess",
     small: "neonSmall",
+    budget: "neonBudget",
+    recommended: "neonRecommended",
+    highend: "neonHighend",
   } as const;
 
   const defaultSizeMap = {
@@ -32,6 +35,9 @@ const ButtonBase: React.FC<ButtonBaseProps> = ({
     secondary: "md",
     success: "md",
     small: "sm",
+    budget: "sm",
+    recommended: "sm",
+    highend: "sm",
   } as const;
 
   const buttonSize = size || defaultSizeMap[variant];

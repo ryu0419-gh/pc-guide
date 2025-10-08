@@ -69,7 +69,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
         </CardBody>
       </Card>
     );
-  }
+  };
 
   return (
     <MotionCard
@@ -87,76 +87,79 @@ const PartsCard: React.FC<PartsCardProps> = ({
       }}
       cursor="pointer"
       h="auto"
-      minH="420px"
+      minH="480px"
       position="relative"
     >
       <CardBody>
-        <VStack spacing={4} align="start" h="full">
+        <VStack spacing={5} align="start" h="full">
           <HStack justify="space-between" w="full" align="center">
             <Heading
-              size="md"
+              size="lg"
               color="neon.white"
               fontFamily="heading"
               textTransform="uppercase"
               letterSpacing="1px"
+              fontSize="xl"
             >
               {part.type}
             </Heading>
-            <RankBadge rank={currentRank} />
+            <RankBadge rank={currentRank} size="lg" />
           </HStack>
 
           <Heading
-            size="sm"
+            size="md"
             color="brand.500"
             textShadow="0 0 10px rgba(0, 255, 255, 1)"
             fontFamily="heading"
-            lineHeight="1.2"
+            lineHeight="1.3"
             noOfLines={2}
+            fontSize="lg"
           >
             {part.model}
           </Heading>
 
-          <Price price={part.price} />
+          <Price price={part.price} size="xl" />
 
           <Box w="full" flex={1}>
             <PartSpecs part={part} showDetailed={false} />
           </Box>
 
-          {otherRanks.length > 0 && (
-            <Box w="full">
-              <Card
-                variant="outline"
-                bg="rgba(255, 255, 255, 0.05)"
-                border="1px solid"
-                borderColor="rgba(0, 255, 255, 0.2)"
-                size="sm"
-              >
-                <CardBody p={3}>
-                  <Text
-                    fontSize="xs"
-                    color="neon.gray"
-                    mb={2}
-                    fontFamily="heading"
-                    textTransform="uppercase"
-                  >
-                    他のランクを見る:
-                  </Text>
-                  <Wrap spacing={1}>
-                    {otherRanks.map((rank) => (
-                      <WrapItem key={rank}>
-                        <ButtonBase
-                          variant="small"
-                          onClick={() => onRankChange(part.type, rank)}
-                        >
-                          {getRankLabel(rank)}に変更
-                        </ButtonBase>
-                      </WrapItem>
-                    ))}
-                  </Wrap>
-                </CardBody>
-              </Card>
-            </Box>
-          )}
+{otherRanks.length > 0 && (
+  <Box w="full">
+    <Card
+      variant="outline"
+      bg="rgba(255, 255, 255, 0.05)"
+      border="1px solid"
+      borderColor="rgba(0, 255, 255, 0.2)"
+      size="sm"
+    >
+      <CardBody p={4}>
+        <Text
+          fontSize="sm"
+          color="neon.gray"
+          mb={3}
+          fontFamily="heading"
+          textTransform="uppercase"
+          fontWeight="bold"
+        >
+          他のランクを見る:
+        </Text>
+        <HStack spacing={5} w="full">
+          {otherRanks.map((rank) => (
+            <ButtonBase
+              key={rank}
+              variant={rank}
+              onClick={() => onRankChange(part.type, rank)}
+              size="md"
+            >
+              {getRankLabel(rank)}に変更
+            </ButtonBase>
+          ))}
+        </HStack>
+      </CardBody>
+    </Card>
+  </Box>
+)}
 
           <Divider borderColor="rgba(0, 255, 255, 0.2)" />
 
@@ -165,6 +168,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
               variant="primary"
               onClick={() => onShowDetail(part)}
               fullWidth
+              size="lg"
             >
               詳細を見る
             </ButtonBase>
