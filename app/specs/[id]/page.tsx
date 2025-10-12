@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import SpecsTable from '@/components/organisms/SpecsTable';
+import Link from "next/link";
 
 interface Game {
   id: string;
@@ -56,7 +57,7 @@ export default function SpecsPage({ params }: { params: Promise<{ id: string }> 
     };
 
     fetchGame();
-  }, []);
+  }, [params]);
 
   if (loading) {
     return (
@@ -73,9 +74,9 @@ export default function SpecsPage({ params }: { params: Promise<{ id: string }> 
       <div className="min-h-screen bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 py-20 text-center">
           <h2 className="text-2xl font-bold text-red-600 mb-4">ゲームが見つかりませんでした</h2>
-          <a href="/" className="text-blue-600 hover:text-blue-800">
+          <Link href="/" className="text-blue-600 hover:text-blue-800">
             ホームに戻る
-          </a>
+          </Link>
         </div>
       </div>
     );

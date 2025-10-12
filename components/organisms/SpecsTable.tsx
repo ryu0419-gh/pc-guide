@@ -25,7 +25,7 @@ const MotionCard = motion(Card);
 
 interface SpecsTableProps {
   game: GameProps;
-  onViewParts?: () => void;
+  onViewParts?:(rank: "budget" | "recommended" | "highend") => void;
 }
 
 export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
@@ -43,11 +43,11 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
     );
   }
 
-  const handleViewParts = () => {
+  const handleViewParts = (rank: "budget" | "recommended" | "highend") => {
     if (onViewParts) {
-      onViewParts();
+      onViewParts(rank);
     } else {
-      window.location.href = `/game/${game.id}/parts`;
+      window.location.href = `/game/${game.id}/parts?rank=${rank}`;
     }
   };
 
@@ -154,7 +154,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -165,7 +165,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -289,7 +289,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -300,7 +300,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -332,7 +332,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.gray"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -343,7 +343,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </Td>
                     <Td
                       color="neon.white"
-                      fontSize="sm"
+                      fontSize="xl"
                       fontFamily="body"
                       textAlign="center"
                       py={4}
@@ -376,6 +376,17 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     transform: "scale(1.02)",
                   }}
                   transition="all 0.2s ease"
+                  cursor="pointer"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleViewParts("budget")}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      handleViewParts("budget");
+                    }
+                  }}
+                  aria-label="コスパ重視のパーツ構成へ移動"
                 >
                   <VStack align="start" spacing={2}>
                     <HStack>
@@ -393,12 +404,12 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                         fontSize="sm"
                         textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
                       >
-                        最低動作環境
+                        コスパ重視
                       </Text>
                     </HStack>
                     <Text
                       fontSize="xs"
-                      color="neon.gray"
+                      color="#ffffff"
                       fontFamily="body"
                       lineHeight="1.4"
                       borderLeft="2px solid rgba(239, 68, 68, 0.3)"
@@ -422,6 +433,17 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     transform: "scale(1.02)",
                   }}
                   transition="all 0.2s ease"
+                  cursor="pointer"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleViewParts("recommended")}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      handleViewParts("recommended");
+                    }
+                  }}
+                  aria-label="推奨スペックのパーツ構成へ移動"
                 >
                   <VStack align="start" spacing={2}>
                     <HStack>
@@ -444,7 +466,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                     </HStack>
                     <Text
                       fontSize="xs"
-                      color="neon.gray"
+                      color="#ffffff"
                       fontFamily="body"
                       lineHeight="1.4"
                       borderLeft="2px solid rgba(0, 255, 255, 0.3)"
@@ -459,7 +481,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
             {/* 注釈 */}
             <Text
               fontSize="xs"
-              color="rgba(255, 255, 255, 0.5)"
+              color="#ffffff"
               textAlign="center"
               fontFamily="body"
               lineHeight="1.4"
@@ -473,7 +495,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
             <Box pt={4}>
               <ButtonBase
                 variant="primary"
-                onClick={handleViewParts}
+                onClick={() => handleViewParts("budget")}
                 size="lg"
                 fullWidth
               >

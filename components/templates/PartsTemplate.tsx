@@ -43,12 +43,15 @@ import {
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
-const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
+const PCPartsTemplates: React.FC<{
+  gameId: string;
+  initialRank: "budget" | "recommended" | "highend";
+}> = ({ gameId, initialRank }) => {
   const [globalRank, setGlobalRank] = useState<
     "budget" | "recommended" | "highend"
-  >("recommended");
+  >(initialRank);
   const [selectedPart, setSelectedPart] = useState<PartWithPriceProps | null>(
-    null,
+    null
   );
   const [partRanks, setPartRanks] = useState<{
     [key: string]: "budget" | "recommended" | "highend";
@@ -76,12 +79,12 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
         (gp) =>
           gp.gameId === currentGame.id &&
           gp.recommendationType === rankToUse &&
-          partsData.find((p) => p.id === gp.partId && p.type === category),
+          partsData.find((p) => p.id === gp.partId && p.type === category)
       );
 
       if (gamePartRelation) {
         const partDetail = partsData.find(
-          (p) => p.id === gamePartRelation.partId,
+          (p) => p.id === gamePartRelation.partId
         );
         if (partDetail) {
           result.push({
@@ -98,13 +101,13 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
   const currentParts = getCurrentParts();
   const totalPrice = currentParts.reduce(
     (sum, part) => sum + parsePrice(part.price),
-    0,
+    0
   );
   const averageScore =
     currentParts.length > 0
       ? Math.round(
           currentParts.reduce((sum, part) => sum + part.benchmarkScore, 0) /
-            currentParts.length,
+            currentParts.length
         )
       : 0;
 
@@ -115,7 +118,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
 
   const handleRankChange = (
     type: string,
-    newRank: "budget" | "recommended" | "highend",
+    newRank: "budget" | "recommended" | "highend"
   ) => {
     setPartRanks((prev) => ({
       ...prev,
@@ -292,7 +295,7 @@ const PCPartsTemplates: React.FC<{ gameId: string }> = ({ gameId }) => {
                     >
                       {
                         globalRankOptions.find(
-                          (opt) => opt.value === globalRank,
+                          (opt) => opt.value === globalRank
                         )?.label
                       }
                     </StatNumber>
