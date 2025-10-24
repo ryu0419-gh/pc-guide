@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-// import { Input } from "../atoms/Input";
-// import { Button } from "../atoms/Button";
 import { Box, Input, Button } from "@chakra-ui/react";
 
 type Props = {

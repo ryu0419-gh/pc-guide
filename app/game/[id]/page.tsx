@@ -1,57 +1,66 @@
-// app/game/[id]/page.tsx
 "use client";
 
-import React, { useState, useEffect, use } from "react";
-import { SpecsTable } from "@/components/organisms/SpecsTable";
+import React, { useEffect, useState } from "react";
+import { Box, Container, Text, VStack, Spinner } from "@chakra-ui/react";
 import { GameProps } from "@/type/type";
-import gamesData from "@/data/games.json";
-import { Box, Container, Text, VStack } from "@chakra-ui/react";
+import { SpecsTable } from "@/components/organisms/SpecsTable";
+
+import { useRouter } from "next/navigation";
+import { fetchGames } from "@/lib/fetchGames";
 
 interface GameDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
 export default function GameDetailPage({ params }: GameDetailPageProps) {
-  const { id } = use(params);
+  const { id } = React.use(params);
+  const router = useRouter();
+
   const [game, setGame] = useState<GameProps | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // ゲームデータから該当するゲームを検索
-    const foundGame = gamesData.find((g) => g.id === id);
-    setGame(foundGame || null);
-    setLoading(false);
+    const loadGame = async () => {
+      setLoading(true);
+      try {
+        const games = await fetchGames();
+        const foundGame = games.find((g) => g.id === id) || null;
+        setGame(foundGame);
+        if (!foundGame) setError("ゲームが見つかりませんでした");
+      } catch (err) {
+        console.error(err);
+        setError("ゲームデータの取得に失敗しました");
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadGame();
   }, [id]);
 
   const handleViewParts = () => {
-    // パーツページへの遷移
-    window.location.href = `/game/${id}/parts`;
+    router.push(`/game/${id}/parts`);
   };
 
-  if (loading) {
+  if (loading)
     return (
-      <Container maxW="1200px" py={8}>
-        <Text color="neon.gray" textAlign="center">
-          読み込み中...
-        </Text>
+      <Container maxW="1200px" py={8} textAlign="center">
+        <Spinner size="xl" />
+        <Text mt={4}>読み込み中...</Text>
       </Container>
     );
-  }
 
-  if (!game) {
+  if (error)
     return (
-      <Container maxW="1200px" py={8}>
-        <Text color="neon.gray" textAlign="center">
-          ゲームが見つかりませんでした
-        </Text>
+      <Container maxW="1200px" py={8} textAlign="center">
+        <Text color="red.500">{error}</Text>
       </Container>
     );
-  }
 
   return (
     <Box py={8} px={4} w="full">
       <VStack spacing={8} w="full">
-        <SpecsTable game={game} onViewParts={handleViewParts} />
+        {game && <SpecsTable game={game} onViewParts={handleViewParts} />}
       </VStack>
     </Box>
   );

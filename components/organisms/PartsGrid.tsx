@@ -1,5 +1,15 @@
-import { Grid, VStack, Heading, Alert, AlertIcon, AlertTitle, AlertDescription, Box } from "@chakra-ui/react";
+import {
+  Grid,
+  VStack,
+  Heading,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Box,
+} from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import PartsCard from "@/components/organisms/PartsCard";
 import { PartWithPriceProps, SpecLevel } from "@/type/type";
 

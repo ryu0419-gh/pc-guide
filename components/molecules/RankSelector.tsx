@@ -1,5 +1,6 @@
 import { Box, VStack, Heading } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+
 import ToggleButton from "@/components/atoms/ToggleButton";
 import { SpecLevel } from "@/type/type";
 

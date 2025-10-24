@@ -6,11 +6,11 @@ import {
   Heading,
   Text,
   Box,
-  Wrap,
-  WrapItem,
   Divider,
+  Stack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+
 import { PartWithPriceProps } from "@/type/type";
 import RankBadge from "../atoms/RankBadge";
 import Price from "../atoms/Price";
@@ -69,7 +69,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
         </CardBody>
       </Card>
     );
-  };
+  }
 
   return (
     <MotionCard
@@ -87,7 +87,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
       }}
       cursor="pointer"
       h="auto"
-      minH="480px"
+      minH={{ base: "auto", md: "480px" }}
       position="relative"
     >
       <CardBody>
@@ -99,7 +99,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
               fontFamily="heading"
               textTransform="uppercase"
               letterSpacing="1px"
-              fontSize="xl"
+              fontSize={{ base: "md", md: "lg" }}
             >
               {part.type}
             </Heading>
@@ -124,42 +124,42 @@ const PartsCard: React.FC<PartsCardProps> = ({
             <PartSpecs part={part} showDetailed={false} />
           </Box>
 
-{otherRanks.length > 0 && (
-  <Box w="full">
-    <Card
-      variant="outline"
-      bg="rgba(255, 255, 255, 0.05)"
-      border="1px solid"
-      borderColor="rgba(0, 255, 255, 0.2)"
-      size="sm"
-    >
-      <CardBody p={4}>
-        <Text
-          fontSize="sm"
-          color="neon.gray"
-          mb={3}
-          fontFamily="heading"
-          textTransform="uppercase"
-          fontWeight="bold"
-        >
-          他のランクを見る:
-        </Text>
-        <HStack spacing={5} w="full">
-          {otherRanks.map((rank) => (
-            <ButtonBase
-              key={rank}
-              variant={rank}
-              onClick={() => onRankChange(part.type, rank)}
-              size="md"
-            >
-              {getRankLabel(rank)}に変更
-            </ButtonBase>
-          ))}
-        </HStack>
-      </CardBody>
-    </Card>
-  </Box>
-)}
+          {otherRanks.length > 0 && (
+            <Box w="full">
+              <Card
+                variant="outline"
+                bg="rgba(255, 255, 255, 0.05)"
+                border="1px solid"
+                borderColor="rgba(0, 255, 255, 0.2)"
+                size="sm"
+              >
+                <CardBody p={4}>
+                  <Text
+                    fontSize="sm"
+                    color="neon.gray"
+                    mb={3}
+                    fontFamily="heading"
+                    textTransform="uppercase"
+                    fontWeight="bold"
+                  >
+                    他のランクを見る:
+                  </Text>
+                  <Stack direction={{ base: "column", md: "row" }} spacing={3}>
+                    {otherRanks.map((rank) => (
+                      <ButtonBase
+                        key={rank}
+                        variant={rank}
+                        onClick={() => onRankChange(part.type, rank)}
+                        size="md"
+                      >
+                        {getRankLabel(rank)}に変更
+                      </ButtonBase>
+                    ))}
+                  </Stack>
+                </CardBody>
+              </Card>
+            </Box>
+          )}
 
           <Divider borderColor="rgba(0, 255, 255, 0.2)" />
 

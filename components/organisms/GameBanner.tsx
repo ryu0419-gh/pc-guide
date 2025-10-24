@@ -19,7 +19,6 @@ const GameBanner: React.FC<GameBannerProps> = ({ title, thumbnail }) => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      {/* 背景画像 */}
       <Box
         position="absolute"
         top={0}

@@ -75,9 +75,9 @@ const PartsSummaryCard: React.FC<PartsSummaryCardProps> = ({
               >
                 構成レベル
               </StatLabel>
-              <StatNumber 
-                color="neon.white" 
-                fontSize="3xl" 
+              <StatNumber
+                color="neon.white"
+                fontSize="3xl"
                 fontFamily="heading"
                 mt={2}
               >
@@ -95,9 +95,9 @@ const PartsSummaryCard: React.FC<PartsSummaryCardProps> = ({
               >
                 パーツ数
               </StatLabel>
-              <StatNumber 
-                color="neon.white" 
-                fontSize="3xl" 
+              <StatNumber
+                color="neon.white"
+                fontSize="3xl"
                 fontFamily="heading"
                 mt={2}
               >

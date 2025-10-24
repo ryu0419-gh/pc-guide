@@ -1,7 +1,14 @@
 import { Button } from "@chakra-ui/react";
 
 interface ButtonBaseProps {
-  variant: "primary" | "secondary" | "success" | "small" | "budget" | "recommended" | "highend";
+  variant:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "small"
+    | "budget"
+    | "recommended"
+    | "highend";
   children: React.ReactNode;
   onClick: () => void;
   fullWidth?: boolean;

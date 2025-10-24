@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { VStack, SimpleGrid, Box } from "@chakra-ui/react";
+
 import { GameCard } from "@/components/organisms/GameCard";
 import { SearchBar } from "@/components/molecules/SearchBar";
-import { VStack, SimpleGrid, Box } from "@chakra-ui/react";
 import { HeroSection } from "../organisms/HeroSection";
 import { GameProps } from "@/type/type";
 
