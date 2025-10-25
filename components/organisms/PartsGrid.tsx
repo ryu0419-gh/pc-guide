@@ -37,7 +37,10 @@ const PartsGrid: React.FC<PartsGridProps> = ({
       {parts.length > 0 ? (
         <AnimatePresence>
           <Grid
-            templateColumns="repeat(auto-fit, minmax(350px, 1fr))"
+            templateColumns={{
+              base: "1fr",
+              md: "repeat(auto-fit, minmax(280px, 1fr))",
+            }}
             gap={6}
             w="full"
           >

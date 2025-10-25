@@ -1,4 +1,4 @@
-import { ButtonGroup, Button } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 
 interface ToggleButtonProps {
   options: { value: string; label: string }[];
@@ -13,11 +13,29 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   onChange,
   size = "md",
 }) => (
-  <ButtonGroup spacing={3} mb={5}>
+  <Stack
+    direction={{ base: "column", md: "row" }}
+    align={{ base: "stretch", md: "center" }}
+    justify={{ base: "flex-start", md: "center" }}
+    spacing={3}
+    mb={5}
+    w="full"
+    flexWrap="wrap"
+  >
     {options.map((option) => (
       <Button
         key={option.value}
-        variant={selected === option.value ? "neonPrimary" : "neonSecondary"}
+        variant={
+          selected === option.value
+            ? option.value === "budget"
+              ? "neonBudget"
+              : option.value === "recommended"
+                ? "neonRecommended"
+                : option.value === "highend"
+                  ? "neonHighend"
+                  : "neonPrimary"
+            : "neonSecondary"
+        }
         size={size}
         onClick={() => onChange(option.value)}
         fontFamily="heading"
@@ -29,12 +47,13 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
         _active={{
           transform: "scale(0.98)",
         }}
-        transition="all 0.2s ease"
+        width={{ base: "100%", md: "auto" }}
+        minW={{ base: "100%", md: "160px" }}
       >
         {option.label}
       </Button>
     ))}
-  </ButtonGroup>
+  </Stack>
 );
 
 export default ToggleButton;

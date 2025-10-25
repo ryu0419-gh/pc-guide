@@ -64,7 +64,9 @@ const PCPartsTemplate: React.FC<PCPartsTemplateProps> = ({ gameId }) => {
               textAlign="center"
               fontFamily="heading"
             >
-              PCパーツ推奨システム
+              PCパーツ
+              <Box as="br" display={{ base: "block", md: "none" }} />
+              推奨システム
             </Heading>
           </MotionBox>
 

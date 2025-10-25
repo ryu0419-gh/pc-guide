@@ -30,6 +30,7 @@ const RankSelector: React.FC<RankSelectorProps> = ({
           options={options}
           selected={selected}
           onChange={onChange}
+          size="lg"
         />
       </VStack>
     </MotionBox>

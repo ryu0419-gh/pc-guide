@@ -32,7 +32,6 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   const toast = useToast();
   const modalSize = useBreakpointValue({ base: "sm", md: "2xl" });
 
-
   if (!part) return null;
 
   const handlePurchaseClick = () => {
@@ -51,7 +50,12 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={part.model} size={modalSize}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={part.model}
+      size={modalSize}
+    >
       <VStack spacing={6} align="start" px={{ base: 2, md: 4 }}>
         <Price price={part.price} size="xl" />
 
@@ -107,7 +111,11 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
             bg="transparent"
           >
             <CardBody>
-              <HStack justify="space-between" align="center" flexDir={{ base: "column", md: "row" }}>
+              <HStack
+                justify="space-between"
+                align="center"
+                flexDir={{ base: "column", md: "row" }}
+              >
                 <VStack align="start" spacing={1}>
                   <Text
                     fontSize="sm"
@@ -131,8 +139,8 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
                     {part.benchmarkScore >= 90
                       ? "ハイパフォーマンス"
                       : part.benchmarkScore >= 70
-                      ? "ミドルレンジ"
-                      : "エントリーレベル"}
+                        ? "ミドルレンジ"
+                        : "エントリーレベル"}
                   </Text>
                 </Box>
               </HStack>
@@ -149,10 +157,18 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
           flexDir={{ base: "column", md: "row" }}
           align={{ base: "stretch", md: "center" }}
         >
-          <ButtonBase variant="secondary" onClick={onClose} w={{ base: "full", md: "auto" }}>
+          <ButtonBase
+            variant="secondary"
+            onClick={onClose}
+            w={{ base: "full", md: "auto" }}
+          >
             閉じる
           </ButtonBase>
-          <ButtonBase variant="success" onClick={handlePurchaseClick} w={{ base: "full", md: "auto" }}>
+          <ButtonBase
+            variant="success"
+            onClick={handlePurchaseClick}
+            w={{ base: "full", md: "auto" }}
+          >
             購入サイトへ
           </ButtonBase>
         </HStack>
