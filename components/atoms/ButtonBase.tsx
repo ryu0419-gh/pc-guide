@@ -1,6 +1,6 @@
-import { Button } from "@chakra-ui/react";
+import { Button, ButtonProps } from "@chakra-ui/react";
 
-interface ButtonBaseProps {
+interface ButtonBaseProps extends ButtonProps {
   variant:
     | "primary"
     | "secondary"
@@ -15,6 +15,7 @@ interface ButtonBaseProps {
   disabled?: boolean;
   isLoading?: boolean;
   size?: "sm" | "md" | "lg";
+  fontSize?: string | { base?: string; sm?: string; md?: string; lg?: string };
 }
 
 const ButtonBase: React.FC<ButtonBaseProps> = ({

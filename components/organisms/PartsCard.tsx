@@ -88,6 +88,9 @@ const PartsCard: React.FC<PartsCardProps> = ({
       cursor="pointer"
       h="auto"
       minH={{ base: "auto", md: "480px" }}
+      maxW={{ base: "280px", sm: "320px", md: "100%" }}
+      w="full"
+      mx="auto"
       position="relative"
     >
       <CardBody>
@@ -147,6 +150,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
                   <Stack direction={{ base: "column", md: "row" }} spacing={3}>
                     {otherRanks.map((rank) => (
                       <ButtonBase
+                        fontSize="12px"
                         key={rank}
                         variant={rank}
                         onClick={() => onRankChange(part.type, rank)}

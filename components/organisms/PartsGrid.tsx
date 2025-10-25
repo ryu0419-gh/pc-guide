@@ -39,8 +39,11 @@ const PartsGrid: React.FC<PartsGridProps> = ({
           <Grid
             templateColumns={{
               base: "1fr",
-              md: "repeat(auto-fit, minmax(280px, 1fr))",
+              sm: "repeat(2, 1fr)",
+              lg: "repeat(2, 1fr)",
+              xl: "repeat(auto-fit, minmax(280px, 1fr))",
             }}
+            justifyItems={{ base: "center", md: "stretch" }}
             gap={6}
             w="full"
           >

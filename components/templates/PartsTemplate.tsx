@@ -52,7 +52,12 @@ const PCPartsTemplate: React.FC<PCPartsTemplateProps> = ({ gameId }) => {
 
   return (
     <Box minH="100vh" bg="neon.black">
-      <Container maxW={{ base: "95%", md: "1200px" }} py={8}>
+      <Container
+        maxW="1200px"
+        px={{ base: 0, sm: 4, md: 6 }}
+        py={8}
+        centerContent={false}
+      >
         <VStack spacing={{ base: 6, md: 8 }}>
           <MotionBox
             initial={false}

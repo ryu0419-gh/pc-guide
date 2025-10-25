@@ -30,7 +30,8 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   onPurchase,
 }) => {
   const toast = useToast();
-  const modalSize = useBreakpointValue({ base: "sm", md: "2xl" });
+  const modalSize =
+    useBreakpointValue<"sm" | "2xl">({ base: "sm", md: "2xl" }) ?? "sm";
 
   if (!part) return null;
 
