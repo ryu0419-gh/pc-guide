@@ -16,6 +16,7 @@ import RankBadge from "../atoms/RankBadge";
 import Price from "../atoms/Price";
 import PartSpecs from "../molecules/PartsSpecs";
 import ButtonBase from "../atoms/ButtonBase";
+import LoadingState from "../molecules/Loading";
 
 const MotionCard = motion(Card);
 
@@ -41,6 +42,10 @@ const PartsCard: React.FC<PartsCardProps> = ({
   isLoading = false,
   index = 0,
 }) => {
+  if (isLoading) {
+    return <LoadingState height="400px" />;
+  }
+
   const otherRanks = availableRanks.filter((rank) => rank !== currentRank);
 
   const getRankLabel = (rank: "budget" | "recommended" | "highend") => {
@@ -55,21 +60,6 @@ const PartsCard: React.FC<PartsCardProps> = ({
         return rank;
     }
   };
-
-  if (isLoading) {
-    return (
-      <Card variant="neon" h="400px">
-        <CardBody>
-          <VStack spacing={4} align="start">
-            <Box w="full" h="20px" bg="gray.700" borderRadius="md" />
-            <Box w="60%" h="16px" bg="gray.700" borderRadius="md" />
-            <Box w="80%" h="24px" bg="gray.700" borderRadius="md" />
-            <Box w="full" h="60px" bg="gray.700" borderRadius="md" />
-          </VStack>
-        </CardBody>
-      </Card>
-    );
-  }
 
   return (
     <MotionCard

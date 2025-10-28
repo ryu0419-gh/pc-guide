@@ -1,21 +1,21 @@
-import { Container, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Card, CardBody, VStack, Box } from "@chakra-ui/react";
 
 interface LoadingStateProps {
-  message?: string;
+  height?: string | number;
 }
 
-const LoadingState: React.FC<LoadingStateProps> = ({
-  message = "読み込み中...",
-}) => {
+const LoadingState: React.FC<LoadingStateProps> = ({ height = "400px" }) => {
   return (
-    <Container maxW="1400px" py={8} textAlign="center">
-      <VStack spacing={4}>
-        <Spinner size="xl" color="brand.500" thickness="4px" />
-        <Text color="neon.white" fontFamily="heading">
-          {message}
-        </Text>
-      </VStack>
-    </Container>
+    <Card variant="neon" h={height}>
+      <CardBody>
+        <VStack spacing={4} align="start">
+          <Box w="full" h="20px" bg="gray.700" borderRadius="md" />
+          <Box w="60%" h="16px" bg="gray.700" borderRadius="md" />
+          <Box w="80%" h="24px" bg="gray.700" borderRadius="md" />
+          <Box w="full" h="60px" bg="gray.700" borderRadius="md" />
+        </VStack>
+      </CardBody>
+    </Card>
   );
 };
 

@@ -1,5 +1,7 @@
-// components/organisms/GameSpecsDetailTable.tsx
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 import {
   Box,
   Table,
@@ -21,14 +23,15 @@ import { motion } from "framer-motion";
 import ButtonBase from "@/components/atoms/ButtonBase";
 import { GameProps } from "@/type/type";
 
+
 const MotionCard = motion(Card);
 
 interface SpecsTableProps {
   game: GameProps;
-  onViewParts?: () => void;
 }
 
-export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
+export const SpecsTable = ({ game }: SpecsTableProps) => {
+  const router = useRouter();
   if (!game) {
     return (
       <Box maxW="800px" mx="auto" w="full">
@@ -44,11 +47,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
   }
 
   const handleViewParts = () => {
-    if (onViewParts) {
-      onViewParts();
-    } else {
-      window.location.href = `/game/${game.id}/parts`;
-    }
+    router.push(`/game/${game.id}/parts`);
   };
 
   return (
