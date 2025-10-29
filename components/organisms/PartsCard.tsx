@@ -6,16 +6,17 @@ import {
   Heading,
   Text,
   Box,
-  Wrap,
-  WrapItem,
   Divider,
+  Stack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+
 import { PartWithPriceProps } from "@/type/type";
 import RankBadge from "../atoms/RankBadge";
 import Price from "../atoms/Price";
 import PartSpecs from "../molecules/PartsSpecs";
 import ButtonBase from "../atoms/ButtonBase";
+import LoadingState from "../molecules/Loading";
 
 const MotionCard = motion(Card);
 
@@ -41,6 +42,10 @@ const PartsCard: React.FC<PartsCardProps> = ({
   isLoading = false,
   index = 0,
 }) => {
+  if (isLoading) {
+    return <LoadingState height="400px" />;
+  }
+
   const otherRanks = availableRanks.filter((rank) => rank !== currentRank);
 
   const getRankLabel = (rank: "budget" | "recommended" | "highend") => {
@@ -55,21 +60,6 @@ const PartsCard: React.FC<PartsCardProps> = ({
         return rank;
     }
   };
-
-  if (isLoading) {
-    return (
-      <Card variant="neon" h="400px">
-        <CardBody>
-          <VStack spacing={4} align="start">
-            <Box w="full" h="20px" bg="gray.700" borderRadius="md" />
-            <Box w="60%" h="16px" bg="gray.700" borderRadius="md" />
-            <Box w="80%" h="24px" bg="gray.700" borderRadius="md" />
-            <Box w="full" h="60px" bg="gray.700" borderRadius="md" />
-          </VStack>
-        </CardBody>
-      </Card>
-    );
-  }
 
   return (
     <MotionCard
@@ -87,36 +77,41 @@ const PartsCard: React.FC<PartsCardProps> = ({
       }}
       cursor="pointer"
       h="auto"
-      minH="420px"
+      minH={{ base: "auto", md: "480px" }}
+      maxW={{ base: "280px", sm: "320px", md: "100%" }}
+      w="full"
+      mx="auto"
       position="relative"
     >
       <CardBody>
-        <VStack spacing={4} align="start" h="full">
+        <VStack spacing={5} align="start" h="full">
           <HStack justify="space-between" w="full" align="center">
             <Heading
-              size="md"
+              size="lg"
               color="neon.white"
               fontFamily="heading"
               textTransform="uppercase"
               letterSpacing="1px"
+              fontSize={{ base: "md", md: "lg" }}
             >
               {part.type}
             </Heading>
-            <RankBadge rank={currentRank} />
+            <RankBadge rank={currentRank} size="lg" />
           </HStack>
 
           <Heading
-            size="sm"
+            size="md"
             color="brand.500"
             textShadow="0 0 10px rgba(0, 255, 255, 1)"
             fontFamily="heading"
-            lineHeight="1.2"
+            lineHeight="1.3"
             noOfLines={2}
+            fontSize="lg"
           >
             {part.model}
           </Heading>
 
-          <Price price={part.price} />
+          <Price price={part.price} size="xl" />
 
           <Box w="full" flex={1}>
             <PartSpecs part={part} showDetailed={false} />
@@ -131,28 +126,30 @@ const PartsCard: React.FC<PartsCardProps> = ({
                 borderColor="rgba(0, 255, 255, 0.2)"
                 size="sm"
               >
-                <CardBody p={3}>
+                <CardBody p={4}>
                   <Text
-                    fontSize="xs"
+                    fontSize="sm"
                     color="neon.gray"
-                    mb={2}
+                    mb={3}
                     fontFamily="heading"
                     textTransform="uppercase"
+                    fontWeight="bold"
                   >
                     他のランクを見る:
                   </Text>
-                  <Wrap spacing={1}>
+                  <Stack direction={{ base: "column", md: "row" }} spacing={3}>
                     {otherRanks.map((rank) => (
-                      <WrapItem key={rank}>
-                        <ButtonBase
-                          variant="small"
-                          onClick={() => onRankChange(part.type, rank)}
-                        >
-                          {getRankLabel(rank)}に変更
-                        </ButtonBase>
-                      </WrapItem>
+                      <ButtonBase
+                        fontSize="12px"
+                        key={rank}
+                        variant={rank}
+                        onClick={() => onRankChange(part.type, rank)}
+                        size="md"
+                      >
+                        {getRankLabel(rank)}に変更
+                      </ButtonBase>
                     ))}
-                  </Wrap>
+                  </Stack>
                 </CardBody>
               </Card>
             </Box>
@@ -165,6 +162,7 @@ const PartsCard: React.FC<PartsCardProps> = ({
               variant="primary"
               onClick={() => onShowDetail(part)}
               fullWidth
+              size="lg"
             >
               詳細を見る
             </ButtonBase>

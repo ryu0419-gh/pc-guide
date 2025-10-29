@@ -8,6 +8,7 @@ import {
   CardBody,
   Divider,
   useToast,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { PartWithPriceProps } from "@/type/type";
 import Modal from "../molecules/Modal";
@@ -29,6 +30,8 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   onPurchase,
 }) => {
   const toast = useToast();
+  const modalSize =
+    useBreakpointValue<"sm" | "2xl">({ base: "sm", md: "2xl" }) ?? "sm";
 
   if (!part) return null;
 
@@ -48,8 +51,13 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={part.model} size="2xl">
-      <VStack spacing={6} align="start">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={part.model}
+      size={modalSize}
+    >
+      <VStack spacing={6} align="start" px={{ base: 2, md: 4 }}>
         <Price price={part.price} size="xl" />
 
         <Box w="full">
@@ -63,6 +71,7 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
             fontFamily="heading"
             textTransform="uppercase"
             letterSpacing="1px"
+            fontSize={{ base: "md", md: "lg" }}
           >
             詳細仕様
           </Heading>
@@ -86,7 +95,7 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
               <Text
                 color="neon.gray"
                 lineHeight="1.6"
-                fontSize="md"
+                fontSize={{ base: "sm", md: "md" }}
                 fontFamily="body"
               >
                 {part.description}
@@ -103,7 +112,11 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
             bg="transparent"
           >
             <CardBody>
-              <HStack justify="space-between" align="center">
+              <HStack
+                justify="space-between"
+                align="center"
+                flexDir={{ base: "column", md: "row" }}
+              >
                 <VStack align="start" spacing={1}>
                   <Text
                     fontSize="sm"
@@ -122,7 +135,7 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
                     {part.benchmarkScore}
                   </Text>
                 </VStack>
-                <Box>
+                <Box mt={{ base: 2, md: 0 }}>
                   <Text fontSize="xs" color="neon.gray">
                     {part.benchmarkScore >= 90
                       ? "ハイパフォーマンス"
@@ -138,11 +151,25 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
 
         <Divider borderColor="rgba(0, 255, 255, 0.2)" />
 
-        <HStack spacing={4} w="full" justify="flex-end">
-          <ButtonBase variant="secondary" onClick={onClose}>
+        <HStack
+          spacing={4}
+          w="full"
+          justify="flex-end"
+          flexDir={{ base: "column", md: "row" }}
+          align={{ base: "stretch", md: "center" }}
+        >
+          <ButtonBase
+            variant="secondary"
+            onClick={onClose}
+            w={{ base: "full", md: "auto" }}
+          >
             閉じる
           </ButtonBase>
-          <ButtonBase variant="success" onClick={handlePurchaseClick}>
+          <ButtonBase
+            variant="success"
+            onClick={handlePurchaseClick}
+            w={{ base: "full", md: "auto" }}
+          >
             購入サイトへ
           </ButtonBase>
         </HStack>

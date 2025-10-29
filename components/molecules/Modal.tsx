@@ -45,10 +45,13 @@ const Modal: React.FC<ModalProps> = ({
       <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(4px)" />
       <ModalContent
         bg="neon.black"
-        border="2px solid"
+        border={{ base: "none", md: "2px solid" }}
         borderColor="brand.500"
-        borderRadius="16px"
-        boxShadow="0 0 40px rgba(0, 255, 255, 0.4)"
+        borderRadius={{ base: "0", md: "16px" }}
+        boxShadow={{
+          base: "none",
+          md: "0 0 40px rgba(0, 255, 255, 0.4)",
+        }}
         fontFamily="body"
         maxH="80vh"
         overflowY="auto"

@@ -1,18 +1,12 @@
-// styles/globalstyle.ts - 完全統合版
 "use client";
 import { extendTheme } from "@chakra-ui/react";
-import { Staatliches } from "next/font/google";
-
-const staatliches = Staatliches({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const globalstyle = extendTheme({
   fonts: {
-    heading: `${staatliches.style.fontFamily}, 'Staatliches', system-ui, sans-serif`,
-    body: `${staatliches.style.fontFamily}, 'Staatliches', system-ui, sans-serif`,
+    heading: `'Staatliches', system-ui, sans-serif`,
+    body: `'Staatliches', system-ui, sans-serif`,
   },
+
   colors: {
     brand: {
       50: "#e6ffff",
@@ -110,6 +104,54 @@ const globalstyle = extendTheme({
             borderColor: "brand.500",
             color: "brand.500",
             transform: "scale(1.02)",
+          },
+        },
+        neonBudget: {
+          bg: "rgba(57, 255, 20, 0.12)",
+          color: "#39ff14",
+          border: "1px solid",
+          borderColor: "#39ff14",
+          borderRadius: "6px",
+          fontSize: "16px",
+          textTransform: "uppercase",
+          letterSpacing: "0.5px",
+          boxShadow: "0 0 10px rgba(57, 255, 20, 0.3)",
+          _hover: {
+            bg: "rgba(57, 255, 20, 0.2)",
+            transform: "scale(1.05)",
+            boxShadow: "0 0 15px rgba(57, 255, 20, 0.5)",
+          },
+        },
+        neonRecommended: {
+          bg: "rgba(0, 255, 255, 0.12)",
+          color: "#00ffff",
+          border: "1px solid",
+          borderColor: "#00ffff",
+          borderRadius: "6px",
+          fontSize: "16px",
+          textTransform: "uppercase",
+          letterSpacing: "0.5px",
+          boxShadow: "0 0 10px rgba(0, 255, 255, 0.3)",
+          _hover: {
+            bg: "rgba(0, 255, 255, 0.2)",
+            transform: "scale(1.05)",
+            boxShadow: "0 0 15px rgba(0, 255, 255, 0.5)",
+          },
+        },
+        neonHighend: {
+          bg: "rgba(255, 105, 180, 0.12)",
+          color: "#ff69b4",
+          border: "1px solid",
+          borderColor: "#ff69b4",
+          borderRadius: "6px",
+          fontSize: "16px",
+          textTransform: "uppercase",
+          letterSpacing: "0.5px",
+          boxShadow: "0 0 10px rgba(255, 105, 180, 0.3)",
+          _hover: {
+            bg: "rgba(255, 105, 180, 0.2)",
+            transform: "scale(1.05)",
+            boxShadow: "0 0 15px rgba(255, 105, 180, 0.5)",
           },
         },
       },

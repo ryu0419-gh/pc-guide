@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { Box, Heading } from "@chakra-ui/react";
 import Image from "next/image";
+import { Box, Heading } from "@chakra-ui/react";
+
 import { GameProps } from "@/type/type";
 
 type Props = {
@@ -22,6 +23,7 @@ export const GameCard = ({ game, onSelect }: Props) => {
       cursor="pointer"
       onClick={() => onSelect(game.id)}
       bg="gray.900"
+      borderColor="#44D7DA"
       color="white"
       role="group"
     >

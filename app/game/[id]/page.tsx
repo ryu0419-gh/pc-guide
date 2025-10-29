@@ -1,58 +1,17 @@
-// app/game/[id]/page.tsx
-"use client";
-
-import React, { useState, useEffect, use } from "react";
-import { SpecsTable } from "@/components/organisms/SpecsTable";
-import { GameProps } from "@/type/type";
-import gamesData from "@/data/games.json";
-import { Box, Container, Text, VStack } from "@chakra-ui/react";
-
+import GameSpecTemplate from "@/components/templates/GameSpecsTemplate";
+import { fetchGames } from "@/lib/fetchGames";
 interface GameDetailPageProps {
-  params: Promise<{ id: string }>;
+  params: {
+    id: string;
+  };
 }
 
-export default function GameDetailPage({ params }: GameDetailPageProps) {
-  const { id } = use(params);
-  const [game, setGame] = useState<GameProps | null>(null);
-  const [loading, setLoading] = useState(true);
+export default async function GameDetailPage({ params }: GameDetailPageProps) {
+  const { id } = params;
+  const games = await fetchGames();
+  const game = games.find((g) => g.id === id);
 
-  useEffect(() => {
-    // ゲームデータから該当するゲームを検索
-    const foundGame = gamesData.find((g) => g.id === id);
-    setGame(foundGame || null);
-    setLoading(false);
-  }, [id]);
+  if (!game) return <p>ゲームが見つかりません</p>;
 
-  const handleViewParts = () => {
-    // パーツページへの遷移
-    window.location.href = `/game/${id}/parts`;
-  };
-
-  if (loading) {
-    return (
-      <Container maxW="1200px" py={8}>
-        <Text color="neon.gray" textAlign="center">
-          読み込み中...
-        </Text>
-      </Container>
-    );
-  }
-
-  if (!game) {
-    return (
-      <Container maxW="1200px" py={8}>
-        <Text color="neon.gray" textAlign="center">
-          ゲームが見つかりませんでした
-        </Text>
-      </Container>
-    );
-  }
-
-  return (
-    <Box py={8} px={4} w="full">
-      <VStack spacing={8} w="full">
-        <SpecsTable game={game} onViewParts={handleViewParts} />
-      </VStack>
-    </Box>
-  );
+  return <GameSpecTemplate game={game} />;
 }

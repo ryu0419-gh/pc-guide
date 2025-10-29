@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import { Flex, Box, Container } from "@chakra-ui/react";
 import Header from "@/components/layout/Header";
@@ -7,7 +9,7 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export default function ClientLayout({ children }: LayoutProps) {
   return (
     <Flex direction="column" minH="100vh" bg="neon.black" color="neon.white">
       <Header />

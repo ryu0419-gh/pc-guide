@@ -1,7 +1,15 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Staatliches } from "next/font/google";
+
 import { Providers } from "@/components/providers/Chakra";
-import Layout from "@/components/layout/Layout";
+import ClientLayout from "@/components/layout/ClientLayout";
+
+const staatliches = Staatliches({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-staatliches",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -13,12 +21,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={staatliches.variable}>
+      <head />
       <body>
         <Providers>
-          <Layout>{children}</Layout>
+          <ClientLayout>{children}</ClientLayout>
         </Providers>
       </body>
     </html>
   );
 }
+
