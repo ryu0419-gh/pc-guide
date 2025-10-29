@@ -1,11 +1,7 @@
-import "@/styles/globals.css";
-import Layout from "@/components/layout/Layout";
-import GameCard from "@/components/organisms/GameCard";
+import { fetchGames } from "@/lib/fetchGames";
+import { HomeTemplate } from "@/components/templates/HomeTemplate";
 
-export default function Home() {
-  return (
-    <Layout>
-        <GameCard />
-        </Layout>
-  );
+export default async function HomePage() {
+  const initialGames = await fetchGames();
+  return <HomeTemplate initialGames={initialGames} />;
 }
