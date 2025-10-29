@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.4.2",
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.1",
     "framer-motion": "^12.23.12",
     "next": "^15.4.6",

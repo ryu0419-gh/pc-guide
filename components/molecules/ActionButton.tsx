@@ -1,3 +1,4 @@
+"use client"
 import { HStack } from "@chakra-ui/react";
 import ButtonBase from "@/components/atoms/ButtonBase";
 

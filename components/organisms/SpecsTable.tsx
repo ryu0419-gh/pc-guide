@@ -23,7 +23,6 @@ import { motion } from "framer-motion";
 import ButtonBase from "@/components/atoms/ButtonBase";
 import { GameProps } from "@/type/type";
 
-
 const MotionCard = motion(Card);
 
 interface SpecsTableProps {

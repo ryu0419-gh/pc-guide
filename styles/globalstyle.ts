@@ -1,18 +1,12 @@
-// styles/globalstyle.ts - 完全統合版
 "use client";
 import { extendTheme } from "@chakra-ui/react";
-import { Staatliches } from "next/font/google";
-
-const staatliches = Staatliches({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const globalstyle = extendTheme({
   fonts: {
-    heading: `${staatliches.style.fontFamily}, 'Staatliches', system-ui, sans-serif`,
-    body: `${staatliches.style.fontFamily}, 'Staatliches', system-ui, sans-serif`,
+    heading: `'Staatliches', system-ui, sans-serif`,
+    body: `'Staatliches', system-ui, sans-serif`,
   },
+
   colors: {
     brand: {
       50: "#e6ffff",
