@@ -27,6 +27,7 @@ const MotionCard = motion(Card);
 
 interface SpecsTableProps {
   game: GameProps;
+  onViewParts?:(rank: "budget" | "recommended" ) => void;
 }
 
 export const SpecsTable = ({ game }: SpecsTableProps) => {
@@ -45,8 +46,12 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
     );
   }
 
-  const handleViewParts = () => {
-    router.push(`/game/${game.id}/parts`);
+  const handleViewParts = (rank: "budget" | "recommended" ) => {
+    if (onViewParts) {
+      onViewParts(rank);
+    } else {
+      window.location.href = `/game/${game.id}/parts?rank=${rank}`;
+    }
   };
 
   return (
@@ -133,106 +138,106 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                 </Text>
               </VStack>
 
-              {/* スペック比較テーブル */}
-              <Box
-                w="full"
-                overflowX="auto"
-                border="2px solid"
-                borderColor="rgba(0, 255, 255, 0.3)"
-                borderRadius="12px"
-                bg="rgba(0, 0, 0, 0.2)"
-              >
-                <Table variant="simple" size="md">
-                  <Thead>
-                    <Tr borderBottomWidth="2px" borderColor="brand.500">
-                      <Th
-                        color="brand.500"
-                        fontFamily="heading"
-                        textTransform="uppercase"
-                        fontSize="sm"
-                        letterSpacing="2px"
-                        textAlign="left"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                        bg="rgba(0, 255, 255, 0.05)"
-                      >
-                        項目
-                      </Th>
-                      <Th
-                        color="neon.white"
-                        fontFamily="heading"
-                        textTransform="uppercase"
-                        fontSize="sm"
-                        letterSpacing="1px"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                      >
-                        最低動作スペック
-                      </Th>
-                      <Th
-                        color="brand.500"
-                        fontFamily="heading"
-                        textTransform="uppercase"
-                        fontSize="sm"
-                        letterSpacing="1px"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        bg="rgba(0, 255, 255, 0.1)"
-                        textShadow="0 0 8px rgba(0, 255, 255, 0.8)"
-                      >
-                        推奨スペック
-                      </Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    {/* OS */}
-                    <Tr
-                      borderBottomWidth="1px"
-                      borderColor="rgba(0, 255, 255, 0.2)"
-                      _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
-                      transition="all 0.2s ease"
+            {/* スペック比較テーブル */}
+            <Box
+              w="full"
+              overflowX="auto"
+              border="2px solid"
+              borderColor="rgba(0, 255, 255, 0.3)"
+              borderRadius="12px"
+              bg="rgba(0, 0, 0, 0.2)"
+            >
+              <Table variant="simple" size="md">
+                <Thead>
+                  <Tr borderBottomWidth="2px" borderColor="brand.500">
+                    <Th
+                      color="brand.500"
+                      fontFamily="heading"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      letterSpacing="2px"
+                      textAlign="left"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                      bg="rgba(0, 255, 255, 0.05)"
                     >
-                      <Td
-                        fontWeight="bold"
-                        color="neon.white"
-                        fontFamily="heading"
-                        textTransform="uppercase"
-                        fontSize="sm"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                        bg="rgba(0, 255, 255, 0.05)"
-                      >
-                        OS
-                      </Td>
-                      <Td
-                        color="neon.gray"
-                        fontSize="sm"
-                        fontFamily="body"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                      >
-                        {game.budgetOs}
-                      </Td>
-                      <Td
-                        color="neon.white"
-                        fontSize="sm"
-                        fontFamily="body"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        fontWeight="bold"
-                        bg="rgba(0, 255, 255, 0.1)"
-                      >
-                        {game.recommendedOs}
-                      </Td>
-                    </Tr>
+                      項目
+                    </Th>
+                    <Th
+                      color="neon.white"
+                      fontFamily="heading"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      letterSpacing="1px"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                    >
+                      最低動作スペック
+                    </Th>
+                    <Th
+                      color="brand.500"
+                      fontFamily="heading"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      letterSpacing="1px"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      bg="rgba(0, 255, 255, 0.1)"
+                      textShadow="0 0 8px rgba(0, 255, 255, 0.8)"
+                    >
+                      推奨スペック
+                    </Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {/* OS */}
+                  <Tr
+                    borderBottomWidth="1px"
+                    borderColor="rgba(0, 255, 255, 0.2)"
+                    _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
+                    transition="all 0.2s ease"
+                  >
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
+                      fontFamily="heading"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                      bg="rgba(0, 255, 255, 0.05)"
+                    >
+                      OS
+                    </Td>
+                    <Td
+                      color="neon.gray"
+                      fontSize="xl"
+                      fontFamily="body"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                    >
+                      {game.budgetOs}
+                    </Td>
+                    <Td
+                      color="neon.white"
+                      fontSize="xl"
+                      fontFamily="body"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      fontWeight="bold"
+                      bg="rgba(0, 255, 255, 0.1)"
+                    >
+                      {game.recommendedOs}
+                    </Td>
+                  </Tr>
 
                     {/* CPU */}
                     <Tr
@@ -324,223 +329,249 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                     </Tr>
 
-                    {/* RAM */}
-                    <Tr
-                      borderBottomWidth="1px"
-                      borderColor="rgba(0, 255, 255, 0.2)"
-                      _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
-                      transition="all 0.2s ease"
-                    >
-                      <Td
-                        fontWeight="bold"
-                        color="neon.white"
-                        fontFamily="heading"
-                        textTransform="uppercase"
-                        fontSize="sm"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                        bg="rgba(0, 255, 255, 0.05)"
-                      >
-                        RAM
-                      </Td>
-                      <Td
-                        color="neon.gray"
-                        fontSize="sm"
-                        fontFamily="body"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                      >
-                        {game.budgetMemory}
-                      </Td>
-                      <Td
-                        color="neon.white"
-                        fontSize="sm"
-                        fontFamily="body"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        fontWeight="bold"
-                        bg="rgba(0, 255, 255, 0.1)"
-                      >
-                        {game.recommendedMemory}
-                      </Td>
-                    </Tr>
-
-                    {/* ストレージ */}
-                    <Tr
-                      _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
-                      transition="all 0.2s ease"
-                    >
-                      <Td
-                        fontWeight="bold"
-                        color="neon.white"
-                        fontFamily="heading"
-                        textTransform="uppercase"
-                        fontSize="sm"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                        bg="rgba(0, 255, 255, 0.05)"
-                      >
-                        ストレージ
-                      </Td>
-                      <Td
-                        color="neon.gray"
-                        fontSize="sm"
-                        fontFamily="body"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        borderRight="1px solid rgba(0, 255, 255, 0.2)"
-                      >
-                        {game.budgetStorage}
-                      </Td>
-                      <Td
-                        color="neon.white"
-                        fontSize="sm"
-                        fontFamily="body"
-                        textAlign="center"
-                        py={4}
-                        px={4}
-                        fontWeight="bold"
-                        bg="rgba(0, 255, 255, 0.1)"
-                      >
-                        {game.recommendedStorage}
-                      </Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </Box>
-              <Box
-                mt={6}
-                marginLeft={{ base: "0", md: "80px" }}
-                maxW={{ base: "100%", md: "500px" }}
-              >
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                  {/* 最低動作環境 - 赤系ネオン */}
-                  <Box
-                    p={4}
-                    border="2px solid"
-                    borderColor="neon.red"
-                    borderRadius="12px"
-                    bg="rgba(239, 68, 68, 0.05)"
-                    boxShadow="0 0 15px rgba(239, 68, 68, 0.3)"
-                    _hover={{
-                      boxShadow: "0 0 25px rgba(239, 68, 68, 0.5)",
-                      transform: "scale(1.02)",
-                    }}
+                  {/* RAM */}
+                  <Tr
+                    borderBottomWidth="1px"
+                    borderColor="rgba(0, 255, 255, 0.2)"
+                    _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <VStack align="start" spacing={2}>
-                      <HStack>
-                        <Circle
-                          size="16px"
-                          bg="neon.red"
-                          boxShadow="0 0 10px rgba(239, 68, 68, 0.8)"
-                        />
-                        <Text
-                          fontWeight="bold"
-                          color="neon.red"
-                          fontFamily="heading"
-                          textTransform="uppercase"
-                          letterSpacing="1px"
-                          fontSize="sm"
-                          textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
-                        >
-                          最低動作環境
-                        </Text>
-                      </HStack>
-                      <Text
-                        fontSize="xs"
-                        color="neon.gray"
-                        fontFamily="body"
-                        lineHeight="1.4"
-                        borderLeft="2px solid rgba(239, 68, 68, 0.3)"
-                        pl={2}
-                      >
-                        ゲームが動作する最低限のスペックです。快適性は期待できません。
-                      </Text>
-                    </VStack>
-                  </Box>
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
+                      fontFamily="heading"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                      bg="rgba(0, 255, 255, 0.05)"
+                    >
+                      RAM
+                    </Td>
+                    <Td
+                      color="neon.gray"
+                      fontSize="xl"
+                      fontFamily="body"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                    >
+                      {game.budgetMemory}
+                    </Td>
+                    <Td
+                      color="neon.white"
+                      fontSize="xl"
+                      fontFamily="body"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      fontWeight="bold"
+                      bg="rgba(0, 255, 255, 0.1)"
+                    >
+                      {game.recommendedMemory}
+                    </Td>
+                  </Tr>
 
-                  {/* 推奨スペック - シアン系ネオン */}
-                  <Box
-                    p={4}
-                    border="2px solid"
-                    borderColor="brand.500"
-                    borderRadius="12px"
-                    bg="rgba(0, 255, 255, 0.05)"
-                    boxShadow="0 0 15px rgba(0, 255, 255, 0.3)"
-                    _hover={{
-                      boxShadow: "0 0 25px rgba(0, 255, 255, 0.5)",
-                      transform: "scale(1.02)",
-                    }}
+                  {/* ストレージ */}
+                  <Tr
+                    _hover={{ bg: "rgba(0, 255, 255, 0.03)" }}
                     transition="all 0.2s ease"
                   >
-                    <VStack align="start" spacing={2}>
-                      <HStack>
-                        <Circle
-                          size="16px"
-                          bg="brand.500"
-                          boxShadow="0 0 10px rgba(0, 255, 255, 0.8)"
-                        />
-                        <Text
-                          fontWeight="bold"
-                          color="brand.500"
-                          fontFamily="heading"
-                          textTransform="uppercase"
-                          letterSpacing="1px"
-                          fontSize="sm"
-                          textShadow="0 0 8px rgba(0, 255, 255, 0.8)"
-                        >
-                          推奨スペック
-                        </Text>
-                      </HStack>
-                      <Text
-                        fontSize="xs"
-                        color="neon.gray"
-                        fontFamily="body"
-                        lineHeight="1.4"
-                        borderLeft="2px solid rgba(0, 255, 255, 0.3)"
-                        pl={2}
-                      >
-                        快適にゲームをプレイできるスペックです。このスペック以上を推奨します。
-                      </Text>
-                    </VStack>
-                  </Box>
-                </SimpleGrid>
-              </Box>
-              {/* 注釈 */}
-              <Text
-                fontSize="xs"
-                color="rgba(255, 255, 255, 0.5)"
-                textAlign="center"
-                fontFamily="body"
-                lineHeight="1.4"
-              >
-                ※ 推奨スペックは快適にゲームをプレイできる性能です
-                <br />
-                最低動作スペックでは画質やフレームレートが制限される場合があります
-              </Text>
-
-              {/* パーツ構成ボタン */}
-              <Box pt={4}>
-                <ButtonBase
-                  variant="primary"
-                  onClick={handleViewParts}
-                  size="lg"
-                  fullWidth
+                    <Td
+                      fontWeight="bold"
+                      color="neon.white"
+                      fontFamily="heading"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                      bg="rgba(0, 255, 255, 0.05)"
+                    >
+                      ストレージ
+                    </Td>
+                    <Td
+                      color="neon.gray"
+                      fontSize="xl"
+                      fontFamily="body"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      borderRight="1px solid rgba(0, 255, 255, 0.2)"
+                    >
+                      {game.budgetStorage}
+                    </Td>
+                    <Td
+                      color="neon.white"
+                      fontSize="xl"
+                      fontFamily="body"
+                      textAlign="center"
+                      py={4}
+                      px={4}
+                      fontWeight="bold"
+                      bg="rgba(0, 255, 255, 0.1)"
+                    >
+                      {game.recommendedStorage}
+                    </Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </Box>
+            <Box
+              mt={6}
+              marginLeft={{ base: "0", md: "80px" }}
+              maxW={{ base: "100%", md: "500px" }}
+            >
+              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                {/* 最低動作環境 - 赤系ネオン */}
+                <Box
+                  p={4}
+                  border="2px solid"
+                  borderColor="neon.red"
+                  borderRadius="12px"
+                  bg="rgba(239, 68, 68, 0.05)"
+                  boxShadow="0 0 15px rgba(239, 68, 68, 0.3)"
+                  _hover={{
+                    boxShadow: "0 0 25px rgba(239, 68, 68, 0.5)",
+                    transform: "scale(1.02)",
+                  }}
+                  transition="all 0.2s ease"
+                  cursor="pointer"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleViewParts("budget")}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      handleViewParts("budget");
+                    }
+                  }}
+                  aria-label="コスパ重視のパーツ構成へ移動"
                 >
-                  このスペックに基づいたパーツ構成へ
-                </ButtonBase>
-              </Box>
-            </VStack>
-          </CardBody>
-        </MotionCard>
+                  <VStack align="start" spacing={2}>
+                    <HStack>
+                      <Circle
+                        size="16px"
+                        bg="neon.red"
+                        boxShadow="0 0 10px rgba(239, 68, 68, 0.8)"
+                      />
+                      <Text
+                        fontWeight="bold"
+                        color="neon.red"
+                        fontFamily="heading"
+                        textTransform="uppercase"
+                        letterSpacing="1px"
+                        fontSize="sm"
+                        textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
+                      >
+                        コスパ重視
+                      </Text>
+                    </HStack>
+                    <Text
+                      fontSize="xs"
+                      color="#ffffff"
+                      fontFamily="body"
+                      lineHeight="1.4"
+                      borderLeft="2px solid rgba(239, 68, 68, 0.3)"
+                      pl={2}
+                    >
+                      ゲームが動作する最低限のスペックです。快適性は期待できません。
+                    </Text>
+                  </VStack>
+                </Box>
+
+                {/* 推奨スペック - シアン系ネオン */}
+                <Box
+                  p={4}
+                  border="2px solid"
+                  borderColor="brand.500"
+                  borderRadius="12px"
+                  bg="rgba(0, 255, 255, 0.05)"
+                  boxShadow="0 0 15px rgba(0, 255, 255, 0.3)"
+                  _hover={{
+                    boxShadow: "0 0 25px rgba(0, 255, 255, 0.5)",
+                    transform: "scale(1.02)",
+                  }}
+                  transition="all 0.2s ease"
+                  cursor="pointer"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleViewParts("recommended")}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      handleViewParts("recommended");
+                    }
+                  }}
+                  aria-label="推奨スペックのパーツ構成へ移動"
+                >
+                  <VStack align="start" spacing={2}>
+                    <HStack>
+                      <Circle
+                        size="16px"
+                        bg="brand.500"
+                        boxShadow="0 0 10px rgba(0, 255, 255, 0.8)"
+                      />
+                      <Text
+                        fontWeight="bold"
+                        color="brand.500"
+                        fontFamily="heading"
+                        textTransform="uppercase"
+                        letterSpacing="1px"
+                        fontSize="sm"
+                        textShadow="0 0 8px rgba(0, 255, 255, 0.8)"
+                      >
+                        推奨スペック
+                      </Text>
+                    </HStack>
+                    <Text
+                      fontSize="xs"
+                      color="#ffffff"
+                      fontFamily="body"
+                      lineHeight="1.4"
+                      borderLeft="2px solid rgba(0, 255, 255, 0.3)"
+                      pl={2}
+                    >
+                      快適にゲームをプレイできるスペックです。このスペック以上を推奨します。
+                    </Text>
+                  </VStack>
+                </Box>
+              </SimpleGrid>
+            </Box>
+            {/* 注釈 */}
+            <Text
+              fontSize="xs"
+              color="#ffffff"
+              textAlign="center"
+              fontFamily="body"
+              lineHeight="1.4"
+            >
+              ※ 推奨スペックは快適にゲームをプレイできる性能です
+              <br />
+              最低動作スペックでは画質やフレームレートが制限される場合があります
+            </Text>
+
+            {/* パーツ構成ボタン */}
+            <Box pt={4}>
+              <ButtonBase
+                variant="primary"
+                onClick={() => handleViewParts("budget")}
+                size="lg"
+                fullWidth
+              >
+                このスペックに基づいたパーツ構成へ
+              </ButtonBase>
+            </Box>
+          </VStack>
+        </CardBody>
+      </MotionCard>
       </VStack>
     </Box>
   );
 };
+function onViewParts(rank: string) {
+  throw new Error("Function not implemented.");
+}
+

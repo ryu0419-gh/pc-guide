@@ -4,6 +4,10 @@ interface PartsPageProps {
   params: { id: string };
 }
 
-export default function PartsPage({ params }: PartsPageProps) {
-  return <PCPartsTemplates gameId={params.id} />;
+export default function PartsPage({ params}: PartsPageProps) {
+  return (
+    <PCPartsTemplates
+      gameId={params.id}
+    />
+  );
 }
