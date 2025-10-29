@@ -1,438 +1,183 @@
 [
+ {
+  "id": "1",
+  "title": "Cyberpunk 2077",
+  "thumbnail": "/images/games/cyberpunk2077.jpg",
+  "budgetOs": "Windows 10",
+  "budgetProcessor": "Intel Core i5-3570K / AMD FX-8310",
+  "budgetMemory": "8 GB",
+  "budgetGraphics": "GTX 970 / Radeon RX 470",
+  "budgetStorage": "70 GB HDD",
+  "recommendedOs": "Windows 10",
+  "recommendedProcessor": "Intel Core i7-4790 / AMD Ryzen 3 3200G",
+  "recommendedMemory": "12 GB",
+  "recommendedGraphics": "GTX 1060 6GB / GTX 1660 Super / Radeon RX 590",
+  "recommendedStorage": "70 GB SSD",
+  "highendOs": "Windows 10",
+  "highendProcessor": "Intel Core i7-4790 / AMD Ryzen 5 3600",
+  "highendMemory": "16 GB",
+  "highendGraphics": "RTX 2080S / RTX 3070 / Radeon RX 6800 XT",
+  "highendStorage": "70 GB SSD"
+},
   {
-    "id": "1",
-    "title": "Cyberpunk 2077",
-    "thumbnail": "/images/games/cyberpunk2077.jpg",
-    "specs": {
-      "minimum": {
-        "os": "Windows 10",
-        "processor": "Intel Core i5-3570K / AMD FX-8310",
-        "memory": "8 GB RAM",
-        "graphics": "NVIDIA GeForce GTX 780 / AMD Radeon RX 470",
-        "storage": "70 GB"
-      },
-      "recommended": {
-        "os": "Windows 10",
-        "processor": "Intel Core i7-4790 / AMD Ryzen 3 3200G",
-        "memory": "12 GB RAM", 
-        "graphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon R9 Fury",
-        "storage": "70 GB"
-      }
-    },
-    "parts": {
-      "recommended": [
-        {
-          "type": "CPU",
-          "model": "Intel Core i7-12700K",
-          "price": "45,000",
-          "description": "12コア20スレッド、3.6GHz-5.0GHz",
-          "benchmarkScore": 95
-        },
-        {
-          "type": "GPU",
-          "model": "NVIDIA GeForce RTX 4070",
-          "price": "80,000", 
-          "description": "12GB GDDR6X、Ray Tracing対応",
-          "benchmarkScore": 90
-        },
-        {
-          "type": "メモリ",
-          "model": "Corsair Vengeance LPX 32GB DDR4-3200",
-          "price": "18,000",
-          "description": "32GB (16GBx2) DDR4-3200 CL16",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "ストレージ",
-          "model": "Samsung 980 PRO 1TB NVMe SSD",
-          "price": "15,000",
-          "description": "1TB NVMe PCIe 4.0 SSD、読み込み7,000MB/s",
-          "benchmarkScore": 95
-        },
-        {
-          "type": "マザーボード",
-          "model": "ASUS ROG STRIX B660-A GAMING WIFI",
-          "price": "25,000",
-          "description": "Intel B660チップセット、WiFi 6対応",
-          "benchmarkScore": 88
-        },
-        {
-          "type": "電源",
-          "model": "Corsair RM750x 750W 80+ Gold",
-          "price": "18,000",
-          "description": "750W 80+ Gold認証、フルモジュラー",
-          "benchmarkScore": 92
-        }
-      ],
-      "alternative": [
-        {
-          "type": "CPU",
-          "model": "AMD Ryzen 5 5600X",
-          "price": "28,000",
-          "description": "6コア12スレッド、3.7GHz-4.6GHz",
-          "benchmarkScore": 82
-        },
-        {
-          "type": "GPU",
-          "model": "NVIDIA GeForce RTX 4060 Ti",
-          "price": "65,000",
-          "description": "16GB GDDR6、1080p-1440p向け",
-          "benchmarkScore": 75
-        },
-        {
-          "type": "メモリ",
-          "model": "G.Skill Ripjaws V 16GB DDR4-3200",
-          "price": "8,000",
-          "description": "16GB (8GBx2) DDR4-3200 CL16",
-          "benchmarkScore": 75
-        }
-      ]
-    }
-  },
+  "id": "2",
+  "title": "The Witcher 3: Wild Hunt",
+  "thumbnail": "/images/games/witcher3.jpg",
+  "budgetOs": "Windows 10 / 11",
+  "budgetProcessor": "Intel Core i5-2500K 3.3GHz / AMD A10-5800K 3.8GHz",
+  "budgetMemory": "6 GB",
+  "budgetGraphics": "GeForce GTX 660 / Radeon HD 7870",
+  "budgetStorage": "50 GB",
+  "recommendedOs": "Windows 10 / 11",
+  "recommendedProcessor": "Intel Core i7-3770 3.4 GHz / AMD FX-8350 4 GHz",
+  "recommendedMemory": "6 GB",
+  "recommendedGraphics": "GeForce GTX 770 / Radeon R9 290",
+  "recommendedStorage": "50 GB",
+  "highendOs": "Windows 10 / 11",
+  "highendProcessor": "Intel Core i7-8700K / AMD Ryzen 5 3600",
+  "highendMemory": "16 GB",
+  "highendGraphics": "Nvidia RTX 3070 / Radeon RX 6700 XT",
+  "highendStorage": "50 GB"
+},
   {
-    "id": "2", 
-    "title": "The Witcher 3: Wild Hunt",
-    "thumbnail": "/images/games/witcher3.jpg",
-    "specs": {
-      "minimum": {
-        "os": "Windows 7/8/10",
-        "processor": "Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940",
-        "memory": "6 GB RAM",
-        "graphics": "NVIDIA GPU GeForce GTX 660 / AMD GPU Radeon HD 7870",
-        "storage": "35 GB"
-      },
-      "recommended": {
-        "os": "Windows 7/8/10",
-        "processor": "Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz",
-        "memory": "8 GB RAM",
-        "graphics": "NVIDIA GPU GeForce GTX 770 / AMD GPU Radeon R9 290",
-        "storage": "35 GB"
-      }
-    },
-    "parts": {
-      "recommended": [
-        {
-          "type": "CPU",
-          "model": "Intel Core i5-12400",
-          "price": "28,000",
-          "description": "6コア12スレッド、2.5GHz-4.4GHz",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "GPU", 
-          "model": "NVIDIA GeForce RTX 4060",
-          "price": "50,000",
-          "description": "8GB GDDR6、1080p最適化",
-          "benchmarkScore": 80
-        },
-        {
-          "type": "メモリ",
-          "model": "Corsair Vengeance LPX 16GB DDR4-3200",
-          "price": "9,000",
-          "description": "16GB (8GBx2) DDR4-3200 CL16",
-          "benchmarkScore": 80
-        },
-        {
-          "type": "ストレージ",
-          "model": "Western Digital Blue SN570 500GB NVMe",
-          "price": "8,000",
-          "description": "500GB NVMe PCIe 3.0 SSD",
-          "benchmarkScore": 78
-        },
-        {
-          "type": "マザーボード",
-          "model": "MSI B660M PRO-B DDR4",
-          "price": "15,000",
-          "description": "Intel B660チップセット、mATX",
-          "benchmarkScore": 82
-        },
-        {
-          "type": "電源",
-          "model": "Seasonic Focus GX-650 650W 80+ Gold",
-          "price": "15,000",
-          "description": "650W 80+ Gold認証、セミモジュラー",
-          "benchmarkScore": 88
-        }
-      ],
-      "alternative": [
-        {
-          "type": "CPU",
-          "model": "AMD Ryzen 5 4500",
-          "price": "18,000",
-          "description": "6コア12スレッド、3.6GHz-4.1GHz",
-          "benchmarkScore": 72
-        },
-        {
-          "type": "GPU",
-          "model": "AMD Radeon RX 6600",
-          "price": "35,000",
-          "description": "8GB GDDR6、1080p向け",
-          "benchmarkScore": 68
-        }
-      ]
-    }
-  },
-  {
-    "id": "3",
-    "title": "Valorant",
-    "thumbnail": "/images/games/valorant.jpg", 
-    "specs": {
-      "minimum": {
-        "os": "Windows 7/8/10",
-        "processor": "Intel Core 2 Duo E8400 / AMD Athlon 200GE",
-        "memory": "4 GB RAM",
-        "graphics": "Intel HD 4000 / AMD Radeon R5 200",
-        "storage": "16 GB"
-      },
-      "recommended": {
-        "os": "Windows 7/8/10",
-        "processor": "Intel Core i3-4150 / AMD FX-6300",
-        "memory": "4 GB RAM", 
-        "graphics": "NVIDIA GeForce GT 730 / AMD Radeon R7 240",
-        "storage": "16 GB"
-      }
-    },
-    "parts": {
-      "recommended": [
-        {
-          "type": "CPU",
-          "model": "Intel Core i5-12400F",
-          "price": "25,000",
-          "description": "6コア12スレッド、2.5GHz-4.4GHz（内蔵GPU無し）",
-          "benchmarkScore": 88
-        },
-        {
-          "type": "GPU",
-          "model": "NVIDIA GeForce RTX 4060",
-          "price": "50,000",
-          "description": "8GB GDDR6、高フレームレート対応",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "メモリ",
-          "model": "G.Skill Ripjaws V 16GB DDR4-3600",
-          "price": "10,000",
-          "description": "16GB (8GBx2) DDR4-3600 CL18",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "ストレージ",
-          "model": "Samsung 980 500GB NVMe SSD",
-          "price": "8,000",
-          "description": "500GB NVMe PCIe 3.0 SSD、高速起動",
-          "benchmarkScore": 85
-        },
-        {
-          "type": "マザーボード",
-          "model": "ASRock B660M PRO RS",
-          "price": "12,000",
-          "description": "Intel B660チップセット、mATX",
-          "benchmarkScore": 80
-        },
-        {
-          "type": "電源",
-          "model": "Corsair CV550 550W 80+ Bronze",
-          "price": "8,000",
-          "description": "550W 80+ Bronze認証",
-          "benchmarkScore": 75
-        }
-      ],
-      "alternative": [
-        {
-          "type": "CPU",
-          "model": "AMD Ryzen 5 4500",
-          "price": "18,000",
-          "description": "6コア12スレッド、競技ゲーム向け",
-          "benchmarkScore": 75
-        },
-        {
-          "type": "GPU",
-          "model": "AMD Radeon RX 6500 XT",
-          "price": "25,000",
-          "description": "4GB GDDR6、エントリー向け",
-          "benchmarkScore": 60
-        }
-      ]
-    }
-  },
+  "id": "3",
+  "title": "Valorant",
+  "thumbnail": "/images/games/valorant.jpg",
+  "budgetOs": "Windows 10 / 11",
+  "budgetProcessor": "Intel i3-540 / AMD Athlon 200GE",
+  "budgetMemory": "4 GB",
+  "budgetGraphics": "Intel HD 4000 / Radeon R5 220",
+  "budgetStorage": "28.4 GB",
+  "recommendedOs": "Windows 10 / 11",
+  "recommendedProcessor": "Intel i3-4150 / AMD Ryzen 3 1200",
+  "recommendedMemory": "4 GB",
+  "recommendedGraphics": "NVIDIA Geforce GT 730 / AMD Radeon R7 240",
+  "recommendedStorage": "28.4 GB",
+  "highendOs": "Windows 10 / 11",
+  "highendProcessor": "Intel i5-9400F 2.90GHz / AMD Ryzen 5 2600X",
+  "highendMemory": "4 GB",
+  "highendGraphics": "NVIDIA GTX 1050 Ti / AMD Radeon R7 370 / Intel Arc A310",
+  "highendStorage": "28.4 GB"
+},
   {
   "id": "4",
-  "title": "Elden Ring",
-  "thumbnail": "/images/games/eldenring.jpg",
-  "specs": {
-    "minimum": {
-      "os": "Windows 10",
-      "processor": "Intel Core i5-8400 / AMD Ryzen 3 3300X",
-      "memory": "12 GB RAM",
-      "graphics": "NVIDIA GeForce GTX 1060 3GB / AMD Radeon RX 580 4GB",
-      "storage": "60 GB"
-    },
-    "recommended": {
-      "os": "Windows 10/11",
-      "processor": "Intel Core i7-8700K / AMD Ryzen 5 3600X",
-      "memory": "16 GB RAM",
-      "graphics": "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56",
-      "storage": "60 GB"
-    }
-  },
-  "parts": {
-    "recommended": [
-      { "type": "CPU", "model": "Intel Core i5-12600K", "price": "42,000", "description": "10コア16スレッド、ゲーム向け高性能", "benchmarkScore": 90 },
-      { "type": "GPU", "model": "NVIDIA GeForce RTX 4070 Ti", "price": "110,000", "description": "12GB GDDR6X、WQHD最適化", "benchmarkScore": 92 }
-    ],
-    "alternative": [
-      { "type": "CPU", "model": "AMD Ryzen 5 5600", "price": "22,000", "description": "6コア12スレッド、コスパ良好", "benchmarkScore": 80 }
-    ]
-  }
+  "title": "ELDEN RING",
+  "thumbnail": "/images/games/elden-ring.jpg",
+  "budgetOs": "Windows 10 / 11",
+  "budgetProcessor": "Intel Core i5-8400 / AMD Ryzen 3 3300X",
+  "budgetMemory": "12 GB",
+  "budgetGraphics": "NVIDIA GeForce GTX 1060 3GB / AMD Radeon RX 580 4GB",
+  "budgetStorage": "60 GB（本編のみ）/ 80 GB（Shadow of the Erdtree 含む）",
+  "recommendedOs": "Windows 10 / 11",
+  "recommendedProcessor": "Intel Core i7-8700K / AMD Ryzen 5 3600X",
+  "recommendedMemory": "16 GB",
+  "recommendedGraphics": "NVIDIA GeForce GTX 1070 8GB / AMD Radeon RX Vega 56 8GB / Intel Arc A750 8GB",
+  "recommendedStorage": "60 GB（本編のみ）/ 80 GB（Shadow of the Erdtree 含む）",
+  "highendOs": "Windows 10 / 11",
+  "highendProcessor": "Intel Core i7-12700K 以上 / AMD Ryzen 7 5800X 以上",
+  "highendMemory": "16 GB 以上",
+  "highendGraphics": "NVIDIA GeForce RTX 3070 以上 / AMD Radeon RX 6800 XT 以上",
+  "highendStorage": "80 GB（SSD、NVMe推奨）"
 },
-{
+  {
   "id": "5",
-  "title": "Minecraft",
-  "thumbnail": "/images/games/minecraft.jpg",
-  "specs": {
-    "minimum": {
-      "os": "Windows 7/8/10",
-      "processor": "Intel Core i3-3210 / AMD A8-7600",
-      "memory": "4 GB RAM",
-      "graphics": "Intel HD Graphics 4000 / AMD Radeon R5",
-      "storage": "1 GB"
-    },
-    "recommended": {
-      "os": "Windows 10",
-      "processor": "Intel Core i5-4690 / AMD A10-7800",
-      "memory": "8 GB RAM",
-      "graphics": "NVIDIA GeForce 700シリーズ / AMD Radeon Rx 200シリーズ",
-      "storage": "4 GB"
-    }
-  },
-  "parts": {
-    "recommended": [
-      { "type": "CPU", "model": "Intel Core i3-12100F", "price": "15,000", "description": "4コア8スレッド、軽量ゲーム最適", "benchmarkScore": 75 },
-      { "type": "GPU", "model": "NVIDIA GeForce GTX 1650", "price": "25,000", "description": "4GB GDDR5、省電力モデル", "benchmarkScore": 70 }
-    ],
-    "alternative": [
-      { "type": "CPU", "model": "AMD Ryzen 3 4100", "price": "12,000", "description": "4コア4スレッド、入門向け", "benchmarkScore": 65 }
-    ]
-  }
+  "title": "Minecraft: Java Edition",
+  "thumbnail": "/images/games/minecraft-java.jpg",
+  "budgetOs": "Windows 10 / 11",
+  "budgetProcessor": "Intel Core i3-3210 3.2GHz / AMD A8-7600 APU 3.1GHz",
+  "budgetMemory": "4 GB",
+  "budgetGraphics": "Intel HD Graphics 4000 / AMD Radeon R5 Series / NVIDIA GeForce 400 Series",
+  "budgetStorage": "1 GB（ゲーム本体）/ 4 GB 以上推奨",
+  "recommendedOs": "Windows 10 / 11",
+  "recommendedProcessor": "Intel Core i5-4690 3.5GHz / AMD A10-7800 APU 3.5GHz",
+  "recommendedMemory": "8 GB",
+  "recommendedGraphics": "NVIDIA GeForce 700 Series / AMD Radeon Rx 200 Series",
+  "recommendedStorage": "4 GB（SSD推奨）",
+  "highendOs": "Windows 10 / 11",
+  "highendProcessor": "Intel Core i7-8700K / AMD Ryzen 5 3600 以上",
+  "highendMemory": "16 GB 以上（大規模MODでは 32 GB 推奨）",
+  "highendGraphics": "NVIDIA GeForce RTX 2060 / AMD Radeon RX 5700 以上",
+  "highendStorage": "10 GB 以上 SSD（MOD環境では 20 GB 以上推奨）"
 },
-{
+  {
   "id": "6",
   "title": "League of Legends",
-  "thumbnail": "/images/games/lol.jpg",
-  "specs": {
-    "minimum": {
-      "os": "Windows 7/8/10",
-      "processor": "Intel Core i3-530 / AMD A6-3650",
-      "memory": "2 GB RAM",
-      "graphics": "NVIDIA GeForce 9600GT / AMD HD 6570",
-      "storage": "16 GB"
-    },
-    "recommended": {
-      "os": "Windows 10",
-      "processor": "Intel Core i5-3300 / AMD Ryzen 3 1200",
-      "memory": "4 GB RAM",
-      "graphics": "NVIDIA GeForce GTX 560 / AMD Radeon HD 6950",
-      "storage": "16 GB"
-    }
-  },
-  "parts": {
-    "recommended": [
-      { "type": "CPU", "model": "Intel Core i3-12100", "price": "18,000", "description": "4コア8スレッド、LoL用に十分", "benchmarkScore": 78 },
-      { "type": "GPU", "model": "NVIDIA GeForce GTX 1650 Super", "price": "28,000", "description": "1080p高フレームレート", "benchmarkScore": 72 }
-    ],
-    "alternative": [
-      { "type": "GPU", "model": "AMD Radeon RX 6400", "price": "20,000", "description": "エントリー向けGPU", "benchmarkScore": 60 }
-    ]
-  }
+  "thumbnail": "/images/games/league-of-legends.jpg",
+  "budgetOs": "Windows 10 / 11",
+  "budgetProcessor": "Intel Core i3-530 / AMD equivalent",
+  "budgetMemory": "2 GB",
+  "budgetGraphics": "NVIDIA GeForce 9600 GT / AMD Radeon HD 6570 / Intel HD 4600",
+  "budgetStorage": "16 GB（Windows）/ 12 GB（macOS）",
+  "recommendedOs": "Windows 10 / 11",
+  "recommendedProcessor": "Intel Core i5-3300 / AMD Ryzen 3 1200",
+  "recommendedMemory": "4 GB",
+  "recommendedGraphics": "NVIDIA GeForce GTX 560 / AMD Radeon HD 6950",
+  "recommendedStorage": "16 GB（SSD推奨、最大25 GB 確保）",
+  "highendOs": "Windows 10 / 11",
+  "highendProcessor": "Intel Core i5-8400 / AMD Ryzen 5 2600 以上",
+  "highendMemory": "8 GB",
+  "highendGraphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580 以上",
+  "highendStorage": "25 GB SSD（NVMe推奨）"
 },
-{
+  {
   "id": "7",
   "title": "Apex Legends",
-  "thumbnail": "/images/games/apex.jpg",
-  "specs": {
-    "minimum": {
-      "os": "Windows 10",
-      "processor": "Intel Core i3-6300 / AMD FX-4350",
-      "memory": "6 GB RAM",
-      "graphics": "NVIDIA GeForce GT 640 / Radeon HD 7730",
-      "storage": "56 GB"
-    },
-    "recommended": {
-      "os": "Windows 10",
-      "processor": "Intel Core i5-3570K / Ryzen 5",
-      "memory": "8 GB RAM",
-      "graphics": "NVIDIA GeForce GTX 970 / AMD Radeon R9 290",
-      "storage": "56 GB"
-    }
-  },
-  "parts": {
-    "recommended": [
-      { "type": "CPU", "model": "Intel Core i5-12400F", "price": "25,000", "description": "6コア12スレッド、FPS向け", "benchmarkScore": 88 },
-      { "type": "GPU", "model": "NVIDIA GeForce RTX 3060", "price": "45,000", "description": "12GB GDDR6、フルHD快適", "benchmarkScore": 82 }
-    ],
-    "alternative": [
-      { "type": "CPU", "model": "AMD Ryzen 5 3600", "price": "20,000", "description": "6コア12スレッド、コスパ良し", "benchmarkScore": 78 }
-    ]
-  }
+  "thumbnail": "/images/games/apex-legends.jpg",
+  "budgetOs": "Windows 10 / 11 (64-bit)",
+  "budgetProcessor": "Intel Core i3-6300 3.8GHz / AMD FX-4350 4.2GHz",
+  "budgetMemory": "6 GB",
+  "budgetGraphics": "NVIDIA GeForce GT 640 / AMD Radeon HD 7730",
+  "budgetStorage": "75 GB（各言語パックごとに +3.8GB）",
+  "recommendedOs": "Windows 10 / 11 (64-bit)",
+  "recommendedProcessor": "Intel Core i5-3570K / AMD Ryzen 5 1400",
+  "recommendedMemory": "8 GB",
+  "recommendedGraphics": "NVIDIA GeForce GTX 970 / AMD Radeon R9 290",
+  "recommendedStorage": "75 GB（SSD推奨）",
+  "highendOs": "Windows 10 / 11 (64-bit)",
+  "highendProcessor": "Intel Core i7-8700K / AMD Ryzen 5 3600 以上",
+  "highendMemory": "16 GB",
+  "highendGraphics": "NVIDIA GeForce RTX 3060 / AMD Radeon RX 6800 以上",
+  "highendStorage": "80 GB（SSD、NVMe推奨）"
 },
-{
+  {
   "id": "8",
   "title": "Fortnite",
   "thumbnail": "/images/games/fortnite.jpg",
-  "specs": {
-    "minimum": {
-      "os": "Windows 7/8/10",
-      "processor": "Core i3-3225 / AMD FX-4350",
-      "memory": "4 GB RAM",
-      "graphics": "Intel HD 4000 / AMD Radeon HD 7870",
-      "storage": "30 GB"
-    },
-    "recommended": {
-      "os": "Windows 10",
-      "processor": "Core i5-7300U / AMD Ryzen 3 3300U",
-      "memory": "8 GB RAM",
-      "graphics": "NVIDIA GTX 960 / AMD R9 280",
-      "storage": "30 GB"
-    }
-  },
-  "parts": {
-    "recommended": [
-      { "type": "CPU", "model": "Intel Core i5-12400", "price": "28,000", "description": "最新世代の6コアCPU", "benchmarkScore": 85 },
-      { "type": "GPU", "model": "NVIDIA GeForce GTX 1660 Super", "price": "38,000", "description": "6GB GDDR6、eスポーツ向け", "benchmarkScore": 80 }
-    ],
-    "alternative": [
-      { "type": "GPU", "model": "AMD Radeon RX 6600", "price": "35,000", "description": "8GB GDDR6、フルHD快適", "benchmarkScore": 78 }
-    ]
-  }
+  "budgetOs": "Windows 10 / 11 (64-bit)",
+  "budgetProcessor": "Intel Core i3-3225 3.3GHz / AMD equivalent",
+  "budgetMemory": "8 GB",
+  "budgetGraphics": "Intel HD 4000 / AMD Radeon Vega 8",
+  "budgetStorage": "26 GB〜50 GB（追加コンテンツにより変動）",
+  "recommendedOs": "Windows 10 / 11 (64-bit)",
+  "recommendedProcessor": "Intel Core i5-7300U 3.5GHz / AMD Ryzen 3 3300U",
+  "recommendedMemory": "16 GB 以上",
+  "recommendedGraphics": "NVIDIA GeForce GTX 960 / AMD Radeon R9 280（DX11対応）",
+  "recommendedStorage": "NVMe SSD 推奨",
+  "highendOs": "Windows 10 / 11 (64-bit)",
+  "highendProcessor": "Intel Core i7-8700 / AMD Ryzen 7 3700X 以上",
+  "highendMemory": "16 GB 以上",
+  "highendGraphics": "NVIDIA GeForce RTX 3070 / AMD Radeon RX 6700 XT 以上",
+  "highendStorage": "NVMe SSD（高フレームレート環境推奨）"
 },
-{
+  {
   "id": "9",
   "title": "Red Dead Redemption 2",
-  "thumbnail": "/images/games/rdr2.jpg",
-  "specs": {
-    "minimum": {
-      "os": "Windows 10",
-      "processor": "Intel Core i5-2500K / AMD FX-6300",
-      "memory": "8 GB RAM",
-      "graphics": "NVIDIA GeForce GTX 770 / AMD Radeon R9 280",
-      "storage": "150 GB"
-    },
-    "recommended": {
-      "os": "Windows 10",
-      "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
-      "memory": "12 GB RAM",
-      "graphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
-      "storage": "150 GB"
-    }
-  },
-  "parts": {
-    "recommended": [
-      { "type": "CPU", "model": "Intel Core i7-12700F", "price": "48,000", "description": "12コア20スレッド、大規模ゲーム向け", "benchmarkScore": 94 },
-      { "type": "GPU", "model": "NVIDIA GeForce RTX 4080", "price": "180,000", "description": "16GB GDDR6X、4K最適化", "benchmarkScore": 98 }
-    ],
-    "alternative": [
-      { "type": "CPU", "model": "AMD Ryzen 7 5800X", "price": "38,000", "description": "8コア16スレッド、RDR2快適", "benchmarkScore": 88 }
-    ]
-  }
+  "thumbnail": "/images/games/red-dead-redemption-2.jpg",
+  "budgetOs": "Windows 10 (64-bit)",
+  "budgetProcessor": "Intel Core i5-2500K / AMD FX-6300",
+  "budgetMemory": "8 GB",
+  "budgetGraphics": "NVIDIA GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+  "budgetStorage": "150 GB（HDD、SSD推奨）",
+  "recommendedOs": "Windows 10 (64-bit)",
+  "recommendedProcessor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+  "recommendedMemory": "12 GB",
+  "recommendedGraphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+  "recommendedStorage": "150 GB（SSD推奨）",
+  "highendOs": "Windows 10 / 11 (64-bit)",
+  "highendProcessor": "Intel Core i7-8700K / AMD Ryzen 7 2700X 以上",
+  "highendMemory": "16 GB",
+  "highendGraphics": "NVIDIA GeForce RTX 2070 / AMD Radeon RX 5700 XT 以上",
+  "highendStorage": "150 GB（NVMe SSD推奨）"
 }
+
 ]
