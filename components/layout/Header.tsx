@@ -37,7 +37,7 @@ export default function Header() {
             cursor="pointer"
             textDecoration="none"
           >
-            MIYA Guide
+            Play Spec
           </Heading>
           <HStack spacing={8} fontFamily="STAATLICHES, sans-serif">
             <Text

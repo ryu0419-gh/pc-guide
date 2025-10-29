@@ -18,6 +18,7 @@ export const SearchBar = ({ query, onQueryChange, onSearch }: Props) => {
         placeholder="プレイしたいゲームを検索..."
         bg="gray.800"
         color="white"
+        borderColor="#44D7DA"
         _placeholder={{ color: "gray.400" }}
         _focus={{ borderColor: "blue.400", boxShadow: "0 0 0 1px #3182ce" }}
         flex="1"
@@ -25,9 +26,9 @@ export const SearchBar = ({ query, onQueryChange, onSearch }: Props) => {
       />
       <Button
         onClick={onSearch}
-        bg="#FFFFFF"
-        color="#000000"
-        _hover={{ bg: "#E4E4E4" }}
+        bg="#44D7DA"
+        color="white"
+        _hover={{ bg: "#2FB8BB", color: "white" }}
         fontFamily="'Staatliches', sans-serif"
       >
         検索
