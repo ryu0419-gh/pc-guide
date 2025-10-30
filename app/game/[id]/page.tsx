@@ -10,7 +10,7 @@ export default async function GameDetailPage({ params }: GameDetailPageProps) {
   const game = games.find((g) => g.id === id);
 
   if (!game) return <p>ゲームが見つかりません</p>;
-console.log("params in GameDetailPage:", params);
+  console.log("params in GameDetailPage:", params);
 
   return <GameSpecTemplate game={game} />;
 }

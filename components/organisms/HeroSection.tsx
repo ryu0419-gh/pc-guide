@@ -46,8 +46,8 @@ export const HeroSection = () => {
         textShadow="0 0 12px rgba(0,0,0,0.8)"
         maxW="700px"
       >
-        <Text 
-          fontSize={{ base: "lg", md: "xl" }} 
+        <Text
+          fontSize={{ base: "lg", md: "xl" }}
           lineHeight="1.6"
           fontFamily="'Noto Sans JP', sans-serif"
         >

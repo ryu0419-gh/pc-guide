@@ -27,10 +27,12 @@ const MotionCard = motion(Card);
 
 interface SpecsTableProps {
   game: GameProps;
+  onViewParts?: (rank: "budget" | "recommended") => void; // ✅ 引数を受け取るよう変更
 }
 
-export const SpecsTable = ({ game }: SpecsTableProps) => {
+export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
   const router = useRouter();
+
   if (!game) {
     return (
       <Box w="full">
@@ -45,8 +47,13 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
     );
   }
 
-  const handleViewParts = () => {
-    router.push(`/game/${game.id}/parts`);
+  // ✅ 引数 rank を受け取るように修正
+  const handleViewParts = (rank: "budget" | "recommended") => {
+    if (onViewParts) {
+      onViewParts(rank);
+    } else {
+      router.push(`/game/${game.id}/parts?rank=${rank}`); // ✅ window.location.href → router.push
+    }
   };
 
   return (
@@ -94,7 +101,6 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
               textShadow="0 0 10px rgba(0, 255, 255, 0.8)"
             >
               対象ゲーム
-              {/* タイトルを Text に分離（ブランド色＋強めの発光） */}
               <Text
                 fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
                 fontWeight="bold"
@@ -109,6 +115,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
             </Heading>
           </VStack>
         </Box>
+
         <MotionCard
           variant="neon"
           initial={{ opacity: 0, y: 20 }}
@@ -211,7 +218,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.gray"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -222,7 +229,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.white"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -346,7 +353,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.gray"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -357,7 +364,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.white"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -389,7 +396,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.gray"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -400,7 +407,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.white"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -433,6 +440,17 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       transform: "scale(1.02)",
                     }}
                     transition="all 0.2s ease"
+                    cursor="pointer"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => handleViewParts("budget")}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleViewParts("budget");
+                      }
+                    }}
+                    aria-label="コスパ重視のパーツ構成へ移動"
                   >
                     <VStack align="start" spacing={2}>
                       <HStack>
@@ -450,7 +468,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                           fontSize="sm"
                           textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
                         >
-                          最低動作環境
+                          コスパ重視
                         </Text>
                       </HStack>
                       <Text
@@ -466,7 +484,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                     </VStack>
                   </Box>
 
-                  {/* 推奨スペック - シアン系ネオン */}
+                  {/* 推奨スペック */}
                   <Box
                     p={4}
                     border="2px solid"
@@ -479,6 +497,17 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       transform: "scale(1.02)",
                     }}
                     transition="all 0.2s ease"
+                    cursor="pointer"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => handleViewParts("recommended")}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleViewParts("recommended");
+                      }
+                    }}
+                    aria-label="推奨スペックのパーツ構成へ移動"
                   >
                     <VStack align="start" spacing={2}>
                       <HStack>
@@ -526,11 +555,11 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                 最低動作スペックでは画質やフレームレートが制限される場合があります
               </Text>
 
-              {/* パーツ構成ボタン */}
+              {/* ボタン */}
               <Box pt={4}>
                 <ButtonBase
                   variant="primary"
-                  onClick={handleViewParts}
+                  onClick={() => handleViewParts("budget")}
                   size="lg"
                   fullWidth
                 >
