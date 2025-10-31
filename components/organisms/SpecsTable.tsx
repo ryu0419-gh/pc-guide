@@ -27,7 +27,7 @@ const MotionCard = motion(Card);
 
 interface SpecsTableProps {
   game: GameProps;
-  onViewParts?: (rank: "budget" | "recommended") => void; // ✅ 引数を受け取るよう変更
+  onViewParts?: (rank: "budget" | "recommended" | "highend") => void;
 }
 
 export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
@@ -47,12 +47,11 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
     );
   }
 
-  // ✅ 引数 rank を受け取るように修正
-  const handleViewParts = (rank: "budget" | "recommended") => {
+  const handleViewParts = (rank: "budget" | "recommended" | "highend") => {
     if (onViewParts) {
       onViewParts(rank);
     } else {
-      router.push(`/game/${game.id}/parts?rank=${rank}`); // ✅ window.location.href → router.push
+      router.push(`/game/${game.id}/parts?rank=${rank}`);
     }
   };
 

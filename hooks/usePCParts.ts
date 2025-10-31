@@ -4,7 +4,7 @@ import { usePerformance } from "@/hooks/usePerformance";
 import { usePartsState } from "@/hooks/usePartsState";
 import { GLOBAL_RANK_OPTIONS } from "@/constants/partsRank";
 
-export const usePCParts = (gameId: string) => {
+export const usePCParts = (gameId: string, initialRank?: "budget" | "recommended" | "highend") => {
   const { games, parts, gameParts, loading, error } = useGameParts();
 
   const {
@@ -16,7 +16,7 @@ export const usePCParts = (gameId: string) => {
     handlePartRankChange,
     handleShowDetail,
     closeModal,
-  } = usePartsState();
+  } = usePartsState(initialRank);
 
   const { currentGame, currentParts } = useCurrentParts({
     gameId,

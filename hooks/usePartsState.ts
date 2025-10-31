@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import { PartWithPriceProps, SpecLevel } from "@/type/type";
 
-export const usePartsState = () => {
-  const [globalRank, setGlobalRank] = useState<SpecLevel>("recommended");
+export const usePartsState = (initialRank?: "budget" | "recommended" | "highend") => {
+  const [globalRank, setGlobalRank] = useState<SpecLevel>(initialRank || "recommended");
   const [partRanks, setPartRanks] = useState<Record<string, SpecLevel>>({});
 
   const [selectedPart, setSelectedPart] = useState<PartWithPriceProps | null>(
