@@ -83,7 +83,7 @@ export interface PartWithPriceProps extends PartProps {
   price: string;
   recommendationType?: string;
   url?: string;
-  memoryInterface?:string;
+  memoryInterface?: string;
 }
 
 export type SpecLevel = "budget" | "recommended" | "highend";

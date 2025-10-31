@@ -16,31 +16,28 @@ const PartSpecs: React.FC<PartSpecsProps> = ({
     switch (part.type) {
       case "CPU":
         return showDetailed
-    ? [
-        `コア数: ${part.cores}`,
-        `スレッド数: ${part.threads}`,
-        `ベースクロック: ${part.baseClock}`,
-        `ブーストクロック: ${part.boostClock}`,
-        `TDP: ${part.tdp}`,
-        `ソケット: ${part.socket}`,
-      ]
-    : [
-        `${part.cores}コア / ${part.threads}スレッド`,
-        `${part.baseClock} - ${part.boostClock}`,
-      ];
+          ? [
+              `コア数: ${part.cores}`,
+              `スレッド数: ${part.threads}`,
+              `ベースクロック: ${part.baseClock}`,
+              `ブーストクロック: ${part.boostClock}`,
+              `TDP: ${part.tdp}`,
+              `ソケット: ${part.socket}`,
+            ]
+          : [
+              `${part.cores}コア / ${part.threads}スレッド`,
+              `${part.baseClock} - ${part.boostClock}`,
+            ];
       case "GPU":
         return showDetailed
-    ? [
-        `CUDAコア数: ${part.cores}`,
-        `メモリ: ${part.memory}`,
-        `メモリバス幅: ${part.memoryInterface}`,
-        `TDP: ${part.tdp}`,
-        part.rayTracing ? "Ray Tracing対応" : "",
-      ].filter(Boolean)
-    : [
-        `VRAM ${part.memory}`,
-        `消費電力 ${part.tdp}`,
-      ];
+          ? [
+              `CUDAコア数: ${part.cores}`,
+              `メモリ: ${part.memory}`,
+              `メモリバス幅: ${part.memoryInterface}`,
+              `TDP: ${part.tdp}`,
+              part.rayTracing ? "Ray Tracing対応" : "",
+            ].filter(Boolean)
+          : [`VRAM ${part.memory}`, `消費電力 ${part.tdp}`];
       case "Memory":
         return showDetailed
           ? [

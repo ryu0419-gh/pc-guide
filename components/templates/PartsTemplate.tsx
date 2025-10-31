@@ -19,7 +19,7 @@ const MotionBox = motion(Box);
 
 interface PCPartsTemplateProps {
   gameId: string;
-   rank?: "budget" | "recommended" | "highend";
+  rank?: "budget" | "recommended" | "highend";
   searchParams?: { rank?: "budget" | "recommended" | "highend" };
 }
 

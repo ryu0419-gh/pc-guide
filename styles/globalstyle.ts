@@ -4,7 +4,7 @@ import { extendTheme } from "@chakra-ui/react";
 const globalstyle = extendTheme({
   fonts: {
     heading: `var(--font-staatliches), system-ui, sans-serif`,
-    body: `var(--font-staatliches),, system-ui, sans-serif`,
+    body: `var(--font-staatliches), system-ui, sans-serif`,
   },
 
   colors: {

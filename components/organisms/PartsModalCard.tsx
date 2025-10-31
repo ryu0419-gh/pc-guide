@@ -52,11 +52,21 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={part.model} size={modalSize}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={part.model}
+      size={modalSize}
+    >
       <VStack spacing={6} align="start" px={{ base: 2, md: 4 }}>
         <HStack justify="space-between" w="full" flexWrap="wrap">
           <Price price={part.price} size="xl" />
-          <RankBadge rank={part.recommendationType as "budget" | "recommended" | "highend"} size="lg" />
+          <RankBadge
+            rank={
+              part.recommendationType as "budget" | "recommended" | "highend"
+            }
+            size="lg"
+          />
         </HStack>
 
         <Box w="full">
@@ -79,7 +89,7 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
           <CardBody>
             <VStack spacing={3} align="start" w="full">
               <Text color="neon.white" fontSize="lg">
-                  {part.description}
+                {part.description}
               </Text>
             </VStack>
           </CardBody>
@@ -94,10 +104,18 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
           flexDir={{ base: "column", md: "row" }}
           align={{ base: "stretch", md: "center" }}
         >
-          <ButtonBase variant="secondary" onClick={onClose} w={{ base: "full", md: "auto" }}>
+          <ButtonBase
+            variant="secondary"
+            onClick={onClose}
+            w={{ base: "full", md: "auto" }}
+          >
             閉じる
           </ButtonBase>
-          <ButtonBase variant="success" onClick={handlePurchaseClick} w={{ base: "full", md: "auto" }}>
+          <ButtonBase
+            variant="success"
+            onClick={handlePurchaseClick}
+            w={{ base: "full", md: "auto" }}
+          >
             購入サイトへ
           </ButtonBase>
         </HStack>
