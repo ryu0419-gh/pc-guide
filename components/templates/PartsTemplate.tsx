@@ -44,7 +44,7 @@ const PCPartsTemplate: React.FC<PCPartsTemplateProps> = ({ gameId,rank }) => {
     getPerformanceColor,
     getPerformanceGrade,
     globalRankOptions,
-  } = usePCParts(gameId),rank;
+  } = usePCParts(gameId);
 
   if (loading) return <LoadingState />;
   if (error) return <ErrorState message={error} />;
