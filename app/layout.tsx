@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja" className={staatliches.variable}>
+    <html lang="ja" className={staatliches.className}>
       <head />
       <body>
         <Providers>

@@ -19,9 +19,10 @@ const MotionBox = motion(Box);
 
 interface PCPartsTemplateProps {
   gameId: string;
+  rank?: "budget" | "recommended" | "highend";
 }
 
-const PCPartsTemplate: React.FC<PCPartsTemplateProps> = ({ gameId }) => {
+const PCPartsTemplate: React.FC<PCPartsTemplateProps> = ({ gameId,rank }) => {
   const {
     loading,
     error,
@@ -43,7 +44,7 @@ const PCPartsTemplate: React.FC<PCPartsTemplateProps> = ({ gameId }) => {
     getPerformanceColor,
     getPerformanceGrade,
     globalRankOptions,
-  } = usePCParts(gameId);
+  } = usePCParts(gameId),rank;
 
   if (loading) return <LoadingState />;
   if (error) return <ErrorState message={error} />;

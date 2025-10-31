@@ -39,7 +39,7 @@ export const GameCard = ({ game, onSelect }: Props) => {
         as="h3"
         size="md"
         mt={2}
-        fontFamily="'Staatliches', sans-serif"
+        fontFamily="var(--font-staatliches), sans-serif"
         position="relative"
         px={2}
         py={1}

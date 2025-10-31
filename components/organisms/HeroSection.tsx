@@ -10,7 +10,6 @@ export const HeroSection = () => {
       <Image
         src="/images/hero.jpg"
         alt="MIYA Guide Hero"
-        layout="responsive"
         width={1920}
         height={600}
         style={{ objectFit: "cover" }}

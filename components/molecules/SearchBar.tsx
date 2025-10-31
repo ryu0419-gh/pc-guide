@@ -22,14 +22,14 @@ export const SearchBar = ({ query, onQueryChange, onSearch }: Props) => {
         _placeholder={{ color: "gray.400" }}
         _focus={{ borderColor: "blue.400", boxShadow: "0 0 0 1px #3182ce" }}
         flex="1"
-        fontFamily="'Staatliches', sans-serif"
+        fontFamily="var(--font-staatliches), sans-serif"
       />
       <Button
         onClick={onSearch}
         bg="#44D7DA"
         color="white"
         _hover={{ bg: "#2FB8BB", color: "white" }}
-        fontFamily="'Staatliches', sans-serif"
+        fontFamily="var(--font-staatliches), sans-serif"
       >
         検索
       </Button>
