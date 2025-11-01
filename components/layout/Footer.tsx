@@ -29,7 +29,7 @@ export default function Footer() {
         color="neon.white"
         textShadow="0 0 10px rgba(0, 255, 255, 0.5)"
       >
-        © 2025 MIYAGUIDE 制作チーム
+        © 2025 Play Spec 制作チーム
       </Text>
     </MotionFooter>
   );
