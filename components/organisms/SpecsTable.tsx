@@ -57,7 +57,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
 
   return (
     <Box w="full">
-      <VStack spacing={4} w="full">
+      <VStack spacing={2} w="full">
         <Box
           position="relative"
           w="full"
@@ -123,7 +123,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
           w="full"
         >
           <CardBody>
-            <VStack spacing={6}>
+            <VStack spacing={2}>
               {/* ヘッダー */}
               <VStack spacing={2} textAlign="center">
                 <Heading
@@ -555,16 +555,19 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
               </Text>
 
               {/* ボタン */}
-              <Box pt={4}>
-                <ButtonBase
-                  variant="primary"
-                  onClick={() => handleViewParts("budget")}
-                  size="lg"
-                  fullWidth
-                >
+              <ButtonBase
+                variant="primary"
+                onClick={() => handleViewParts("recommended")}
+                size="md"
+                fullWidth
+              >
+                <Box as="span" display={{ base: "none", sm: "inline" }}>
                   このスペックに基づいたパーツ構成へ
-                </ButtonBase>
-              </Box>
+                </Box>
+                <Box as="span" display={{ base: "inline", sm: "none" }}>
+                  パーツ構成を見る
+                </Box>
+              </ButtonBase>
             </VStack>
           </CardBody>
         </MotionCard>
