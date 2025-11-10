@@ -238,8 +238,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
 
   return (
     <Box w="full">
-      <VStack spacing={4} w="full">
-        {/* ヒーロー帯：モバイルでの圧迫を軽減 */}
+      <VStack spacing={2} w="full">
         <Box
           position="relative"
           w="full"
@@ -305,7 +304,7 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
           w="full"
         >
           <CardBody>
-            <VStack spacing={6}>
+            <VStack spacing={2}>
               {/* ヘッダー */}
               <VStack spacing={1} textAlign="center">
                 <Heading
@@ -441,17 +440,20 @@ export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
                 最低動作スペックでは画質やフレームレートが制限される場合があります
               </Text>
 
-              {/* CTA */}
-              <Box pt={2}>
-                <ButtonBase
-                    variant="primary"
-                    onClick={() => handleViewParts("budget")}
-                    size="lg"
-                    fullWidth
-                  >
-                    このスペックに基づいたパーツ構成へ
-                </ButtonBase>
-              </Box>
+              {/* ボタン */}
+              <ButtonBase
+                variant="primary"
+                onClick={() => handleViewParts("recommended")}
+                size="md"
+                fullWidth
+              >
+                <Box as="span" display={{ base: "none", sm: "inline" }}>
+                  このスペックに基づいたパーツ構成へ
+                </Box>
+                <Box as="span" display={{ base: "inline", sm: "none" }}>
+                  パーツ構成を見る
+                </Box>
+              </ButtonBase>
             </VStack>
           </CardBody>
         </MotionCard>
