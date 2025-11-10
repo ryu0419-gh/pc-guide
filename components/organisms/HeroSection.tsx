@@ -10,7 +10,6 @@ export const HeroSection = () => {
       <Image
         src="/images/hero.jpg"
         alt="MIYA Guide Hero"
-        layout="responsive"
         width={1920}
         height={600}
         style={{ objectFit: "cover" }}
@@ -46,8 +45,8 @@ export const HeroSection = () => {
         textShadow="0 0 12px rgba(0,0,0,0.8)"
         maxW="700px"
       >
-        <Text 
-          fontSize={{ base: "lg", md: "xl" }} 
+        <Text
+          fontSize={{ base: "lg", md: "xl" }}
           lineHeight="1.6"
           fontFamily="'Noto Sans JP', sans-serif"
         >

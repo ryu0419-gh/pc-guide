@@ -16,7 +16,6 @@ interface UseCurrentPartsParams {
   partRanks: Record<string, SpecLevel>;
 }
 
-// パーツカテゴリの定数化
 const PART_CATEGORIES = [
   "CPU",
   "GPU",

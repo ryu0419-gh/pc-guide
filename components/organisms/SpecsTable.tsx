@@ -27,10 +27,12 @@ const MotionCard = motion(Card);
 
 interface SpecsTableProps {
   game: GameProps;
+  onViewParts?: (rank: "budget" | "recommended" | "highend") => void;
 }
 
-export const SpecsTable = ({ game }: SpecsTableProps) => {
+export const SpecsTable = ({ game, onViewParts }: SpecsTableProps) => {
   const router = useRouter();
+
   if (!game) {
     return (
       <Box w="full">
@@ -45,13 +47,17 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
     );
   }
 
-  const handleViewParts = () => {
-    router.push(`/game/${game.id}/parts`);
+  const handleViewParts = (rank: "budget" | "recommended" | "highend") => {
+    if (onViewParts) {
+      onViewParts(rank);
+    } else {
+      router.push(`/game/${game.id}/parts?rank=${rank}`);
+    }
   };
 
   return (
     <Box w="full">
-      <VStack spacing={4} w="full">
+      <VStack spacing={2} w="full">
         <Box
           position="relative"
           w="full"
@@ -94,7 +100,6 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
               textShadow="0 0 10px rgba(0, 255, 255, 0.8)"
             >
               対象ゲーム
-              {/* タイトルを Text に分離（ブランド色＋強めの発光） */}
               <Text
                 fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
                 fontWeight="bold"
@@ -109,6 +114,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
             </Heading>
           </VStack>
         </Box>
+
         <MotionCard
           variant="neon"
           initial={{ opacity: 0, y: 20 }}
@@ -117,7 +123,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
           w="full"
         >
           <CardBody>
-            <VStack spacing={6}>
+            <VStack spacing={2}>
               {/* ヘッダー */}
               <VStack spacing={2} textAlign="center">
                 <Heading
@@ -211,7 +217,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.gray"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -222,7 +228,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.white"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -346,7 +352,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.gray"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -357,7 +363,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.white"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -389,7 +395,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.gray"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -400,7 +406,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       </Td>
                       <Td
                         color="neon.white"
-                        fontSize="sm"
+                        fontSize="xl"
                         fontFamily="body"
                         textAlign="center"
                         py={4}
@@ -433,6 +439,17 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       transform: "scale(1.02)",
                     }}
                     transition="all 0.2s ease"
+                    cursor="pointer"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => handleViewParts("budget")}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleViewParts("budget");
+                      }
+                    }}
+                    aria-label="コスパ重視のパーツ構成へ移動"
                   >
                     <VStack align="start" spacing={2}>
                       <HStack>
@@ -450,7 +467,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                           fontSize="sm"
                           textShadow="0 0 8px rgba(239, 68, 68, 0.8)"
                         >
-                          最低動作環境
+                          コスパ重視
                         </Text>
                       </HStack>
                       <Text
@@ -466,7 +483,7 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                     </VStack>
                   </Box>
 
-                  {/* 推奨スペック - シアン系ネオン */}
+                  {/* 推奨スペック */}
                   <Box
                     p={4}
                     border="2px solid"
@@ -479,6 +496,17 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                       transform: "scale(1.02)",
                     }}
                     transition="all 0.2s ease"
+                    cursor="pointer"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => handleViewParts("recommended")}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleViewParts("recommended");
+                      }
+                    }}
+                    aria-label="推奨スペックのパーツ構成へ移動"
                   >
                     <VStack align="start" spacing={2}>
                       <HStack>
@@ -526,17 +554,20 @@ export const SpecsTable = ({ game }: SpecsTableProps) => {
                 最低動作スペックでは画質やフレームレートが制限される場合があります
               </Text>
 
-              {/* パーツ構成ボタン */}
-              <Box pt={4}>
-                <ButtonBase
-                  variant="primary"
-                  onClick={handleViewParts}
-                  size="lg"
-                  fullWidth
-                >
+              {/* ボタン */}
+              <ButtonBase
+                variant="primary"
+                onClick={() => handleViewParts("recommended")}
+                size="md"
+                fullWidth
+              >
+                <Box as="span" display={{ base: "none", sm: "inline" }}>
                   このスペックに基づいたパーツ構成へ
-                </ButtonBase>
-              </Box>
+                </Box>
+                <Box as="span" display={{ base: "inline", sm: "none" }}>
+                  パーツ構成を見る
+                </Box>
+              </ButtonBase>
             </VStack>
           </CardBody>
         </MotionCard>

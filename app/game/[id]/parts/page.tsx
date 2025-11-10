@@ -1,9 +1,20 @@
-import PCPartsTemplates from "@/components/templates/PartsTemplate";
+import PCPartsTemplate from "@/components/templates/PartsTemplate";
 
 interface PartsPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ rank?: string }>;
 }
 
-export default function PartsPage({ params }: PartsPageProps) {
-  return <PCPartsTemplates gameId={params.id} />;
+export default async function PartsPage({
+  params,
+  searchParams,
+}: PartsPageProps) {
+  const { id } = await params;
+  const resolvedSearchParams = await searchParams;
+  const rank = (resolvedSearchParams.rank ?? "recommended") as
+    | "budget"
+    | "recommended"
+    | "highend";
+
+  return <PCPartsTemplate gameId={id} rank={rank} />;
 }

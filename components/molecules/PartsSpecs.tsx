@@ -17,24 +17,27 @@ const PartSpecs: React.FC<PartSpecsProps> = ({
       case "CPU":
         return showDetailed
           ? [
-              `${part.cores}コア/${part.threads}スレッド`,
-              `${part.baseClock}-${part.boostClock}`,
-              `TDP ${part.tdp}`,
-              `ソケット ${part.socket}`,
+              `コア数: ${part.cores}`,
+              `スレッド数: ${part.threads}`,
+              `ベースクロック: ${part.baseClock}`,
+              `ブーストクロック: ${part.boostClock}`,
+              `TDP: ${part.tdp}`,
+              `ソケット: ${part.socket}`,
             ]
           : [
-              `${part.cores}コア/${part.threads}スレッド`,
-              `${part.baseClock}-${part.boostClock}`,
+              `${part.cores}コア / ${part.threads}スレッド`,
+              `${part.baseClock} - ${part.boostClock}`,
             ];
       case "GPU":
         return showDetailed
           ? [
-              `VRAM ${part.memory}`,
-              `ブースト ${part.boostClock}`,
-              `消費電力 ${part.powerConsumption}`,
+              `CUDAコア数: ${part.cores}`,
+              `メモリ: ${part.memory}`,
+              `メモリバス幅: ${part.memoryInterface}`,
+              `TDP: ${part.tdp}`,
               part.rayTracing ? "Ray Tracing対応" : "",
             ].filter(Boolean)
-          : [`VRAM ${part.memory}`, `ブースト ${part.boostClock}`];
+          : [`VRAM ${part.memory}`, `消費電力 ${part.tdp}`];
       case "Memory":
         return showDetailed
           ? [

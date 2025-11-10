@@ -15,6 +15,7 @@ import Modal from "../molecules/Modal";
 import Price from "../atoms/Price";
 import PartSpecs from "../molecules/PartsSpecs";
 import ButtonBase from "../atoms/ButtonBase";
+import RankBadge from "../atoms/RankBadge";
 
 interface PartDetailModalProps {
   part: PartWithPriceProps | null;
@@ -36,14 +37,14 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
   if (!part) return null;
 
   const handlePurchaseClick = () => {
-    if (onPurchase) {
-      onPurchase(part);
+    if (part.url) {
+      window.open(part.url, "_blank");
     } else {
       toast({
-        title: "購入サイトへ移動",
-        description: `${part.model}の購入ページを開きます`,
+        title: "購入ページ情報なし",
+        description: "このパーツには購入リンクが設定されていません。",
         status: "info",
-        duration: 3000,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
@@ -58,7 +59,15 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
       size={modalSize}
     >
       <VStack spacing={6} align="start" px={{ base: 2, md: 4 }}>
-        <Price price={part.price} size="xl" />
+        <HStack justify="space-between" w="full" flexWrap="wrap">
+          <Price price={part.price} size="xl" />
+          <RankBadge
+            rank={
+              part.recommendationType as "budget" | "recommended" | "highend"
+            }
+            size="lg"
+          />
+        </HStack>
 
         <Box w="full">
           <Heading
@@ -68,88 +77,25 @@ const PartDetailModal: React.FC<PartDetailModalProps> = ({
             borderColor="brand.500"
             pb={2}
             mb={4}
-            fontFamily="heading"
-            textTransform="uppercase"
-            letterSpacing="1px"
-            fontSize={{ base: "md", md: "lg" }}
           >
             詳細仕様
           </Heading>
-          <PartSpecs part={part} showDetailed={true} spacing={2} />
+          <PartSpecs part={part} showDetailed />
         </Box>
 
         <Divider borderColor="brand.500" />
 
         <Card variant="neon" w="full">
           <CardBody>
-            <VStack spacing={3} align="start">
-              <Heading
-                size="sm"
-                color="neon.white"
-                fontFamily="heading"
-                textTransform="uppercase"
-                textShadow="0 0 10px rgba(0, 255, 255, 0.5)"
-              >
-                製品説明
-              </Heading>
-              <Text
-                color="neon.gray"
-                lineHeight="1.6"
-                fontSize={{ base: "sm", md: "md" }}
-                fontFamily="body"
-              >
+            <VStack spacing={3} align="start" w="full">
+              <Text color="neon.white" fontSize="lg">
                 {part.description}
               </Text>
             </VStack>
           </CardBody>
         </Card>
 
-        {part.benchmarkScore && (
-          <Card
-            variant="outline"
-            w="full"
-            borderColor="rgba(0, 255, 255, 0.3)"
-            bg="transparent"
-          >
-            <CardBody>
-              <HStack
-                justify="space-between"
-                align="center"
-                flexDir={{ base: "column", md: "row" }}
-              >
-                <VStack align="start" spacing={1}>
-                  <Text
-                    fontSize="sm"
-                    color="neon.gray"
-                    textTransform="uppercase"
-                    fontFamily="heading"
-                  >
-                    ベンチマークスコア
-                  </Text>
-                  <Text
-                    fontSize="2xl"
-                    fontWeight="bold"
-                    color="brand.500"
-                    fontFamily="heading"
-                  >
-                    {part.benchmarkScore}
-                  </Text>
-                </VStack>
-                <Box mt={{ base: 2, md: 0 }}>
-                  <Text fontSize="xs" color="neon.gray">
-                    {part.benchmarkScore >= 90
-                      ? "ハイパフォーマンス"
-                      : part.benchmarkScore >= 70
-                        ? "ミドルレンジ"
-                        : "エントリーレベル"}
-                  </Text>
-                </Box>
-              </HStack>
-            </CardBody>
-          </Card>
-        )}
-
-        <Divider borderColor="rgba(0, 255, 255, 0.2)" />
+        <Divider borderColor="rgba(0,255,255,0.2)" />
 
         <HStack
           spacing={4}
